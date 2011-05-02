@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What’s New in PyAMF 0.5 &mdash; PyAMF v0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.5',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within PyAMF v0.5 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="shortcut icon" href="../_static/pyamf.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="PyAMF v0.5 documentation" href="../index.html" />
+    <link rel="next" title="About these documents" href="../about.html" />
+    <link rel="prev" title="PyAMF Documentation contents" href="../contents.html" /> 
+  </head>
+  <body>  
+
+    <div class="document">
+<div>
+<a href='index.html'><img src="../_static/logo.jpg"/></a>
+</div>
+
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="what-s-new-in-pyamf-0-5">
+<h1><a class="toc-backref" href="#id1">What&#8217;s New in PyAMF 0.5</a><a class="headerlink" href="#what-s-new-in-pyamf-0-5" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Release:</th><td class="field-body">0.5</td>
+</tr>
+<tr class="field"><th class="field-name">Date:</th><td class="field-body">September 07, 2009</td>
+</tr>
+</tbody>
+</table>
+<p>PyAMF 0.5 is a cleanup of the internals of 0.4 and it provides some performance
+optimizations. In accomplishing this, a number of features were added:</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#what-s-new-in-pyamf-0-5" id="id1">What&#8217;s New in PyAMF 0.5</a><ul>
+<li><a class="reference internal" href="#highlighted-features" id="id2">Highlighted Features</a></li>
+<li><a class="reference internal" href="#backward-incompatible-api-changes" id="id3">Backward incompatible API Changes</a></li>
+<li><a class="reference internal" href="#gateway-updates" id="id4">Gateway updates</a></li>
+<li><a class="reference internal" href="#python-2-6-integration" id="id5">Python 2.6 integration</a></li>
+<li><a class="reference internal" href="#integration" id="id6">Integration</a><ul>
+<li><a class="reference internal" href="#flash-player" id="id7">Flash Player</a></li>
+<li><a class="reference internal" href="#django" id="id8">Django</a></li>
+<li><a class="reference internal" href="#google-app-engine" id="id9">Google App Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="highlighted-features">
+<h2><a class="toc-backref" href="#id2">Highlighted Features</a><a class="headerlink" href="#highlighted-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A new way to handle attribute en/decoding. New features include excluding
+attributes, read-only attributes, and proxied attributes. If you use
+external classes, this one is also for you.  Check the
+<a class="reference external" href="http://pyamf.org/wiki/AttributeControl">wiki</a> for more details.</li>
+<li>The lazy loading module (<tt class="docutils literal"><span class="pre">pyamf.util.imports</span></tt>) that powers the adapter
+modules has been completely revamped. There were too many edge cases that
+would cause problems in the import mechanism. We now supply a module
+finder/loader in <tt class="docutils literal"><span class="pre">sys.meta_path</span></tt> so we can intercept the import calls.
+This has completely cleared up the problems we were seeing and it has the
+added benefit of halving the time it took to run the 650+ unit tests in
+the suite!</li>
+<li>The cPyAMF extension has been completely revamped and no longer uses
+<tt class="docutils literal"><span class="pre">cStringIO</span></tt> to handle the byte packing. The extension has also been
+extended to cover more of the library. This has given a nice speed-up but
+we are by no means finished.</li>
+<li>Support for non-UTC timezones has been added. If you supply <tt class="docutils literal"><span class="pre">timezone_offset</span></tt>
+to the <tt class="docutils literal"><span class="pre">pyamf.remoting.gateway.*.*Gateway</span></tt> classes then any datetimes will
+be offset against that figure (in seconds). This is only useful for legacy
+systems so you don&#8217;t need to change anything if you are already using UTC
+(in fact using UTC is the recommended practice).</li>
+<li>Support has been provided for decoding and encoding ISmallMessage objects.
+This means better integration with <tt class="docutils literal"><span class="pre">BlazeDS</span></tt> and sets the foundations for
+better Flex Messaging support.</li>
+<li>A new way to bulk register classes has been introduced - <tt class="docutils literal"><span class="pre">register_package</span></tt>
+You can register a module:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyamf</span>
+
+<span class="kn">from</span> <span class="nn">myproj.myapp</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="n">pyamf</span><span class="o">.</span><span class="n">register_package</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="s">&#39;foo.bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="backward-incompatible-api-changes">
+<h2><a class="toc-backref" href="#id3">Backward incompatible API Changes</a><a class="headerlink" href="#backward-incompatible-api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">pyamf.logging</span></tt> module has been removed because it didn&#8217;t do very much.</li>
+<li>A number of utility functions that weren&#8217;t being used, or were implemented
+in the Python standard library, have been removed. These include:<ul>
+<li><tt class="docutils literal"><span class="pre">pyamf.util.getmro</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">pyamf.util.make_classic_instance</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">pyamf.util.IndexedCollection.remove</span></tt></li>
+</ul>
+</li>
+<li>The dependancy on <a class="reference external" href="http://pypi.python.org/pypi/fpconst">fpconst</a> has been
+removed. This means that PyAMF will make no attempt to correct what the Python
+interpreter spits out for exceptional floats (see our <a class="reference external" href="http://blog.pyamf.org/archives/when-is-nan-not-a-number-with-python-24">blog post</a>
+about the issue).</li>
+<li>Most of the arguments for <tt class="docutils literal"><span class="pre">pyamf.register_class</span></tt> were removed, due to the
+new attribute control (see above).</li>
+</ul>
+</div>
+<div class="section" id="gateway-updates">
+<h2><a class="toc-backref" href="#id4">Gateway updates</a><a class="headerlink" href="#gateway-updates" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">logger</span></tt> attribute is now set to <tt class="xref docutils literal"><span class="pre">None</span></tt> by default. Supply a logger
+instance to reactivate the old functionality.</li>
+<li>If <tt class="docutils literal"><span class="pre">debug</span></tt> is <tt class="xref docutils literal"><span class="pre">False</span></tt> then any stacktraces will not be sent to the client.</li>
+</ul>
+</div>
+<div class="section" id="python-2-6-integration">
+<h2><a class="toc-backref" href="#id5">Python 2.6 integration</a><a class="headerlink" href="#python-2-6-integration" title="Permalink to this headline">¶</a></h2>
+<p>Besides greater stability for the Windows platform, more types from
+the Python 2.6 standard library are now supported, including:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="29%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Module</th>
+<th class="head">Encode</th>
+<th class="head">Decode</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">collections.deque</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">collections.defaultdict</span></tt></td>
+<td>untyped object</td>
+<td><tt class="docutils literal"><span class="pre">dict</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">collections.namedtuple</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">array.array</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">list</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="integration">
+<h2><a class="toc-backref" href="#id6">Integration</a><a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="flash-player">
+<h3><a class="toc-backref" href="#id7">Flash Player</a><a class="headerlink" href="#flash-player" title="Permalink to this headline">¶</a></h3>
+<p>Python exceptions are now mapped to Flash exceptions (where possible), including
+the <tt class="docutils literal"><span class="pre">name</span></tt> and <tt class="docutils literal"><span class="pre">message</span></tt> attributes. You can now map error classes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pyamf</span>
+
+<span class="n">pyamf</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="s">&#39;com.acme.app.errors.ValueError&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="django">
+<h3><a class="toc-backref" href="#id8">Django</a><a class="headerlink" href="#django" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Django models can now have dynamic properties assigned to them and they will
+be encoded correctly.</li>
+<li>Support for model inheritance:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">CommonInfo</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mf">100</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveIntegerField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">abstract</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">CommonInfo</span><span class="p">):</span>
+    <span class="n">home_group</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mf">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Support for <tt class="docutils literal"><span class="pre">FileField</span></tt>/<tt class="docutils literal"><span class="pre">ImageField</span></tt> (thanks
+<a class="reference external" href="http://twitter.com/jhooks">&#64;jhooks</a>!).</li>
+<li><tt class="docutils literal"><span class="pre">parent-&gt;child</span></tt> relationships will be referenced correctly, such that
+<tt class="docutils literal"><span class="pre">parent.child.parent</span> <span class="pre">is</span> <span class="pre">parent</span></tt>. In this situation, PyAMF 0.4 would encode
+3 separate objects, but PyAMF 0.5 will correctly encode 2 (<tt class="docutils literal"><span class="pre">parent</span></tt> being
+encoded as a reference).</li>
+</ul>
+</div>
+<div class="section" id="google-app-engine">
+<h3><a class="toc-backref" href="#id9">Google App Engine</a><a class="headerlink" href="#google-app-engine" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Greater support for the standard property types has been included
+(specifically <tt class="docutils literal"><span class="pre">db.FloatProperty</span></tt>).</li>
+<li>Support for <tt class="docutils literal"><span class="pre">db.polymodel.PolyModel</span></tt> has been included.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">google.appengine.ext.db</span> <span class="kn">import</span> <span class="n">polymodel</span>
+
+<span class="k">class</span> <span class="nc">Poly</span><span class="p">(</span><span class="n">polymodel</span><span class="o">.</span><span class="n">PolyModel</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">StringProperty</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">DeepPoly</span><span class="p">(</span><span class="n">Poly</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">IntegerProperty</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../contents.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">What&#8217;s New in PyAMF 0.5</a><ul>
+<li><a class="reference external" href="#highlighted-features">Highlighted Features</a></li>
+<li><a class="reference external" href="#backward-incompatible-api-changes">Backward incompatible API Changes</a></li>
+<li><a class="reference external" href="#gateway-updates">Gateway updates</a></li>
+<li><a class="reference external" href="#python-2-6-integration">Python 2.6 integration</a></li>
+<li><a class="reference external" href="#integration">Integration</a><ul>
+<li><a class="reference external" href="#flash-player">Flash Player</a></li>
+<li><a class="reference external" href="#django">Django</a></li>
+<li><a class="reference external" href="#google-app-engine">Google App Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="../contents.html"
+                                  title="previous chapter">PyAMF Documentation contents</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="../about.html"
+                                  title="next chapter">About these documents</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="../_sources/whatsnew/0.5.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+<div class="footer">
+Copyright &#169; 2007-2009 The <a href='http://pyamf.org'>PyAMF</a> Project
+</div>
+
+  </body>
+</html>

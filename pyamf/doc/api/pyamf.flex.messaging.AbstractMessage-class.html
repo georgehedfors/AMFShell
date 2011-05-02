@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.flex.messaging.AbstractMessage</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.flex-module.html">Package&nbsp;flex</a> ::
+        <a href="pyamf.flex.messaging-module.html">Module&nbsp;messaging</a> ::
+        Class&nbsp;AbstractMessage
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.flex.messaging.AbstractMessage-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class AbstractMessage</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage">source&nbsp;code</a></span></p>
+<center>
+  <div class="private"><center>  <map id="uml_class_diagram_for_pyamf_fl_7" name="uml_class_diagram_for_pyamf_fl_7">
+<area shape="rect" id="node1" href="pyamf.flex.messaging.AsyncMessage-class.html" title="I am the base class for all asynchronous Flex messages." alt="" coords="329,470,460,509"/>
+<area shape="rect" id="node3" href="pyamf.flex.messaging.AsyncMessageExt-class.html" title="A AsyncMessage, but implementing ISmallMessage." alt="" coords="32,529,181,567"/>
+<area shape="rect" id="node4" href="pyamf.flex.messaging.AcknowledgeMessage-class.html" title="I acknowledge the receipt of a message that was sent previously." alt="" coords="211,529,387,567"/>
+<area shape="rect" id="node5" href="pyamf.flex.data.DataMessage-class.html" title="I am used to transport an operation that occured on a managed object or collection." alt="" coords="416,529,568,567"/>
+<area shape="rect" id="node10" href="pyamf.flex.messaging.CommandMessage-class.html" title="Provides a mechanism for sending commands related to publish/subscribe messaging, ping, and cluster operations." alt="" coords="627,529,781,567"/>
+<area shape="rect" id="node2" href="pyamf.flex.messaging.RemotingMessage-class.html" title="I am used to send RPC requests to a remote endpoint." alt="" coords="489,470,639,509"/>
+<area shape="rect" id="node6" href="pyamf.flex.messaging.ErrorMessage-class.html" title="I am the Flex error message to be returned to the client." alt="" coords="35,587,157,626"/>
+<area shape="rect" id="node7" href="pyamf.flex.messaging.AcknowledgeMessageExt-class.html" title="An AcknowledgeMessage, but implementing ISmallMessage." alt="" coords="187,587,381,626"/>
+<area shape="rect" id="node13" href="pyamf.flex.data.SequencedMessage-class.html" title="Response to DataMessage requests." alt="" coords="411,587,603,626"/>
+<area shape="rect" id="node11" href="pyamf.flex.data.DataErrorMessage-class.html" title="Special cases of ErrorMessage will be sent when a data conflict occurs." alt="" coords="5,646,187,685"/>
+<area shape="rect" id="node8" href="pyamf.flex.data.PagedMessage-class.html" title="This messsage provides information about a partial sequence result." alt="" coords="425,646,588,685"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage.__amf__-class.html" title="pyamf.flex.messaging.AbstractMessage.__amf__" alt="" coords="361,29,596,48"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#DESTINATION_CLIENT_ID_HEADER" title="Each message pushed from the server will contain this header identifying &#160;the client that will receive the message." alt="" coords="361,48,596,67"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#ENDPOINT_HEADER" title="Messages are tagged with the endpoint id for the channel they are sent &#160;over." alt="" coords="361,67,596,85"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#REMOTE_CREDENTIALS_HEADER" title="Messages that need to set remote credentials for a destination carry the &#160;Base64 encoded credentials in this header." alt="" coords="361,85,596,104"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#REQUEST_TIMEOUT_HEADER" title="The request timeout value is set on outbound messages by services or &#160;channels and the value controls how long the responder will wait for an &#160;acknowledgement, result or fault response for the message before timing out the request." alt="" coords="361,104,596,123"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTE_FLAGS" title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" alt="" coords="361,123,596,141"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTES" title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES" alt="" coords="361,141,596,160"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUID_FLAGS" title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" alt="" coords="361,160,596,179"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUIDS" title="pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS" alt="" coords="361,179,596,197"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#body" title="Specific data that needs to be delivered to the remote destination." alt="" coords="361,197,596,216"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#clientId" title="Indicates which client sent the message." alt="" coords="361,216,596,235"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#destination" title="Message destination." alt="" coords="361,235,596,253"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#headers" title="Message headers." alt="" coords="361,253,596,272"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#timestamp" title="Timestamp when the message was generated." alt="" coords="361,291,596,309"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="361,312,596,331"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#__repr__" title="repr(x)" alt="" coords="361,331,596,349"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#decodeSmallAttribute" title="pyamf.flex.messaging.AbstractMessage.decodeSmallAttribute" alt="" coords="361,349,596,368"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#encodeSmallAttribute" title="pyamf.flex.messaging.AbstractMessage.encodeSmallAttribute" alt="" coords="361,368,596,387"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#__readamf__" title="pyamf.flex.messaging.AbstractMessage.__readamf__" alt="" coords="361,387,596,405"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#__writeamf__" title="pyamf.flex.messaging.AbstractMessage.__writeamf__" alt="" coords="361,405,596,424"/>
+<area shape="rect" id="node158" href="pyamf.flex.messaging.AbstractMessage-class.html#getSmallMessage" title="Return a ISmallMessage representation of this object." alt="" coords="361,424,596,443"/>
+<area shape="rect" id="node9" href="pyamf.flex.messaging.AbstractMessage-class.html" title="Abstract base class for all Flex messages." alt="" coords="349,6,608,450"/>
+<area shape="rect" id="node12" href="pyamf.flex.messaging.CommandMessageExt-class.html" title="A CommandMessage, but implementing ISmallMessage." alt="" coords="632,587,805,626"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_fl_7.gif" alt='' usemap="#uml_class_diagram_for_pyamf_fl_7" ismap="ismap" class="graph-without-title" />
+</center></div>
+  <div class="public" style="display:none"><center>  <map id="uml_class_diagram_for_pyamf_fl_8" name="uml_class_diagram_for_pyamf_fl_8">
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage.__amf__-class.html" title="pyamf.flex.messaging.AbstractMessage.__amf__" alt="" coords="17,29,252,48"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#DESTINATION_CLIENT_ID_HEADER" title="Each message pushed from the server will contain this header identifying &#160;the client that will receive the message." alt="" coords="17,48,252,67"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#ENDPOINT_HEADER" title="Messages are tagged with the endpoint id for the channel they are sent &#160;over." alt="" coords="17,67,252,85"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#REMOTE_CREDENTIALS_HEADER" title="Messages that need to set remote credentials for a destination carry the &#160;Base64 encoded credentials in this header." alt="" coords="17,85,252,104"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#REQUEST_TIMEOUT_HEADER" title="The request timeout value is set on outbound messages by services or &#160;channels and the value controls how long the responder will wait for an &#160;acknowledgement, result or fault response for the message before timing out the request." alt="" coords="17,104,252,123"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTE_FLAGS" title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" alt="" coords="17,123,252,141"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTES" title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES" alt="" coords="17,141,252,160"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUID_FLAGS" title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" alt="" coords="17,160,252,179"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUIDS" title="pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS" alt="" coords="17,179,252,197"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#body" title="Specific data that needs to be delivered to the remote destination." alt="" coords="17,197,252,216"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#clientId" title="Indicates which client sent the message." alt="" coords="17,216,252,235"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#destination" title="Message destination." alt="" coords="17,235,252,253"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#headers" title="Message headers." alt="" coords="17,253,252,272"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#timestamp" title="Timestamp when the message was generated." alt="" coords="17,291,252,309"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,312,252,331"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#__repr__" title="repr(x)" alt="" coords="17,331,252,349"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#decodeSmallAttribute" title="pyamf.flex.messaging.AbstractMessage.decodeSmallAttribute" alt="" coords="17,349,252,368"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#encodeSmallAttribute" title="pyamf.flex.messaging.AbstractMessage.encodeSmallAttribute" alt="" coords="17,368,252,387"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#__readamf__" title="pyamf.flex.messaging.AbstractMessage.__readamf__" alt="" coords="17,387,252,405"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#__writeamf__" title="pyamf.flex.messaging.AbstractMessage.__writeamf__" alt="" coords="17,405,252,424"/>
+<area shape="rect" id="node171" href="pyamf.flex.messaging.AbstractMessage-class.html#getSmallMessage" title="Return a ISmallMessage representation of this object." alt="" coords="17,424,252,443"/>
+<area shape="rect" id="node1" href="pyamf.flex.messaging.AbstractMessage-class.html" title="Abstract base class for all Flex messages." alt="" coords="5,6,264,450"/>
+<area shape="rect" id="node2" href="pyamf.flex.messaging.RemotingMessage-class.html" title="I am used to send RPC requests to a remote endpoint." alt="" coords="60,470,209,509"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_fl_8.gif" alt='' usemap="#uml_class_diagram_for_pyamf_fl_8" ismap="ismap" class="graph-without-title" />
+</center></div>
+</center>
+<hr />
+<p>Abstract base class for all Flex messages.</p>
+  <p>Messages have two customizable sections; headers and data. The headers
+  property provides access to specialized meta information for a specific 
+  message instance. The data property contains the instance specific data 
+  that needs to be delivered and processed by the decoder.</p>
+
+<hr />
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/AbstractMessage.html"
+        target="_top">AbstractMessage on Livedocs (external)</a>
+      </p>
+</div><!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.flex.messaging.AbstractMessage.__amf__-class.html" class="summary-name">__amf__</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.messaging.AbstractMessage-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.messaging.AbstractMessage-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      repr(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.messaging.AbstractMessage-class.html#decodeSmallAttribute" class="summary-sig-name">decodeSmallAttribute</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attr</span>,
+        <span class="summary-sig-arg">input</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.decodeSmallAttribute">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.messaging.AbstractMessage-class.html#encodeSmallAttribute" class="summary-sig-name">encodeSmallAttribute</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attr</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.encodeSmallAttribute">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__readamf__"></a><span class="summary-sig-name">__readamf__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">input</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__readamf__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__writeamf__"></a><span class="summary-sig-name">__writeamf__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">output</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__writeamf__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.messaging.AbstractMessage-class.html#getSmallMessage" class="summary-sig-name">getSmallMessage</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a ISmallMessage representation of this object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.getSmallMessage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DESTINATION_CLIENT_ID_HEADER"></a><span class="summary-name">DESTINATION_CLIENT_ID_HEADER</span> = <code title="'DSDstClientId'"><code class="variable-quote">'</code><code class="variable-string">DSDstClientId</code><code class="variable-quote">'</code></code><br />
+      Each message pushed from the server will contain this header 
+      identifying the client that will receive the message.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENDPOINT_HEADER"></a><span class="summary-name">ENDPOINT_HEADER</span> = <code title="'DSEndpoint'"><code class="variable-quote">'</code><code class="variable-string">DSEndpoint</code><code class="variable-quote">'</code></code><br />
+      Messages are tagged with the endpoint id for the channel they are 
+      sent over.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="REMOTE_CREDENTIALS_HEADER"></a><span class="summary-name">REMOTE_CREDENTIALS_HEADER</span> = <code title="'DSRemoteCredentials'"><code class="variable-quote">'</code><code class="variable-string">DSRemoteCredentials</code><code class="variable-quote">'</code></code><br />
+      Messages that need to set remote credentials for a destination carry 
+      the <code>Base64</code> encoded credentials in this header.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="REQUEST_TIMEOUT_HEADER"></a><span class="summary-name">REQUEST_TIMEOUT_HEADER</span> = <code title="'DSRequestTimeout'"><code class="variable-quote">'</code><code class="variable-string">DSRequestTimeout</code><code class="variable-quote">'</code></code><br />
+      The request timeout value is set on outbound messages by services or 
+      channels and the value controls how long the responder will wait for 
+      an acknowledgement, result or fault response for the message before 
+      timing out the request.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SMALL_ATTRIBUTE_FLAGS"></a><span class="summary-name">SMALL_ATTRIBUTE_FLAGS</span> = <code title="[1, 2, 4, 8, 16, 32, 64]"><code class="variable-group">[</code>1<code class="variable-op">, </code>2<code class="variable-op">, </code>4<code class="variable-op">, </code>8<code class="variable-op">, </code>16<code class="variable-op">, </code>32<code class="variable-op">, </code>64<code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTES" class="summary-name">SMALL_ATTRIBUTES</a> = <code title="{1: 'body',
+ 2: 'clientId',
+ 4: 'destination',
+ 8: 'headers',
+ 16: 'messageId',
+ 32: 'timestamp',
+ 64: 'timeToLive'}"><code class="variable-group">{</code>1<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">body</code><code class="variable-quote">'</code><code class="variable-op">, </code>2<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">clientId</code><code class="variable-quote">'</code><code class="variable-op">, </code>4<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">destination</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SMALL_UUID_FLAGS"></a><span class="summary-name">SMALL_UUID_FLAGS</span> = <code title="[1, 2]"><code class="variable-group">[</code>1<code class="variable-op">, </code>2<code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SMALL_UUIDS"></a><span class="summary-name">SMALL_UUIDS</span> = <code title="{1: 'clientId', 2: 'messageId'}"><code class="variable-group">{</code>1<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">clientId</code><code class="variable-quote">'</code><code class="variable-op">, </code>2<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">messageId</code><code class="variable-quote">'</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>mixed</code></span>
+    </td><td class="summary">
+        <a name="body"></a><span class="summary-name">body</span><br />
+      Specific data that needs to be delivered to the remote destination.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+        <a name="clientId"></a><span class="summary-name">clientId</span><br />
+      Indicates which client sent the message.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+        <a name="destination"></a><span class="summary-name">destination</span><br />
+      Message destination.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>dict</code></span>
+    </td><td class="summary">
+        <a href="pyamf.flex.messaging.AbstractMessage-class.html#headers" class="summary-name">headers</a><br />
+      Message headers.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+        <a name="messageId"></a><span class="summary-name">messageId</span><br />
+      Unique Message ID.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="timeToLive"></a><span class="summary-name">timeToLive</span><br />
+      How long the message should be considered valid and deliverable.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="timestamp"></a><span class="summary-name">timestamp</span><br />
+      Timestamp when the message was generated.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__repr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.__repr__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>repr(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__repr__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="decodeSmallAttribute"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">decodeSmallAttribute</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attr</span>,
+        <span class="sig-arg">input</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.decodeSmallAttribute">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.5
+      </p>
+</div></td></tr></table>
+</div>
+<a name="encodeSmallAttribute"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">encodeSmallAttribute</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attr</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.encodeSmallAttribute">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.5
+      </p>
+</div></td></tr></table>
+</div>
+<a name="getSmallMessage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getSmallMessage</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex.messaging-pysrc.html#AbstractMessage.getSmallMessage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a ISmallMessage representation of this object. If one is not 
+  available, <code class="link">NotImplementedError</code> will be 
+  raised.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.5
+      </p>
+</div></td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="SMALL_ATTRIBUTES"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SMALL_ATTRIBUTES</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code>1<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">body</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 2<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">clientId</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 4<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">destination</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 8<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">headers</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 16<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">messageId</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 32<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">timestamp</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ 64<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">timeToLive</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="headers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">headers</h3>
+  Message headers. Core header names start with DS.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>dict</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:46 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

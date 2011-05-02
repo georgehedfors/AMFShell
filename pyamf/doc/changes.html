@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>PyAMF Changelog</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 5196 2007-06-03 20:25:28Z wiemann $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="pyamf-changelog">
+<h1 class="title">PyAMF Changelog</h1>
+
+<p>This file contains information about the changes between the different
+versions of PyAMF.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id11">0.5 (2009-09-07)</a></li>
+<li><a class="reference internal" href="#id2" id="id12">0.4.2 (2009-04-20)</a></li>
+<li><a class="reference internal" href="#id3" id="id13">0.4.1 (2009-02-23)</a></li>
+<li><a class="reference internal" href="#id4" id="id14">0.4 (2009-01-18)</a></li>
+<li><a class="reference internal" href="#rc3-2009-01-14" id="id15">0.4rc3 (2009-01-14)</a></li>
+<li><a class="reference internal" href="#rc2-2009-01-05" id="id16">0.4rc2 (2009-01-05)</a></li>
+<li><a class="reference internal" href="#rc1-2008-12-31" id="id17">0.4rc1 (2008-12-31)</a></li>
+<li><a class="reference internal" href="#id5" id="id18">0.3.1 (2008-05-04)</a></li>
+<li><a class="reference internal" href="#id6" id="id19">0.3 (2008-04-14)</a></li>
+<li><a class="reference internal" href="#id7" id="id20">0.2 (2008-03-12)</a></li>
+<li><a class="reference internal" href="#id8" id="id21">0.1.1 (2008-02-18)</a></li>
+<li><a class="reference internal" href="#id9" id="id22">0.1 (2008-02-11)</a></li>
+<li><a class="reference internal" href="#b-2008-01-13" id="id23">0.1b (2008-01-13)</a></li>
+<li><a class="reference internal" href="#a-2007-12-12" id="id24">0.1.0a (2007-12-12)</a></li>
+<li><a class="reference internal" href="#id10" id="id25">0.0.1 (2007-10-19)</a></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h1><a class="toc-backref" href="#id11">0.5 (2009-09-07)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Added the ability to modify the timezones of dates being de/encoded for
+legacy systems. (Ticket:612)</li>
+<li>Fixed a Django reference bug where parent.child.parent is parent would
+encode 3 objects and not 2. (Ticket:642)</li>
+<li>Setting <cite>None</cite> on a Django DateField would blow up the encoder (Ticket:632)</li>
+<li><cite>rootCause</cite> in ErrorFault objects are now populated with the traceback
+object. (Ticket:637)</li>
+<li>Support for encoding/decoding BlazeDS specific messages (Ticket:581)</li>
+<li>Removed tracebacks from exception messages if debug=False (Ticket:552)</li>
+<li>Support for google.appengine.ext.db.polymodel.PolyModel (Ticket:633)</li>
+<li>Support for Django File/ImageField (Ticket:631)</li>
+<li>Support for Django model inheritance (Ticket:626)</li>
+<li>Rewrote attribute handling code. Added the ability to exclude, set
+read-only and static attributes. See <a class="reference external" href="http://pyamf.org/wiki/AttributeControl">http://pyamf.org/wiki/AttributeControl</a>
+for more details. (Ticket:601)</li>
+<li>Exposed the amf request object if expose_request=True.
+Twisted/Django/Google have an amf_request property on the http request
+object.  WSGI has an entry in the environ dict - pyamf.request (Ticket:234)</li>
+<li>Added support for the <cite>array</cite> module (Ticket:468)</li>
+<li>Fixed an issue with Django model AutoFields being set to 0 by the Flex
+client (Ticket:556)</li>
+<li>Added support for the collections module. (Ticket:474)</li>
+<li>Added type checks for class objects. (Ticket:473)</li>
+<li>GAE FloatProperty can now accept int's without issue (Ticket:609)</li>
+<li>Revamped the lazy imports module to use sys.meta_path instead. Fixes all
+erroneous import errors (Ticket:485).</li>
+<li>Django models will now accept dynamic properties (Ticket:575)</li>
+<li>Django PK properties will be set first to allow related properties to apply
+correctly (Ticket:599)</li>
+<li>p.r.encode/p.r.decode both have a new logger kwarg. Supply a logging.Logger
+instance if you want to see debug output (Ticket:588)</li>
+<li>pyamf.TypedObjectClassAlias now forces the class type (Ticket:537)</li>
+<li>If a call to Decoder.readElement results in an IOError exception, the
+original position of the stream will be restored (Ticket:573)</li>
+<li>Replaced hardcoded Python implementation title in p.r.gateway.SERVER_NAME
+(Ticket:541)</li>
+<li>Provide a user friendly way to handle datetime.time objects (Ticket:498)</li>
+<li>Removed the useless pyamf.logging module (Ticket:577)</li>
+<li>Added a new register_package helper function to make bulk class
+registration easier. Check the docstring for more info. (Ticket:576)</li>
+<li>cpyamf.amf3._decode_int now propagates exceptions correctly (Ticket:506)</li>
+<li>Fixed an incorrect OverflowError when encoding large integers in AMF3
+(Ticket:519)</li>
+<li>Added <cite>append</cite> to pyamf.util.BufferedByteStream (Ticket:574)</li>
+<li>Added Epydoc signatures to all util.StringIOProxy, util.DataTypeMixIn and
+util.BufferedByteStream classes (Ticket:440)</li>
+<li>Removed dependancy on fpconst. Platforms with broken platforms are detected
+and handled correctly internally (Ticket:564)</li>
+<li>amf0.Encoder now supports attribute ordering (Ticket:558)</li>
+<li>Removed duplicate method Context.reset, in favour of Context.clear
+(Ticket:527)</li>
+<li>Rewrote cpyamf.util.BufferedByteStream to not depend on cStringIO. Added a
+C based api for stream functions (Ticket:513)</li>
+<li>Unified exceptions for BufferedByteStream so that only IOError is raised.
+(Ticket:520)</li>
+<li>Made raising pyamf.ReferenceError optional for all Indexed* and Context
+classes. Refactored AMF3 so that only one ClassDefinition is created per
+class (Ticket:524)</li>
+<li>Strict type checking now on pyamf.util.BufferedByteStream (Ticket:512)</li>
+<li>Removed the default loggers from p.r.gateway.*. To re-enable supply a
+logger instance as a keyword arg to the gateway constructor (Ticket:525)</li>
+<li>Removed pyamf.util.make_classic_instance (as it is not used) (Ticket:521)</li>
+<li>Removed pyamf.util.get_mro, in favour of inspect.getmro (Ticket:526)</li>
+<li>Removed pyamf.util.Indexed[Collection|Map].remove (Ticket:518)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id2">
+<h1><a class="toc-backref" href="#id12">0.4.2 (2009-04-20)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Support for decoding the 'source' property on ArrayCollections (Ticket:488)</li>
+<li>Fixed an issue in the GAE adapter where dynamic properties would be missing
+on referenced objects. (Ticket:511)</li>
+<li>Fixed a critical issue with AMF0 reference counting when encoding remoting
+responses. (Ticket:510)</li>
+<li>Strengthened http header handling in the client (Ticket:492)</li>
+<li>Support for Django i18n ugettext_lazy (Ticket:496)</li>
+<li>Added support for microseconds for datetime objects. Thanks to Derek Payton
+for the patch. (Ticket:490)</li>
+<li>Added support for property types on SQLAlchemy mapped classes. (Ticket:491)</li>
+<li>Added support for property types for Google AppEngine db.Model and
+db.Expando. (Ticket:487)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id3">
+<h1><a class="toc-backref" href="#id13">0.4.1 (2009-02-23)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>amf0.Encoder.use_amf3 has been extended to cover all object types
+(Ticket:453,467)</li>
+<li>Property types on Django models will now encode as expected. (Ticket:480)</li>
+<li>Django models.ForeignKey properties will be followed only if previously
+accessed outside of PyAMF. <cite>_[attr]_cache</cite> is no longer encoded.
+(Ticket:456)</li>
+<li>Encoding {0:0, '0':1} will now raise an AttributeError. (Ticket:458)</li>
+<li>Google AppEngine adapter improvements - see ticket for details (Ticket:479)</li>
+<li>amf0.Encoder will encode all elements as AMF3 if use_amf3 option is set to
+True (Ticket:453)</li>
+<li>Unicode handling in __repr__ functions has been improved (Ticket:455)</li>
+<li>object attributes and dict keys are now utf8 encoded bytestrings. Python
+**kwargs doesn't accept unicode key objects. (Ticket:463)</li>
+<li>Django models.TimeField, models.DateField will now be converted to the
+correct type (datetime.time and datetime.date respectively).
+fields.NOT_PROVIDED is also checked for by converting to pyamf.Undefined
+and back again. (Ticket:457)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id4">
+<h1><a class="toc-backref" href="#id14">0.4 (2009-01-18)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>cpyamf now deals with exceptional floats the same way as pure python -
+especially on windows (Ticket:448)</li>
+<li>Support for SQLAlchemy 0.5.1 (Ticket:449)</li>
+<li>amf0.Encoder now has a use_amf3 flag which determines which XML type to
+return to the client (Ticket:435)</li>
+<li>BufferedByteStream.truncate(length) now actually does something useful
+(Ticket:444)</li>
+<li>setup.py now gets the version number from pyamf/__init__.py source
+(Ticket:429)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rc3-2009-01-14">
+<h1><a class="toc-backref" href="#id15">0.4rc3 (2009-01-14)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Support for SQLAlchemy 0.5.0 (Ticket:436)</li>
+<li>pyamf.util.DataTypeMixIn/cpyamf.util.BufferedByteStream can now
+encode/decode 24bit un/signed integers. (Ticket:422)</li>
+<li>pyamf.util.StringIOProxy/cpyamf.util.BufferedByteStream both have new
+consume methods that will chop of the tail of the stream (already read
+stream). (Ticket:423)</li>
+<li>Now checking for all types of supported xml lib types for encoding, but
+will only use the first implementation for decoding (Ticket:426)</li>
+<li>fpconst dependancy is now only required if the platform requires it
+(Ticket:356)</li>
+<li>Decoding negative timestamps on certain platforms (namely Windows) are now
+supported (Ticket:390)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rc2-2009-01-05">
+<h1><a class="toc-backref" href="#id16">0.4rc2 (2009-01-05)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Support for SQLAlchemy 0.4.0 (Ticket:410)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="rc1-2008-12-31">
+<h1><a class="toc-backref" href="#id17">0.4rc1 (2008-12-31)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Support for encoding/decoding SQLAlchemy ORM objects with a new adapter.
+Lots of people involved in this one, but special thanks to Dave Thompson
+and Michael Van Tellingen for making this happen. (Ticket:277)</li>
+<li>All gateways now log exceptions when exceptions are raised during
+en/decoding. (Ticket:394)</li>
+<li>Flex messaging now uses correct static attributes for encoding. Determining
+static/dynamic attributes on objects is now easier (Ticket:357)</li>
+<li>Added use_proxy option to amf3 which will automagically convert ObjectProxy
+to dict and ArrayCollection to list on decoding, and vice versa on encode.
+Thanks to dthompso for the excellent patch (Ticket:355)</li>
+<li>flex.ArrayCollection now subclasses list instead of dict as non-int keys
+are not allowed. IList interface has been implemented. (Ticket:349)</li>
+<li>Encoding registered subclass of list that define the 'externalised'
+metadata will be encoded as an object.</li>
+<li>Encoders how have a 'strict' mode. Not generally useful for the time being
+but will help with developments in the future. Type mapped functions now
+require a second 'encoder' attribute. (Ticket:378)</li>
+<li>Added adapter to handle the decimal module and, if strict is set to False,
+silently converts a Decimal instance to a float (Ticket:376)</li>
+<li>ClassAlias can now be subclassed and three new methods have been added:
+applyAttributes, createInstance, getAttributes all which help to provide
+fine control for object/instance manipulation (Ticket:348)</li>
+<li>Added support for __slots__ (Ticket:347)</li>
+<li>Fixed problem when decoding objects that map to GAE db.Model objects with
+required properties (Ticket:342)</li>
+<li>ByteArray now does not throw an error when used in the Remoting framework
+(Ticket:379)</li>
+<li>A new adapter that converts sets.ImmutableSet and sets.Set to tuples before
+encoding. (Ticket:280)</li>
+<li>A revamped google app engine adapter that checks for the _key attribute in
+an aliased class and first loads the object from the datastore and then
+applies that properties in the object stream. (Ticket:307)</li>
+<li>New helper function to make it easier to manually add adapters (Ticket:350)</li>
+<li>Ability to disable the c extension with passing --disable-ext to setup.py
+(Ticket:381, 391)</li>
+<li>Python C-extension for the pyamf.util.BufferedByteStream class. Originally
+contributed by Gerard Escalante (Ticket:225, 405)</li>
+<li>New API to add headers such as cookies in pyamf.remoting.client
+(Ticket:337)</li>
+<li>Now clearing the context between remoting requests (Ticket:309)</li>
+<li>Fixed issue with AMF3 class definition references (Ticket:341)</li>
+<li>More helpful description for register_class args check (Ticket:334)</li>
+<li>pyamf.register_class now checks to ensure that __init__ args do not have
+any arguments (Ticket:322)</li>
+<li>Added RemoteObject support for AsyncMessage (Ticket:292)</li>
+<li>pyamf.remoting.ErrorFault.__repr__ now displays the traceback info (if it
+exists). (Ticket:331)</li>
+<li>Both Encoders will now raise pyamf.EncodeError if a function is encoded
+(Ticket:311)</li>
+<li>Twisted Gateway would fall over when returning tuples (Ticket:313)</li>
+<li>The remoting gateways now send a customizable Server header (Ticket:317)</li>
+<li>The remoting client now sends a customizable User-Agent header (Ticket:306)</li>
+<li>Added ability to set the HTTP referer in remoting client (Ticket:316)</li>
+<li>Fixed issue where the AMF3 encoder assumed objects with a 'tag' attribute
+needed XML encoding. Reported by cy-man (Ticket:303)</li>
+<li>Solved issue with repr for AbstractMessage. Reported by datafunk
+(Ticket:283)</li>
+<li>Content-type was missing in POST requests from the AMF client. Reported by
+magog (Ticket:304)</li>
+<li>Added the disconnect Command operation (Ticket:325)</li>
+<li>Fixed issue with the unit tests for Django (Ticket:281)</li>
+<li>Removed the NetworkIOMixIn class (Ticket:232)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id5">
+<h1><a class="toc-backref" href="#id18">0.3.1 (2008-05-04)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Importing module now has tests (Ticket:266)</li>
+<li>Django model adapter now imported only when django.db.models is imported
+(Ticket:261)</li>
+<li>Google Model/Expando encoding now works out of the box</li>
+<li>Fixed issue with Remote Object destination (Ticket:270)</li>
+<li>Added a new gateway for the Google App Engine - see
+pyamf.remoting.gateway.google.WebAppGateway (Ticket:253)</li>
+<li>amf0 Encoder now takes amf3 contexts into account (Ticket:268)</li>
+<li>amf*.encode helpers can now accept multiple arguments (Ticket:267)</li>
+<li>Removed the dependancy of fpconst for Python 2.5 or newer (Ticket:243)</li>
+<li>Solved issue with AMFPHP exceptions in AMF client (Ticket:258)</li>
+<li>Fixed issue with url parsing in AMF client (Ticket:256)</li>
+<li>Client no longer raises httplib.ResponseNotReady when making multiple
+requests using the same RemotingService (Ticket:254)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id6">
+<h1><a class="toc-backref" href="#id19">0.3 (2008-04-14)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Added compatibility module for Google App Engine (Ticket:247)</li>
+<li>Fixed the signed interpretation of compressed integers in AMF3 (Ticket:241)</li>
+<li>Classic class decoding would throw an AttributeError (Ticket:248)</li>
+<li>Reloading adapter modules caused errors in Django, Pylons and Google App
+Engine. Resolved by removing dependancy on Importing module and
+incorporating into pyamf.util (Ticket:250)</li>
+<li>Adapter framework can now be fired when only loading submodules
+(Ticket:246)</li>
+<li>Made util.BufferedByteStream endian aware (Ticket:231)</li>
+<li>Fixed issue with Twisted threads (Ticket:233)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id7">
+<h1><a class="toc-backref" href="#id20">0.2 (2008-03-12)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Removed amfinfo console_script (Ticket:226)</li>
+<li>Encoders/Decoders now check for __getstate__/__setstate__ respectively
+(Ticket:209)</li>
+<li>Gateway import hack has now been removed - permanently (Ticket:224)</li>
+<li>Encoding/decoding performance has been increased 2x for AMF0 and up-to
+10x(!) for AMF3 (Ticket:198)</li>
+<li>Logging is now possible in all the supported gateways (Ticket:173)</li>
+<li>A new preprocessor function that runs after authentication, but before
+invoking the service method (Ticket:196)</li>
+<li>authenticator can now be decorated with expose_request (Ticket:195)</li>
+<li>Python 2.3 support (Ticket:33)</li>
+<li>Python 2.6 support (Ticket:222)</li>
+<li>Made PyAMF distributable as zip-based Python Egg (Ticket:193)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id8">
+<h1><a class="toc-backref" href="#id21">0.1.1 (2008-02-18)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>AMF3 encoder reported incorrect byte length header for non-ASCII string
+data. Patch supplied by akaihola. (Ticket:194)</li>
+<li>Decoder context not cleared between reading the remoting header and body.
+Reported by gerard (Ticket:192)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id9">
+<h1><a class="toc-backref" href="#id22">0.1 (2008-02-11)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>New error handling api useful for registering custom exception classes
+(Ticket:185)</li>
+<li>When a client receives a remoting error, an exception is generated
+(Ticket:167)</li>
+<li>expose_request per service control vastly improved (Ticket:169)</li>
+<li>Authentication per service control vastly improved (Ticket:166)</li>
+<li>uuid is no longer installed when using Python 2.5 or newer (Ticket:182)</li>
+<li>The inheritance tree was not consulted when encoding attributes (Ticket:172)</li>
+<li>TypedObjects didn't work with old style classes (Ticket:171)</li>
+<li>ErrorFault now prints details (Ticket:168)</li>
+<li>Added expose_request to TwistedGateway (Ticket:165)</li>
+<li>TwistedGateway now expects deferred from service functions (Ticket:164)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="b-2008-01-13">
+<h1><a class="toc-backref" href="#id23">0.1b (2008-01-13)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>IExternalizable now takes its methods from the class and fine grain control
+over attr encoding (Ticket:110)</li>
+<li>Added an adapter framework that gets imported when the related module is
+imported. See <a class="reference external" href="http://pyamf.org/wiki/AdapterFramework">http://pyamf.org/wiki/AdapterFramework</a> for more info</li>
+<li>Added 'expose_environ' argument to WSGIGateway to expose the WSGI environ
+as the first arg in the called services.</li>
+<li>Implemented Local Shared Object (LSO) support (Ticket:11)</li>
+<li>ByteArray now implements IDataInput and IDataOutput instead of
+StringIOProxy (Ticket:151)</li>
+<li>dicts are now used as the default for anonymous objects (Ticket:131)</li>
+<li>remoting.client mostly fully supports the predefined headers (defined at
+<a class="reference external" href="http://osflash.org/documentation/amf/envelopes/remoting/headers">http://osflash.org/documentation/amf/envelopes/remoting/headers</a>). The only
+one missing is amf_server_debug (Ticket:39)</li>
+<li>LazyImporter objects now set the __file__ attribute to None, so that
+querying sys.modules don't accidentally import the underlying module.
+(Ticket:147)</li>
+<li>Fixed argument positioning for RemoteObject processing. Thanks akaihola!
+(Ticket:145)</li>
+<li>ElementTree requirement is now ignored when using Python &gt;= 2.5
+(Ticket:144)</li>
+<li>Added tests for TwistedGateway (Ticket:132)</li>
+<li>Workaround for Python 2.4 float shortcomings (Ticket:78)</li>
+<li>Service Browser ('DescribeService' header) requests supported. (Ticket:138)</li>
+<li>Remoting client now supports authentication. (Ticket:137)</li>
+<li>Proper encoding for aliased subclassed builtin types, specifically
+flex.ArrayCollection.</li>
+<li>Added support for easy encoding of Django object queries
+(Foo.objects.all())</li>
+<li>Added 'add_type' allowing finer grain control of how a class is encoded in
+an AMF stream. (Ticket:130)</li>
+<li>'authenticator' keyword added to all gateways (moved from ServiceRequest)
+(Ticket:129)</li>
+<li>Added 'expose_request' argument to DjangoGateway to expose the underlying
+HTTP Request object as the first arg in the called services. (Ticket:103)</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="a-2007-12-12">
+<h1><a class="toc-backref" href="#id24">0.1.0a (2007-12-12)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>AMF0 and AMF3 encoders/decoders</li>
+<li>Additional support for IExternalizable, ArrayCollection, ObjectProxy,
+ByteArray, RecordSet and RemoteObject</li>
+<li>Remoting gateways for Twisted, WSGI, and Django</li>
+<li>Authentication/setCredentials support</li>
+<li>zlib compression support for ByteArray</li>
+<li>Remoting client with httplib</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="id10">
+<h1><a class="toc-backref" href="#id25">0.0.1 (2007-10-19)</a></h1>
+<blockquote>
+<ul class="simple">
+<li>Started project based on previous work done in the RTMPy (<a class="reference external" href="http://rtmpy.org">http://rtmpy.org</a>)
+project.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

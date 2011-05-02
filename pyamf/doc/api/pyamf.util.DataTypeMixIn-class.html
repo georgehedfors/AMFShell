@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.util.DataTypeMixIn</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.util-module.html" onclick="show_private();">Package&nbsp;util</a> ::
+        Class&nbsp;DataTypeMixIn
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.util.DataTypeMixIn-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DataTypeMixIn</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.util-pysrc.html#DataTypeMixIn">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_ut" name="uml_class_diagram_for_pyamf_ut">
+<area shape="rect" id="node344" href="pyamf.util.DataTypeMixIn-class.html#ENDIAN_NETWORK" title="Network byte order" alt="" coords="48,445,181,464"/>
+<area shape="rect" id="node344" href="pyamf.util.DataTypeMixIn-class.html#ENDIAN_NATIVE" title="Native byte order" alt="" coords="48,464,181,483"/>
+<area shape="rect" id="node344" href="pyamf.util.DataTypeMixIn-class.html#ENDIAN_LITTLE" title="Little endian" alt="" coords="48,483,181,501"/>
+<area shape="rect" id="node344" href="pyamf.util.DataTypeMixIn-class.html#ENDIAN_BIG" title="Big endian" alt="" coords="48,501,181,520"/>
+<area shape="rect" id="node1" href="pyamf.util.DataTypeMixIn-class.html" title="pyamf.util.DataTypeMixIn" alt="" coords="36,422,193,535"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#endian" title="cpyamf.util.BufferedByteStream.endian" alt="" coords="21,93,208,112"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__add__" title="cpyamf.util.BufferedByteStream.__add__" alt="" coords="21,115,208,133"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="21,133,208,152"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__len__" title="len(x)" alt="" coords="21,152,208,171"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__new__" title="cpyamf.util.BufferedByteStream.__new__" alt="" coords="21,171,208,189"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__radd__" title="y+x" alt="" coords="21,189,208,208"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#__str__" title="str(x)" alt="" coords="21,208,208,227"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#append" title="Append data to the end of the stream." alt="" coords="21,227,208,245"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#at_eof" title="Returns True if the internal pointer is at the end of the stream." alt="" coords="21,245,208,264"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#close" title="Close the stream." alt="" coords="21,264,208,283"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#consume" title="Chops the tail off the stream starting at 0 and ending at tell()." alt="" coords="21,283,208,301"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#flush" title="cpyamf.util.BufferedByteStream.flush" alt="" coords="21,301,208,320"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#getvalue" title="Get raw data from buffer." alt="" coords="21,320,208,339"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#peek" title="Looks size bytes ahead in the stream, returning what it finds, returning &#160;the stream pointer to its initial position." alt="" coords="21,339,208,357"/>
+<area shape="rect" id="node345" href="cpyamf.util.BufferedByteStream-class.html#write_utf8_string" title="Writes a unicode object to the stream in UTF&#45;8." alt="" coords="21,376,208,395"/>
+<area shape="rect" id="node2" href="cpyamf.util.BufferedByteStream-class.html" title="An extension of StringIO." alt="" coords="9,70,220,402"/>
+<area shape="rect" id="node3" href="cpyamf.util.cBufferedByteStream-class.html" title="cpyamf.util.cBufferedByteStream" alt="" coords="5,6,224,50"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_ut.gif" alt='' usemap="#uml_class_diagram_for_pyamf_ut" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cpyamf.util.BufferedByteStream-class.html">cpyamf.util.BufferedByteStream</a></code></b>:
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__add__">__add__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__init__">__init__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__len__">__len__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__new__">__new__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__radd__">__radd__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#__str__">__str__</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#append">append</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#at_eof">at_eof</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#close">close</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#consume">consume</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#flush">flush</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#getvalue">getvalue</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#peek">peek</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read">read</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_24bit_int">read_24bit_int</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_24bit_uint">read_24bit_uint</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_char">read_char</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_double">read_double</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_float">read_float</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_long">read_long</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_short">read_short</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_uchar">read_uchar</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_ulong">read_ulong</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_ushort">read_ushort</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#read_utf8_string">read_utf8_string</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#remaining">remaining</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#seek">seek</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#tell">tell</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#truncate">truncate</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write">write</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_24bit_int">write_24bit_int</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_24bit_uint">write_24bit_uint</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_char">write_char</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_double">write_double</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_float">write_float</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_long">write_long</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_short">write_short</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_uchar">write_uchar</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_ulong">write_ulong</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_ushort">write_ushort</a></code>,
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#write_utf8_string">write_utf8_string</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENDIAN_NETWORK"></a><span class="summary-name">ENDIAN_NETWORK</span> = <code title="'!'"><code class="variable-quote">'</code><code class="variable-string">!</code><code class="variable-quote">'</code></code><br />
+      Network byte order
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENDIAN_NATIVE"></a><span class="summary-name">ENDIAN_NATIVE</span> = <code title="'@'"><code class="variable-quote">'</code><code class="variable-string">@</code><code class="variable-quote">'</code></code><br />
+      Native byte order
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENDIAN_LITTLE"></a><span class="summary-name">ENDIAN_LITTLE</span> = <code title="'&lt;'"><code class="variable-quote">'</code><code class="variable-string">&lt;</code><code class="variable-quote">'</code></code><br />
+      Little endian
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENDIAN_BIG"></a><span class="summary-name">ENDIAN_BIG</span> = <code title="'&gt;'"><code class="variable-quote">'</code><code class="variable-string">&gt;</code><code class="variable-quote">'</code></code><br />
+      Big endian
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="cpyamf.util.BufferedByteStream-class.html">cpyamf.util.BufferedByteStream</a></code></b>:
+      <code><a href="cpyamf.util.BufferedByteStream-class.html#endian">endian</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:51 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

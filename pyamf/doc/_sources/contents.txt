@@ -1,0 +1,12 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ PyAMF Documentation contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+.. toctree::
+
+   whatsnew/0.5.rst
+
+   about.rst
+   bugs.rst
+   copyright.rst
+   license.rst

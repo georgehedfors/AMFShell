@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.adapters-module.html">Package&nbsp;adapters</a> ::
+        <a href="pyamf.adapters._google_appengine_ext_db-module.html">Module&nbsp;_google_appengine_ext_db</a> ::
+        Class&nbsp;DataStoreClassAlias
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DataStoreClassAlias</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_ad_4" name="uml_class_diagram_for_pyamf_ad_4">
+<area shape="rect" id="node101" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#KEY_ATTR" title="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias.KEY_ATTR" alt="" coords="17,275,343,293"/>
+<area shape="rect" id="node101" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getCustomProperties" title="Overrride this to provide known static properties based on the aliased &#160;class." alt="" coords="17,296,343,315"/>
+<area shape="rect" id="node101" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getEncodableAttributes" title="Returns a tuple containing a dict of static and dynamic attributes for an &#160;object to encode." alt="" coords="17,315,343,333"/>
+<area shape="rect" id="node101" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#createInstance" title="Creates an instance of the klass." alt="" coords="17,333,343,352"/>
+<area shape="rect" id="node101" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getDecodableAttributes" title="Returns a dictionary of attributes for obj that has been filtered, based on the supplied attrs." alt="" coords="17,352,343,371"/>
+<area shape="rect" id="node1" href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html" title="This class contains all the business logic to interact with Google&#39;s Datastore API&#39;s." alt="" coords="5,251,355,378"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="44,37,316,56"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#compile" title="This compiles the alias into a form that can be of most benefit to the &#160;en/decoder." alt="" coords="44,56,316,75"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#is_compiled" title="pyamf.ClassAlias.is_compiled" alt="" coords="44,75,316,93"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#__str__" title="str(x)" alt="" coords="44,93,316,112"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#__repr__" title="repr(x)" alt="" coords="44,112,316,131"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#__eq__" title="pyamf.ClassAlias.__eq__" alt="" coords="44,131,316,149"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#__hash__" title="hash(x)" alt="" coords="44,149,316,168"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#checkClass" title="This function is used to check if the class being aliased fits certain &#160;criteria." alt="" coords="44,168,316,187"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#getProxiedAttribute" title="Returns the proxied equivalent for obj." alt="" coords="44,187,316,205"/>
+<area shape="rect" id="node102" href="pyamf.ClassAlias-class.html#applyAttributes" title="Applies the collection of attributes attrs to aliased object obj." alt="" coords="44,205,316,224"/>
+<area shape="rect" id="node2" href="pyamf.ClassAlias-class.html" title="Class alias." alt="" coords="32,6,328,231"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_ad_4.gif" alt='' usemap="#uml_class_diagram_for_pyamf_ad_4" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>This class contains all the business logic to interact with Google's 
+  Datastore API's. Any <code class="link">db.Model</code> or <code 
+  class="link">db.Expando</code> classes will use this class alias for 
+  encoding/decoding.</p>
+  <p>We also add a number of indexes to the encoder context to aggressively
+  decrease the number of Datastore API's that we need to complete.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#_compile_base_class" class="summary-sig-name" onclick="show_private();">_compile_base_class</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">klass</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias._compile_base_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getCustomProperties" class="summary-sig-name">getCustomProperties</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Overrride this to provide known static properties based on the 
+      aliased class.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getCustomProperties">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getEncodableAttributes" class="summary-sig-name">getEncodableAttributes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">codec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns a <code>tuple</code> containing a dict of static and dynamic 
+      attributes for an object to encode.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getEncodableAttributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#createInstance" class="summary-sig-name">createInstance</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">codec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Creates an instance of the klass.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.createInstance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html#getDecodableAttributes" class="summary-sig-name">getDecodableAttributes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">attrs</span>,
+        <span class="summary-sig-arg">codec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns a dictionary of attributes for <code>obj</code> that has been
+      filtered, based on the supplied <code>attrs</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getDecodableAttributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.ClassAlias-class.html">ClassAlias</a></code></b>:
+      <code><a href="pyamf.ClassAlias-class.html#__eq__">__eq__</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#__hash__">__hash__</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#__init__">__init__</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#__repr__">__repr__</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#__str__">__str__</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#applyAttributes">applyAttributes</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#checkClass">checkClass</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#compile">compile</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#getProxiedAttribute">getProxiedAttribute</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#is_compiled">is_compiled</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.ClassAlias-class.html">ClassAlias</a></code></b> (private):
+      <code><a href="pyamf.ClassAlias-class.html#_checkExternal" onclick="show_private();">_checkExternal</a></code>,
+      <code><a href="pyamf.ClassAlias-class.html#_finalise_compile" onclick="show_private();">_finalise_compile</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="KEY_ATTR"></a><span class="summary-name">KEY_ATTR</span> = <code title="'_key'">'_key'</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_compile_base_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_compile_base_class</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">klass</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias._compile_base_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="pyamf.ClassAlias-class.html#_compile_base_class" onclick="show_private();">ClassAlias._compile_base_class</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getCustomProperties"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getCustomProperties</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getCustomProperties">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Overrride this to provide known static properties based on the aliased
+  class.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="pyamf.ClassAlias-class.html#getCustomProperties">ClassAlias.getCustomProperties</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getEncodableAttributes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getEncodableAttributes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">codec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getEncodableAttributes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a <code>tuple</code> containing a dict of static and dynamic 
+  attributes for an object to encode.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>codec</code></strong> - An optional argument that will contain the en/decoder instance 
+          calling this function.</li>
+    </ul></dd>
+    <dt>Overrides:
+        <a href="pyamf.ClassAlias-class.html#getEncodableAttributes">ClassAlias.getEncodableAttributes</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="createInstance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">createInstance</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">codec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.createInstance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates an instance of the klass.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Instance of <code>self.klass</code>.</dd>
+    <dt>Overrides:
+        <a href="pyamf.ClassAlias-class.html#createInstance">ClassAlias.createInstance</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getDecodableAttributes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getDecodableAttributes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">attrs</span>,
+        <span class="sig-arg">codec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.adapters._google_appengine_ext_db-pysrc.html#DataStoreClassAlias.getDecodableAttributes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a dictionary of attributes for <code>obj</code> that has been 
+  filtered, based on the supplied <code>attrs</code>. This allows for fine 
+  grain control over what will finally end up on the object or not ..</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>obj</code></strong> - The reference object.</li>
+        <li><strong class="pname"><code>attrs</code></strong> - The attrs dictionary that has been decoded.</li>
+        <li><strong class="pname"><code>codec</code></strong> - An optional argument that will contain the codec instance calling
+          this function.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A dictionary of attributes that can be applied to 
+          <code>obj</code></dd>
+    <dt>Overrides:
+        <a href="pyamf.ClassAlias-class.html#getDecodableAttributes">ClassAlias.getDecodableAttributes</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:43 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

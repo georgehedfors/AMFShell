@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.remoting.gateway.google</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.remoting-module.html">Package&nbsp;remoting</a> ::
+        <a href="pyamf.remoting.gateway-module.html">Package&nbsp;gateway</a> ::
+        Module&nbsp;google
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.remoting.gateway.google-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyamf.remoting.gateway.google-module.html">Module pyamf.remoting.gateway.google</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2009 The PyAMF Project.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># See LICENSE.txt for details.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Gateway for Google App Engine.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">This gateway allows you to expose functions in Google App Engine web</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">applications to AMF clients and servers.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">@see: U{Google App Engine homepage (external)</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://code.google.com/appengine&gt;}</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">@since: 0.3.1</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">remove</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Module pyamf.remoting.gateway.google=pyamf.remoting.gateway.google-module.html,Variable pyamf.remoting.gateway.google.google=pyamf.remoting.gateway.google-module.html#google"><a title="pyamf.remoting.gateway.google
+pyamf.remoting.gateway.google.google" class="py-name" href="#" onclick="return doclink('link-0', 'google', 'link-0');">google</a></tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-string">'google.appengine.ext.webapp'</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable pyamf.remoting.gateway.google.webapp=pyamf.remoting.gateway.google-module.html#webapp"><a title="pyamf.remoting.gateway.google.webapp" class="py-name" href="#" onclick="return doclink('link-1', 'webapp', 'link-1');">webapp</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="pyamf.remoting.gateway.google
+pyamf.remoting.gateway.google.google" class="py-name" href="#" onclick="return doclink('link-2', 'google', 'link-0');">google</a></tt><tt class="py-op">.</tt><tt class="py-name">appengine</tt><tt class="py-op">.</tt><tt class="py-name">ext</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name"><a title="pyamf.remoting.gateway.google.webapp" class="py-name" href="#" onclick="return doclink('link-3', 'webapp', 'link-1');">webapp</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package pyamf=pyamf-module.html"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-4', 'pyamf', 'link-4');">pyamf</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Package pyamf.remoting=pyamf.remoting-module.html"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-5', 'remoting', 'link-5');">remoting</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-6', 'pyamf', 'link-4');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-7', 'remoting', 'link-5');">remoting</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Package pyamf.remoting.gateway=pyamf.remoting.gateway-module.html"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-8', 'gateway', 'link-8');">gateway</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'WebAppGateway'</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway"></a><div id="WebAppGateway-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="WebAppGateway-toggle" onclick="return toggle('WebAppGateway');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html">WebAppGateway</a><tt class="py-op">(</tt><tt class="py-base-class">webapp</tt><tt class="py-op">.</tt><tt class="py-base-class">RequestHandler</tt><tt class="py-op">,</tt> <tt class="py-base-class">gateway</tt><tt class="py-op">.</tt><tt class="py-base-class">BaseGateway</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="WebAppGateway-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    Google App Engine Remoting Gateway.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable pyamf.remoting.gateway.google.WebAppGateway.__name__=pyamf.remoting.gateway.google.WebAppGateway-class.html#__name__,Variable twisted.web.resource.IResource.__name__=twisted.web.resource.IResource-class.html#__name__"><a title="pyamf.remoting.gateway.google.WebAppGateway.__name__
+twisted.web.resource.IResource.__name__" class="py-name" href="#" onclick="return doclink('link-9', '__name__', 'link-9');">__name__</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway.__init__"></a><div id="WebAppGateway.__init__-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="WebAppGateway.__init__-toggle" onclick="return toggle('WebAppGateway.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WebAppGateway.__init__-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt id="link-10" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-10', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Class pyamf.remoting.gateway.BaseGateway=pyamf.remoting.gateway.BaseGateway-class.html"><a title="pyamf.remoting.gateway.BaseGateway" class="py-name" href="#" onclick="return doclink('link-11', 'BaseGateway', 'link-11');">BaseGateway</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method cpyamf.util.BufferedByteStream.__init__()=cpyamf.util.BufferedByteStream-class.html#__init__,Method pyamf.ASObject.__init__()=pyamf.ASObject-class.html#__init__,Method pyamf.BaseContext.__init__()=pyamf.BaseContext-class.html#__init__,Method pyamf.BaseDecoder.__init__()=pyamf.BaseDecoder-class.html#__init__,Method pyamf.BaseEncoder.__init__()=pyamf.BaseEncoder-class.html#__init__,Method pyamf.ClassAlias.__init__()=pyamf.ClassAlias-class.html#__init__,Method pyamf.CustomTypeFunc.__init__()=pyamf.CustomTypeFunc-class.html#__init__,Method pyamf.TypedObject.__init__()=pyamf.TypedObject-class.html#__init__,Method pyamf.TypedObjectClassAlias.__init__()=pyamf.TypedObjectClassAlias-class.html#__init__,Method pyamf.adapters.PackageImporter.__init__()=pyamf.adapters.PackageImporter-class.html#__init__,Method pyamf.adapters._google_appengine_ext_db.ModelStub.__init__()=pyamf.adapters._google_appengine_ext_db.ModelStub-class.html#__init__,Method pyamf.amf0.Context.__init__()=pyamf.amf0.Context-class.html#__init__,Method pyamf.amf0.Encoder.__init__()=pyamf.amf0.Encoder-class.html#__init__,Method pyamf.amf0.RecordSet.__init__()=pyamf.amf0.RecordSet-class.html#__init__,Method pyamf.amf3.ByteArray.__init__()=pyamf.amf3.ByteArray-class.html#__init__,Method pyamf.amf3.ClassDefinition.__init__()=pyamf.amf3.ClassDefinition-class.html#__init__,Method pyamf.amf3.Context.__init__()=pyamf.amf3.Context-class.html#__init__,Method pyamf.amf3.DataInput.__init__()=pyamf.amf3.DataInput-class.html#__init__,Method pyamf.amf3.DataOutput.__init__()=pyamf.amf3.DataOutput-class.html#__init__,Method pyamf.amf3.Decoder.__init__()=pyamf.amf3.Decoder-class.html#__init__,Method pyamf.amf3.Encoder.__init__()=pyamf.amf3.Encoder-class.html#__init__,Method pyamf.flex.ArrayCollection.__init__()=pyamf.flex.ArrayCollection-class.html#__init__,Method pyamf.flex.ObjectProxy.__init__()=pyamf.flex.ObjectProxy-class.html#__init__,Method pyamf.flex.data.DataErrorMessage.__init__()=pyamf.flex.data.DataErrorMessage-class.html#__init__,Method pyamf.flex.data.DataMessage.__init__()=pyamf.flex.data.DataMessage-class.html#__init__,Method pyamf.flex.data.PagedMessage.__init__()=pyamf.flex.data.PagedMessage-class.html#__init__,Method pyamf.flex.data.SequencedMessage.__init__()=pyamf.flex.data.SequencedMessage-class.html#__init__,Method pyamf.flex.messaging.AbstractMessage.__init__()=pyamf.flex.messaging.AbstractMessage-class.html#__init__,Method pyamf.flex.messaging.AsyncMessage.__init__()=pyamf.flex.messaging.AsyncMessage-class.html#__init__,Method pyamf.flex.messaging.CommandMessage.__init__()=pyamf.flex.messaging.CommandMessage-class.html#__init__,Method pyamf.flex.messaging.ErrorMessage.__init__()=pyamf.flex.messaging.ErrorMessage-class.html#__init__,Method pyamf.flex.messaging.RemotingMessage.__init__()=pyamf.flex.messaging.RemotingMessage-class.html#__init__,Method pyamf.remoting.BaseFault.__init__()=pyamf.remoting.BaseFault-class.html#__init__,Method pyamf.remoting.Envelope.__init__()=pyamf.remoting.Envelope-class.html#__init__,Method pyamf.remoting.HeaderCollection.__init__()=pyamf.remoting.HeaderCollection-class.html#__init__,Method pyamf.remoting.Message.__init__()=pyamf.remoting.Message-class.html#__init__,Method pyamf.remoting.Request.__init__()=pyamf.remoting.Request-class.html#__init__,Method pyamf.remoting.Response.__init__()=pyamf.remoting.Response-class.html#__init__,Method pyamf.remoting.amf0.RequestProcessor.__init__()=pyamf.remoting.amf0.RequestProcessor-class.html#__init__,Method pyamf.remoting.amf3.RequestProcessor.__init__()=pyamf.remoting.amf3.RequestProcessor-class.html#__init__,Method pyamf.remoting.client.RemotingService.__init__()=pyamf.remoting.client.RemotingService-class.html#__init__,Method pyamf.remoting.client.RequestWrapper.__init__()=pyamf.remoting.client.RequestWrapper-class.html#__init__,Method pyamf.remoting.client.ServiceMethodProxy.__init__()=pyamf.remoting.client.ServiceMethodProxy-class.html#__init__,Method pyamf.remoting.client.ServiceProxy.__init__()=pyamf.remoting.client.ServiceProxy-class.html#__init__,Method pyamf.remoting.gateway.BaseGateway.__init__()=pyamf.remoting.gateway.BaseGateway-class.html#__init__,Method pyamf.remoting.gateway.ServiceRequest.__init__()=pyamf.remoting.gateway.ServiceRequest-class.html#__init__,Method pyamf.remoting.gateway.ServiceWrapper.__init__()=pyamf.remoting.gateway.ServiceWrapper-class.html#__init__,Method pyamf.remoting.gateway.django.DjangoGateway.__init__()=pyamf.remoting.gateway.django.DjangoGateway-class.html#__init__,Method pyamf.remoting.gateway.google.WebAppGateway.__init__()=pyamf.remoting.gateway.google.WebAppGateway-class.html#__init__,Method pyamf.remoting.gateway.twisted.TwistedGateway.__init__()=pyamf.remoting.gateway.twisted.TwistedGateway-class.html#__init__,Method pyamf.sol.SOL.__init__()=pyamf.sol.SOL-class.html#__init__,Method pyamf.util.IndexedCollection.__init__()=pyamf.util.IndexedCollection-class.html#__init__,Method pyamf.util.IndexedMap.__init__()=pyamf.util.IndexedMap-class.html#__init__,Method pyamf.util.StringIOProxy.__init__()=pyamf.util.StringIOProxy-class.html#__init__"><a title="cpyamf.util.BufferedByteStream.__init__
+pyamf.ASObject.__init__
+pyamf.BaseContext.__init__
+pyamf.BaseDecoder.__init__
+pyamf.BaseEncoder.__init__
+pyamf.ClassAlias.__init__
+pyamf.CustomTypeFunc.__init__
+pyamf.TypedObject.__init__
+pyamf.TypedObjectClassAlias.__init__
+pyamf.adapters.PackageImporter.__init__
+pyamf.adapters._google_appengine_ext_db.ModelStub.__init__
+pyamf.amf0.Context.__init__
+pyamf.amf0.Encoder.__init__
+pyamf.amf0.RecordSet.__init__
+pyamf.amf3.ByteArray.__init__
+pyamf.amf3.ClassDefinition.__init__
+pyamf.amf3.Context.__init__
+pyamf.amf3.DataInput.__init__
+pyamf.amf3.DataOutput.__init__
+pyamf.amf3.Decoder.__init__
+pyamf.amf3.Encoder.__init__
+pyamf.flex.ArrayCollection.__init__
+pyamf.flex.ObjectProxy.__init__
+pyamf.flex.data.DataErrorMessage.__init__
+pyamf.flex.data.DataMessage.__init__
+pyamf.flex.data.PagedMessage.__init__
+pyamf.flex.data.SequencedMessage.__init__
+pyamf.flex.messaging.AbstractMessage.__init__
+pyamf.flex.messaging.AsyncMessage.__init__
+pyamf.flex.messaging.CommandMessage.__init__
+pyamf.flex.messaging.ErrorMessage.__init__
+pyamf.flex.messaging.RemotingMessage.__init__
+pyamf.remoting.BaseFault.__init__
+pyamf.remoting.Envelope.__init__
+pyamf.remoting.HeaderCollection.__init__
+pyamf.remoting.Message.__init__
+pyamf.remoting.Request.__init__
+pyamf.remoting.Response.__init__
+pyamf.remoting.amf0.RequestProcessor.__init__
+pyamf.remoting.amf3.RequestProcessor.__init__
+pyamf.remoting.client.RemotingService.__init__
+pyamf.remoting.client.RequestWrapper.__init__
+pyamf.remoting.client.ServiceMethodProxy.__init__
+pyamf.remoting.client.ServiceProxy.__init__
+pyamf.remoting.gateway.BaseGateway.__init__
+pyamf.remoting.gateway.ServiceRequest.__init__
+pyamf.remoting.gateway.ServiceWrapper.__init__
+pyamf.remoting.gateway.django.DjangoGateway.__init__
+pyamf.remoting.gateway.google.WebAppGateway.__init__
+pyamf.remoting.gateway.twisted.TwistedGateway.__init__
+pyamf.sol.SOL.__init__
+pyamf.util.IndexedCollection.__init__
+pyamf.util.IndexedMap.__init__
+pyamf.util.StringIOProxy.__init__" class="py-name" href="#" onclick="return doclink('link-12', '__init__', 'link-12');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway.getResponse"></a><div id="WebAppGateway.getResponse-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="WebAppGateway.getResponse-toggle" onclick="return toggle('WebAppGateway.getResponse');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html#getResponse">getResponse</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">request</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway.getResponse-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WebAppGateway.getResponse-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">        Processes the AMF request, returning an AMF response.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        @param request: The AMF Request.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">        @type request: L{Envelope&lt;pyamf.remoting.Envelope&gt;}</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype: L{Envelope&lt;pyamf.remoting.Envelope&gt;}</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">        @return: The AMF Response.</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-13', 'remoting', 'link-5');">remoting</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Class pyamf.remoting.Envelope=pyamf.remoting.Envelope-class.html"><a title="pyamf.remoting.Envelope" class="py-name" href="#" onclick="return doclink('link-14', 'Envelope', 'link-14');">Envelope</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">amfVersion</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">clientType</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">name</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt> <tt class="py-keyword">in</tt> <tt class="py-name">request</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">amf_request</tt> <tt class="py-op">=</tt> <tt class="py-name">message</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-name">processor</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method pyamf.remoting.gateway.BaseGateway.getProcessor()=pyamf.remoting.gateway.BaseGateway-class.html#getProcessor,Method pyamf.remoting.gateway.twisted.TwistedGateway.getProcessor()=pyamf.remoting.gateway.twisted.TwistedGateway-class.html#getProcessor"><a title="pyamf.remoting.gateway.BaseGateway.getProcessor
+pyamf.remoting.gateway.twisted.TwistedGateway.getProcessor" class="py-name" href="#" onclick="return doclink('link-15', 'getProcessor', 'link-15');">getProcessor</a></tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">response</tt><tt class="py-op">[</tt><tt class="py-name">name</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">processor</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">,</tt> <tt class="py-name">http_request</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">request</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">response</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway.get"></a><div id="WebAppGateway.get-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="WebAppGateway.get-toggle" onclick="return toggle('WebAppGateway.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WebAppGateway.get-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable pyamf.remoting.Message.headers=pyamf.remoting.Message-class.html#headers"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-16', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'text/plain'</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-17', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Server'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-18', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable pyamf.remoting.gateway.SERVER_NAME=pyamf.remoting.gateway-module.html#SERVER_NAME"><a title="pyamf.remoting.gateway.SERVER_NAME" class="py-name" href="#" onclick="return doclink('link-19', 'SERVER_NAME', 'link-19');">SERVER_NAME</a></tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-number">405</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method cpyamf.util.BufferedByteStream.write()=cpyamf.util.BufferedByteStream-class.html#write"><a title="cpyamf.util.BufferedByteStream.write" class="py-name" href="#" onclick="return doclink('link-20', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"405 Method Not Allowed\n\n"</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-string">"To access this PyAMF gateway you must use POST requests "</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-string">"(%s received)"</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">method</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway.post"></a><div id="WebAppGateway.post-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="WebAppGateway.post-toggle" onclick="return toggle('WebAppGateway.post');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html#post">post</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway.post-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WebAppGateway.post-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">body</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">body_file</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method cpyamf.util.BufferedByteStream.read()=cpyamf.util.BufferedByteStream-class.html#read"><a title="cpyamf.util.BufferedByteStream.read" class="py-name" href="#" onclick="return doclink('link-21', 'read', 'link-21');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">stream</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">timezone_offset</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method pyamf.remoting.gateway.BaseGateway._get_timezone_offset()=pyamf.remoting.gateway.BaseGateway-class.html#_get_timezone_offset"><a title="pyamf.remoting.gateway.BaseGateway._get_timezone_offset" class="py-name" href="#" onclick="return doclink('link-22', '_get_timezone_offset', 'link-22');">_get_timezone_offset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-comment"># Decode the request</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-name">request</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-23', 'remoting', 'link-5');">remoting</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Function pyamf.amf0.decode()=pyamf.amf0-module.html#decode,Function pyamf.amf3.decode()=pyamf.amf3-module.html#decode,Function pyamf.decode()=pyamf-module.html#decode,Function pyamf.remoting.decode()=pyamf.remoting-module.html#decode,Function pyamf.sol.decode()=pyamf.sol-module.html#decode"><a title="pyamf.amf0.decode
+pyamf.amf3.decode
+pyamf.decode
+pyamf.remoting.decode
+pyamf.sol.decode" class="py-name" href="#" onclick="return doclink('link-24', 'decode', 'link-24');">decode</a></tt><tt class="py-op">(</tt><tt class="py-name">body</tt><tt class="py-op">,</tt> <tt class="py-name">strict</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">strict</tt><tt class="py-op">,</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">logger</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">,</tt> <tt class="py-name">timezone_offset</tt><tt class="py-op">=</tt><tt class="py-name">timezone_offset</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">KeyboardInterrupt</tt><tt class="py-op">,</tt> <tt class="py-name">SystemExit</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">fe</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-25', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Function pyamf.remoting.gateway.format_exception()=pyamf.remoting.gateway-module.html#format_exception"><a title="pyamf.remoting.gateway.format_exception" class="py-name" href="#" onclick="return doclink('link-26', 'format_exception', 'link-26');">format_exception</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">exception</tt><tt class="py-op">(</tt><tt class="py-name">fe</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"400 Bad Request\n\nThe request body was unable to "</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-string">"be successfully decoded."</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt class="py-name">response</tt> <tt class="py-op">+=</tt> <tt class="py-string">"\n\nTraceback:\n\n%s"</tt> <tt class="py-op">%</tt> <tt class="py-name">fe</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-number">400</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-27', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'text/plain'</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-28', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Server'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-29', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="pyamf.remoting.gateway.SERVER_NAME" class="py-name" href="#" onclick="return doclink('link-30', 'SERVER_NAME', 'link-19');">SERVER_NAME</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="cpyamf.util.BufferedByteStream.write" class="py-name" href="#" onclick="return doclink('link-31', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-string">"AMF Request: %r"</tt> <tt class="py-op">%</tt> <tt class="py-name">request</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-comment"># Process the request</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method pyamf.remoting.gateway.BaseGateway.getResponse()=pyamf.remoting.gateway.BaseGateway-class.html#getResponse,Method pyamf.remoting.gateway.django.DjangoGateway.getResponse()=pyamf.remoting.gateway.django.DjangoGateway-class.html#getResponse,Method pyamf.remoting.gateway.google.WebAppGateway.getResponse()=pyamf.remoting.gateway.google.WebAppGateway-class.html#getResponse,Method pyamf.remoting.gateway.twisted.TwistedGateway.getResponse()=pyamf.remoting.gateway.twisted.TwistedGateway-class.html#getResponse,Method pyamf.remoting.gateway.wsgi.WSGIGateway.getResponse()=pyamf.remoting.gateway.wsgi.WSGIGateway-class.html#getResponse"><a title="pyamf.remoting.gateway.BaseGateway.getResponse
+pyamf.remoting.gateway.django.DjangoGateway.getResponse
+pyamf.remoting.gateway.google.WebAppGateway.getResponse
+pyamf.remoting.gateway.twisted.TwistedGateway.getResponse
+pyamf.remoting.gateway.wsgi.WSGIGateway.getResponse" class="py-name" href="#" onclick="return doclink('link-32', 'getResponse', 'link-32');">getResponse</a></tt><tt class="py-op">(</tt><tt class="py-name">request</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">KeyboardInterrupt</tt><tt class="py-op">,</tt> <tt class="py-name">SystemExit</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">            <tt class="py-name">fe</tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-33', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="pyamf.remoting.gateway.format_exception" class="py-name" href="#" onclick="return doclink('link-34', 'format_exception', 'link-26');">format_exception</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">exception</tt><tt class="py-op">(</tt><tt class="py-name">fe</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-string">"500 Internal Server Error\n\nThe request was "</tt> \ </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-string">"unable to be successfully processed."</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-name">response</tt> <tt class="py-op">+=</tt> <tt class="py-string">"\n\nTraceback:\n\n%s"</tt> <tt class="py-op">%</tt> <tt class="py-name">fe</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-number">500</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-35', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'text/plain'</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-36', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Server'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-37', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="pyamf.remoting.gateway.SERVER_NAME" class="py-name" href="#" onclick="return doclink('link-38', 'SERVER_NAME', 'link-19');">SERVER_NAME</a></tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="cpyamf.util.BufferedByteStream.write" class="py-name" href="#" onclick="return doclink('link-39', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-string">"AMF Response: %r"</tt> <tt class="py-op">%</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-comment"># Encode the response</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-name">stream</tt> <tt class="py-op">=</tt> <tt id="link-40" class="py-name"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-40', 'remoting', 'link-5');">remoting</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Function pyamf.amf0.encode()=pyamf.amf0-module.html#encode,Function pyamf.amf3.encode()=pyamf.amf3-module.html#encode,Function pyamf.encode()=pyamf-module.html#encode,Function pyamf.remoting.encode()=pyamf.remoting-module.html#encode,Function pyamf.sol.encode()=pyamf.sol-module.html#encode"><a title="pyamf.amf0.encode
+pyamf.amf3.encode
+pyamf.encode
+pyamf.remoting.encode
+pyamf.sol.encode" class="py-name" href="#" onclick="return doclink('link-41', 'encode', 'link-41');">encode</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">,</tt> <tt class="py-name">strict</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">strict</tt><tt class="py-op">,</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                <tt class="py-name">logger</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">,</tt> <tt class="py-name">timezone_offset</tt><tt class="py-op">=</tt><tt class="py-name">timezone_offset</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-name">fe</tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-42', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="pyamf.remoting.gateway.format_exception" class="py-name" href="#" onclick="return doclink('link-43', 'format_exception', 'link-26');">format_exception</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">logger</tt><tt class="py-op">.</tt><tt class="py-name">exception</tt><tt class="py-op">(</tt><tt class="py-name">fe</tt><tt class="py-op">)</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-string">"500 Internal Server Error\n\nThe request was "</tt> \ </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                <tt class="py-string">"unable to be encoded."</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-name">response</tt> <tt class="py-op">+=</tt> <tt class="py-string">"\n\nTraceback:\n\n%s"</tt> <tt class="py-op">%</tt> <tt class="py-name">fe</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">error</tt><tt class="py-op">(</tt><tt class="py-number">500</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-44', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'text/plain'</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-45', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Server'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-46', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="pyamf.remoting.gateway.SERVER_NAME" class="py-name" href="#" onclick="return doclink('link-47', 'SERVER_NAME', 'link-19');">SERVER_NAME</a></tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="cpyamf.util.BufferedByteStream.write" class="py-name" href="#" onclick="return doclink('link-48', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt class="py-name">stream</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method cpyamf.util.BufferedByteStream.getvalue()=cpyamf.util.BufferedByteStream-class.html#getvalue"><a title="cpyamf.util.BufferedByteStream.getvalue" class="py-name" href="#" onclick="return doclink('link-49', 'getvalue', 'link-49');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-50', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-51" class="py-name"><a title="pyamf.remoting" class="py-name" href="#" onclick="return doclink('link-51', 'remoting', 'link-5');">remoting</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Variable pyamf.remoting.CONTENT_TYPE=pyamf.remoting-module.html#CONTENT_TYPE"><a title="pyamf.remoting.CONTENT_TYPE" class="py-name" href="#" onclick="return doclink('link-52', 'CONTENT_TYPE', 'link-52');">CONTENT_TYPE</a></tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-53', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Content-Length'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-54', 'headers', 'link-16');">headers</a></tt><tt class="py-op">[</tt><tt class="py-string">'Server'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="pyamf.remoting.gateway" class="py-name" href="#" onclick="return doclink('link-55', 'gateway', 'link-8');">gateway</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="pyamf.remoting.gateway.SERVER_NAME" class="py-name" href="#" onclick="return doclink('link-56', 'SERVER_NAME', 'link-19');">SERVER_NAME</a></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="cpyamf.util.BufferedByteStream.write" class="py-name" href="#" onclick="return doclink('link-57', 'write', 'link-20');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"> </tt>
+<a name="WebAppGateway.__call__"></a><div id="WebAppGateway.__call__-def"><a name="L162"></a><tt class="py-lineno">162</tt> <a class="py-toggle" href="#" id="WebAppGateway.__call__-toggle" onclick="return toggle('WebAppGateway.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.remoting.gateway.google.WebAppGateway-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WebAppGateway.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WebAppGateway.__call__-expanded"><a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt> </tt>
+</div></div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:52 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

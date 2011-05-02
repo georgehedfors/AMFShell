@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.flex.messaging</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.flex-module.html">Package&nbsp;flex</a> ::
+        Module&nbsp;messaging
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.flex.messaging-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyamf.flex.messaging-module.html">Module pyamf.flex.messaging</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2009 The PyAMF Project.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-comment"># See LICENSE.txt for details.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Flex Messaging implementation.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">This module contains the message classes used with Flex Data Services.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">@see: U{RemoteObject on OSFlash (external)</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">&lt;http://osflash.org/documentation/amf3#remoteobject&gt;}</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">@since: 0.1</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">uuid</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package pyamf=pyamf-module.html"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-0', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module cpyamf.util=cpyamf.util-module.html,Module pyamf.adapters.util=pyamf.adapters.util-module.html,Package pyamf.util=pyamf.util-module.html"><a title="cpyamf.util
+pyamf.adapters.util
+pyamf.util" class="py-name" href="#" onclick="return doclink('link-1', 'util', 'link-1');">util</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-2', 'pyamf', 'link-0');">pyamf</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module cpyamf.amf3=cpyamf.amf3-module.html,Module pyamf.amf3=pyamf.amf3-module.html,Variable pyamf.amf3.ByteArray.__amf__.amf3=pyamf.amf3.ByteArray.__amf__-class.html#amf3,Variable pyamf.flex.ArrayCollection.__amf__.amf3=pyamf.flex.ArrayCollection.__amf__-class.html#amf3,Variable pyamf.flex.ObjectProxy.__amf__.amf3=pyamf.flex.ObjectProxy.__amf__-class.html#amf3,Variable pyamf.flex.messaging.AbstractMessage.__amf__.amf3=pyamf.flex.messaging.AbstractMessage.__amf__-class.html#amf3,Module pyamf.remoting.amf3=pyamf.remoting.amf3-module.html"><a title="cpyamf.amf3
+pyamf.amf3
+pyamf.amf3.ByteArray.__amf__.amf3
+pyamf.flex.ArrayCollection.__amf__.amf3
+pyamf.flex.ObjectProxy.__amf__.amf3
+pyamf.flex.messaging.AbstractMessage.__amf__.amf3
+pyamf.remoting.amf3" class="py-name" href="#" onclick="return doclink('link-3', 'amf3', 'link-3');">amf3</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt class="py-string">'RemotingMessage'</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-string">'CommandMessage'</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-string">'AcknowledgeMessage'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-string">'ErrorMessage'</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-op">]</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable pyamf.flex.messaging.NAMESPACE=pyamf.flex.messaging-module.html#NAMESPACE"><a title="pyamf.flex.messaging.NAMESPACE" class="py-name" href="#" onclick="return doclink('link-4', 'NAMESPACE', 'link-4');">NAMESPACE</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'flex.messaging.messages'</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable pyamf.flex.messaging.SMALL_FLAG_MORE=pyamf.flex.messaging-module.html#SMALL_FLAG_MORE"><a title="pyamf.flex.messaging.SMALL_FLAG_MORE" class="py-name" href="#" onclick="return doclink('link-5', 'SMALL_FLAG_MORE', 'link-5');">SMALL_FLAG_MORE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0x80</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage"></a><div id="AbstractMessage-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="AbstractMessage-toggle" onclick="return toggle('AbstractMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html">AbstractMessage</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AbstractMessage-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    Abstract base class for all Flex messages.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    Messages have two customizable sections; headers and data. The headers</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    property provides access to specialized meta information for a specific</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">    message instance. The data property contains the instance specific data</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    that needs to be delivered and processed by the decoder.</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{AbstractMessage on Livedocs (external)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/AbstractMessage.html&gt;}</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar body: Specific data that needs to be delivered to the remote</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        destination.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    @type body: C{mixed}</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar clientId: Indicates which client sent the message.</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    @type clientId: C{str}</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar destination: Message destination.</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    @type destination: C{str}</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar headers: Message headers. Core header names start with DS.</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    @type headers: C{dict}</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar messageId: Unique Message ID.</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    @type messageId: C{str}</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar timeToLive: How long the message should be considered valid and</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">        deliverable.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    @type timeToLive: C{int}</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar timestamp: Timestamp when the message was generated.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    @type timestamp: C{int}</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.__amf__"></a><div id="AbstractMessage.__amf__-def"><a name="L63"></a><tt class="py-lineno"> 63</tt> <a class="py-toggle" href="#" id="AbstractMessage.__amf__-toggle" onclick="return toggle('AbstractMessage.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.__amf__-expanded"><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt id="link-6" class="py-name"><a title="cpyamf.amf3
+pyamf.amf3
+pyamf.amf3.ByteArray.__amf__.amf3
+pyamf.flex.ArrayCollection.__amf__.amf3
+pyamf.flex.ObjectProxy.__amf__.amf3
+pyamf.flex.messaging.AbstractMessage.__amf__.amf3
+pyamf.remoting.amf3" class="py-name" href="#" onclick="return doclink('link-6', 'amf3', 'link-3');">amf3</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt id="link-7" class="py-name" targets="Variable pyamf.amf0.RecordSet.__amf__.static=pyamf.amf0.RecordSet.__amf__-class.html#static,Variable pyamf.flex.messaging.AbstractMessage.__amf__.static=pyamf.flex.messaging.AbstractMessage.__amf__-class.html#static,Variable pyamf.flex.messaging.AsyncMessage.__amf__.static=pyamf.flex.messaging.AsyncMessage.__amf__-class.html#static,Variable pyamf.flex.messaging.CommandMessage.__amf__.static=pyamf.flex.messaging.CommandMessage.__amf__-class.html#static,Variable pyamf.flex.messaging.ErrorMessage.__amf__.static=pyamf.flex.messaging.ErrorMessage.__amf__-class.html#static,Variable pyamf.flex.messaging.RemotingMessage.__amf__.static=pyamf.flex.messaging.RemotingMessage.__amf__-class.html#static,Variable pyamf.remoting.BaseFault.__amf__.static=pyamf.remoting.BaseFault.__amf__-class.html#static"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-7', 'static', 'link-7');">static</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'body'</tt><tt class="py-op">,</tt> <tt class="py-string">'clientId'</tt><tt class="py-op">,</tt> <tt class="py-string">'destination'</tt><tt class="py-op">,</tt> <tt class="py-string">'headers'</tt><tt class="py-op">,</tt> <tt class="py-string">'messageId'</tt><tt class="py-op">,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-string">'timestamp'</tt><tt class="py-op">,</tt> <tt class="py-string">'timeToLive'</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable pyamf.ASObject.__amf__.dynamic=pyamf.ASObject.__amf__-class.html#dynamic,Variable pyamf.amf0.RecordSet.__amf__.dynamic=pyamf.amf0.RecordSet.__amf__-class.html#dynamic,Variable pyamf.flex.messaging.AbstractMessage.__amf__.dynamic=pyamf.flex.messaging.AbstractMessage.__amf__-class.html#dynamic"><a title="pyamf.ASObject.__amf__.dynamic
+pyamf.amf0.RecordSet.__amf__.dynamic
+pyamf.flex.messaging.AbstractMessage.__amf__.dynamic" class="py-name" href="#" onclick="return doclink('link-8', 'dynamic', 'link-8');">dynamic</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-comment">#: Each message pushed from the server will contain this header identifying</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: the client that will receive the message.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-9" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.DESTINATION_CLIENT_ID_HEADER=pyamf.flex.messaging.AbstractMessage-class.html#DESTINATION_CLIENT_ID_HEADER"><a title="pyamf.flex.messaging.AbstractMessage.DESTINATION_CLIENT_ID_HEADER" class="py-name" href="#" onclick="return doclink('link-9', 'DESTINATION_CLIENT_ID_HEADER', 'link-9');">DESTINATION_CLIENT_ID_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSDstClientId"</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-comment">#: Messages are tagged with the endpoint id for the channel they are sent</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: over.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-10" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.ENDPOINT_HEADER=pyamf.flex.messaging.AbstractMessage-class.html#ENDPOINT_HEADER"><a title="pyamf.flex.messaging.AbstractMessage.ENDPOINT_HEADER" class="py-name" href="#" onclick="return doclink('link-10', 'ENDPOINT_HEADER', 'link-10');">ENDPOINT_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSEndpoint"</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-comment">#: Messages that need to set remote credentials for a destination carry the</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: C{Base64} encoded credentials in this header.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-11" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.REMOTE_CREDENTIALS_HEADER=pyamf.flex.messaging.AbstractMessage-class.html#REMOTE_CREDENTIALS_HEADER"><a title="pyamf.flex.messaging.AbstractMessage.REMOTE_CREDENTIALS_HEADER" class="py-name" href="#" onclick="return doclink('link-11', 'REMOTE_CREDENTIALS_HEADER', 'link-11');">REMOTE_CREDENTIALS_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSRemoteCredentials"</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-comment">#: The request timeout value is set on outbound messages by services or</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: channels and the value controls how long the responder will wait for an</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: acknowledgement, result or fault response for the message before timing</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: out the request.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-12" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.REQUEST_TIMEOUT_HEADER=pyamf.flex.messaging.AbstractMessage-class.html#REQUEST_TIMEOUT_HEADER"><a title="pyamf.flex.messaging.AbstractMessage.REQUEST_TIMEOUT_HEADER" class="py-name" href="#" onclick="return doclink('link-12', 'REQUEST_TIMEOUT_HEADER', 'link-12');">REQUEST_TIMEOUT_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSRequestTimeout"</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS=pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTE_FLAGS"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" class="py-name" href="#" onclick="return doclink('link-13', 'SMALL_ATTRIBUTE_FLAGS', 'link-13');">SMALL_ATTRIBUTE_FLAGS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-number">0x01</tt><tt class="py-op">,</tt> <tt class="py-number">0x02</tt><tt class="py-op">,</tt> <tt class="py-number">0x04</tt><tt class="py-op">,</tt> <tt class="py-number">0x08</tt><tt class="py-op">,</tt> <tt class="py-number">0x10</tt><tt class="py-op">,</tt> <tt class="py-number">0x20</tt><tt class="py-op">,</tt> <tt class="py-number">0x40</tt><tt class="py-op">]</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES=pyamf.flex.messaging.AbstractMessage-class.html#SMALL_ATTRIBUTES"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES" class="py-name" href="#" onclick="return doclink('link-14', 'SMALL_ATTRIBUTES', 'link-14');">SMALL_ATTRIBUTES</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" class="py-name" href="#" onclick="return doclink('link-15', 'SMALL_ATTRIBUTE_FLAGS', 'link-13');">SMALL_ATTRIBUTE_FLAGS</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt id="link-16" class="py-name" targets="Class pyamf.ASObject.__amf__=pyamf.ASObject.__amf__-class.html,Class pyamf.amf0.RecordSet.__amf__=pyamf.amf0.RecordSet.__amf__-class.html,Class pyamf.amf3.ByteArray.__amf__=pyamf.amf3.ByteArray.__amf__-class.html,Class pyamf.flex.ArrayCollection.__amf__=pyamf.flex.ArrayCollection.__amf__-class.html,Class pyamf.flex.ObjectProxy.__amf__=pyamf.flex.ObjectProxy.__amf__-class.html,Class pyamf.flex.messaging.AbstractMessage.__amf__=pyamf.flex.messaging.AbstractMessage.__amf__-class.html,Class pyamf.flex.messaging.AcknowledgeMessageExt.__amf__=pyamf.flex.messaging.AcknowledgeMessageExt.__amf__-class.html,Class pyamf.flex.messaging.AsyncMessage.__amf__=pyamf.flex.messaging.AsyncMessage.__amf__-class.html,Class pyamf.flex.messaging.AsyncMessageExt.__amf__=pyamf.flex.messaging.AsyncMessageExt.__amf__-class.html,Class pyamf.flex.messaging.CommandMessage.__amf__=pyamf.flex.messaging.CommandMessage.__amf__-class.html,Class pyamf.flex.messaging.CommandMessageExt.__amf__=pyamf.flex.messaging.CommandMessageExt.__amf__-class.html,Class pyamf.flex.messaging.ErrorMessage.__amf__=pyamf.flex.messaging.ErrorMessage.__amf__-class.html,Class pyamf.flex.messaging.RemotingMessage.__amf__=pyamf.flex.messaging.RemotingMessage.__amf__-class.html,Class pyamf.remoting.BaseFault.__amf__=pyamf.remoting.BaseFault.__amf__-class.html"><a title="pyamf.ASObject.__amf__
+pyamf.amf0.RecordSet.__amf__
+pyamf.amf3.ByteArray.__amf__
+pyamf.flex.ArrayCollection.__amf__
+pyamf.flex.ObjectProxy.__amf__
+pyamf.flex.messaging.AbstractMessage.__amf__
+pyamf.flex.messaging.AcknowledgeMessageExt.__amf__
+pyamf.flex.messaging.AsyncMessage.__amf__
+pyamf.flex.messaging.AsyncMessageExt.__amf__
+pyamf.flex.messaging.CommandMessage.__amf__
+pyamf.flex.messaging.CommandMessageExt.__amf__
+pyamf.flex.messaging.ErrorMessage.__amf__
+pyamf.flex.messaging.RemotingMessage.__amf__
+pyamf.remoting.BaseFault.__amf__" class="py-name" href="#" onclick="return doclink('link-16', '__amf__', 'link-16');">__amf__</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-17', 'static', 'link-7');">static</a></tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt id="link-18" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS=pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUID_FLAGS"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" class="py-name" href="#" onclick="return doclink('link-18', 'SMALL_UUID_FLAGS', 'link-18');">SMALL_UUID_FLAGS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-number">0x01</tt><tt class="py-op">,</tt> <tt class="py-number">0x02</tt><tt class="py-op">]</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt id="link-19" class="py-name" targets="Variable pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS=pyamf.flex.messaging.AbstractMessage-class.html#SMALL_UUIDS"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS" class="py-name" href="#" onclick="return doclink('link-19', 'SMALL_UUIDS', 'link-19');">SMALL_UUIDS</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" class="py-name" href="#" onclick="return doclink('link-20', 'SMALL_UUID_FLAGS', 'link-18');">SMALL_UUID_FLAGS</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-op">[</tt><tt class="py-string">'clientId'</tt><tt class="py-op">,</tt> <tt class="py-string">'messageId'</tt><tt class="py-op">]</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.__init__"></a><div id="AbstractMessage.__init__-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="AbstractMessage.__init__-toggle" onclick="return toggle('AbstractMessage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.__init__-expanded"><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">body</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method pyamf.remoting.gateway.google.WebAppGateway.get()=pyamf.remoting.gateway.google.WebAppGateway-class.html#get"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-21', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'body'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">clientId</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-22', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'clientId'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">destination</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-23', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'destination'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable pyamf.remoting.Message.headers=pyamf.remoting.Message-class.html#headers"><a title="pyamf.remoting.Message.headers" class="py-name" href="#" onclick="return doclink('link-24', 'headers', 'link-24');">headers</a></tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-25', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'headers'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">messageId</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-26', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'messageId'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">timestamp</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-27', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'timestamp'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">timeToLive</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-28', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'timeToLive'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.__repr__"></a><div id="AbstractMessage.__repr__-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="AbstractMessage.__repr__-toggle" onclick="return toggle('AbstractMessage.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.__repr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.__repr__-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-string">'&lt;%s '</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Variable pyamf.remoting.gateway.google.WebAppGateway.__name__=pyamf.remoting.gateway.google.WebAppGateway-class.html#__name__,Variable twisted.web.resource.IResource.__name__=twisted.web.resource.IResource-class.html#__name__"><a title="pyamf.remoting.gateway.google.WebAppGateway.__name__
+twisted.web.resource.IResource.__name__" class="py-name" href="#" onclick="return doclink('link-29', '__name__', 'link-29');">__name__</a></tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt class="py-name">m</tt> <tt class="py-op">+=</tt> <tt class="py-string">' %s=%r'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">k</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">m</tt> <tt class="py-op">+</tt> <tt class="py-string">" /&gt;"</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.decodeSmallAttribute"></a><div id="AbstractMessage.decodeSmallAttribute-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="AbstractMessage.decodeSmallAttribute-toggle" onclick="return toggle('AbstractMessage.decodeSmallAttribute');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#decodeSmallAttribute">decodeSmallAttribute</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">attr</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.decodeSmallAttribute-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.decodeSmallAttribute-expanded"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method pyamf.amf0.Decoder.readObject()=pyamf.amf0.Decoder-class.html#readObject,Method pyamf.amf3.DataInput.readObject()=pyamf.amf3.DataInput-class.html#readObject,Method pyamf.amf3.Decoder.readObject()=pyamf.amf3.Decoder-class.html#readObject"><a title="pyamf.amf0.Decoder.readObject
+pyamf.amf3.DataInput.readObject
+pyamf.amf3.Decoder.readObject" class="py-name" href="#" onclick="return doclink('link-30', 'readObject', 'link-30');">readObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'timestamp'</tt><tt class="py-op">,</tt> <tt class="py-string">'timeToLive'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-31" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-31', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="cpyamf.util
+pyamf.adapters.util
+pyamf.util" class="py-name" href="#" onclick="return doclink('link-32', 'util', 'link-1');">util</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Function pyamf.util.get_datetime()=pyamf.util-module.html#get_datetime"><a title="pyamf.util.get_datetime" class="py-name" href="#" onclick="return doclink('link-33', 'get_datetime', 'link-33');">get_datetime</a></tt><tt class="py-op">(</tt><tt class="py-name">obj</tt> <tt class="py-op">/</tt> <tt class="py-number">1000.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">obj</tt> </tt>
+</div><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.encodeSmallAttribute"></a><div id="AbstractMessage.encodeSmallAttribute-def"><a name="L124"></a><tt class="py-lineno">124</tt> <a class="py-toggle" href="#" id="AbstractMessage.encodeSmallAttribute-toggle" onclick="return toggle('AbstractMessage.encodeSmallAttribute');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#encodeSmallAttribute">encodeSmallAttribute</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">attr</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.encodeSmallAttribute-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.encodeSmallAttribute-expanded"><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">obj</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">obj</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'timestamp'</tt><tt class="py-op">,</tt> <tt class="py-string">'timeToLive'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-34" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-34', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="cpyamf.util
+pyamf.adapters.util
+pyamf.util" class="py-name" href="#" onclick="return doclink('link-35', 'util', 'link-1');">util</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Function pyamf.util.get_timestamp()=pyamf.util-module.html#get_timestamp"><a title="pyamf.util.get_timestamp" class="py-name" href="#" onclick="return doclink('link-36', 'get_timestamp', 'link-36');">get_timestamp</a></tt><tt class="py-op">(</tt><tt class="py-name">obj</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-number">1000.0</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'clientId'</tt><tt class="py-op">,</tt> <tt class="py-string">'messageId'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">obj</tt><tt class="py-op">,</tt> <tt class="py-name">uuid</tt><tt class="py-op">.</tt><tt class="py-name">UUID</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">obj</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.__readamf__"></a><div id="AbstractMessage.__readamf__-def"><a name="L141"></a><tt class="py-lineno">141</tt> <a class="py-toggle" href="#" id="AbstractMessage.__readamf__-toggle" onclick="return toggle('AbstractMessage.__readamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#__readamf__">__readamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.__readamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.__readamf__-expanded"><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name" targets="Function pyamf.flex.messaging.read_flags()=pyamf.flex.messaging-module.html#read_flags"><a title="pyamf.flex.messaging.read_flags" class="py-name" href="#" onclick="return doclink('link-37', 'read_flags', 'link-37');">read_flags</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-38" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-38', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Class pyamf.DecodeError=pyamf.DecodeError-class.html"><a title="pyamf.DecodeError" class="py-name" href="#" onclick="return doclink('link-39', 'DecodeError', 'link-39');">DecodeError</a></tt><tt class="py-op">(</tt><tt class="py-string">'Expected &lt;=2 (got %d) flags for the '</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                <tt class="py-string">'AbstractMessage portion of the small message for %r'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                    <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">index</tt><tt class="py-op">,</tt> <tt class="py-name">byte</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">index</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">flag</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" class="py-name" href="#" onclick="return doclink('link-40', 'SMALL_ATTRIBUTE_FLAGS', 'link-13');">SMALL_ATTRIBUTE_FLAGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">flag</tt> <tt class="py-op">&amp;</tt> <tt class="py-name">byte</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                        <tt class="py-name">attr</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES" class="py-name" href="#" onclick="return doclink('link-41', 'SMALL_ATTRIBUTES', 'link-14');">SMALL_ATTRIBUTES</a></tt><tt class="py-op">[</tt><tt class="py-name">flag</tt><tt class="py-op">]</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                        <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method pyamf.flex.messaging.AbstractMessage.decodeSmallAttribute()=pyamf.flex.messaging.AbstractMessage-class.html#decodeSmallAttribute"><a title="pyamf.flex.messaging.AbstractMessage.decodeSmallAttribute" class="py-name" href="#" onclick="return doclink('link-42', 'decodeSmallAttribute', 'link-42');">decodeSmallAttribute</a></tt><tt class="py-op">(</tt><tt class="py-name">attr</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">index</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">flag</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" class="py-name" href="#" onclick="return doclink('link-43', 'SMALL_UUID_FLAGS', 'link-18');">SMALL_UUID_FLAGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">flag</tt> <tt class="py-op">&amp;</tt> <tt class="py-name">byte</tt><tt class="py-op">:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">                        <tt class="py-name">attr</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS" class="py-name" href="#" onclick="return doclink('link-44', 'SMALL_UUIDS', 'link-19');">SMALL_UUIDS</a></tt><tt class="py-op">[</tt><tt class="py-name">flag</tt><tt class="py-op">]</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">                        <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name" targets="Function pyamf.flex.messaging.decode_uuid()=pyamf.flex.messaging-module.html#decode_uuid"><a title="pyamf.flex.messaging.decode_uuid" class="py-name" href="#" onclick="return doclink('link-45', 'decode_uuid', 'link-45');">decode_uuid</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="pyamf.amf0.Decoder.readObject
+pyamf.amf3.DataInput.readObject
+pyamf.amf3.Decoder.readObject" class="py-name" href="#" onclick="return doclink('link-46', 'readObject', 'link-30');">readObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.__writeamf__"></a><div id="AbstractMessage.__writeamf__-def"><a name="L161"></a><tt class="py-lineno">161</tt> <a class="py-toggle" href="#" id="AbstractMessage.__writeamf__-toggle" onclick="return toggle('AbstractMessage.__writeamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#__writeamf__">__writeamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.__writeamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.__writeamf__-expanded"><a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-name">flag_attrs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-name">uuid_attrs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">flag</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTE_FLAGS" class="py-name" href="#" onclick="return doclink('link-47', 'SMALL_ATTRIBUTE_FLAGS', 'link-13');">SMALL_ATTRIBUTE_FLAGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">            <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method pyamf.flex.messaging.AbstractMessage.encodeSmallAttribute()=pyamf.flex.messaging.AbstractMessage-class.html#encodeSmallAttribute"><a title="pyamf.flex.messaging.AbstractMessage.encodeSmallAttribute" class="py-name" href="#" onclick="return doclink('link-48', 'encodeSmallAttribute', 'link-48');">encodeSmallAttribute</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_ATTRIBUTES" class="py-name" href="#" onclick="return doclink('link-49', 'SMALL_ATTRIBUTES', 'link-14');">SMALL_ATTRIBUTES</a></tt><tt class="py-op">[</tt><tt class="py-name">flag</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">value</tt><tt class="py-op">:</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">                <tt class="py-name">byte</tt> <tt class="py-op">|=</tt> <tt class="py-name">flag</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">                <tt class="py-name">flag_attrs</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method cpyamf.util.BufferedByteStream.append()=cpyamf.util.BufferedByteStream-class.html#append,Method pyamf.util.IndexedCollection.append()=pyamf.util.IndexedCollection-class.html#append,Method pyamf.util.IndexedMap.append()=pyamf.util.IndexedMap-class.html#append"><a title="cpyamf.util.BufferedByteStream.append
+pyamf.util.IndexedCollection.append
+pyamf.util.IndexedMap.append" class="py-name" href="#" onclick="return doclink('link-50', 'append', 'link-50');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-name">byte</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">flag</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUID_FLAGS" class="py-name" href="#" onclick="return doclink('link-51', 'SMALL_UUID_FLAGS', 'link-18');">SMALL_UUID_FLAGS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">            <tt class="py-name">attr</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage.SMALL_UUIDS" class="py-name" href="#" onclick="return doclink('link-52', 'SMALL_UUIDS', 'link-19');">SMALL_UUIDS</a></tt><tt class="py-op">[</tt><tt class="py-name">flag</tt><tt class="py-op">]</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">attr</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line"> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">value</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">                <tt class="py-keyword">continue</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-name">byte</tt> <tt class="py-op">|=</tt> <tt class="py-name">flag</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">            <tt class="py-name">uuid_attrs</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="cpyamf.util.BufferedByteStream.append
+pyamf.util.IndexedCollection.append
+pyamf.util.IndexedMap.append" class="py-name" href="#" onclick="return doclink('link-53', 'append', 'link-50');">append</a></tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="cpyamf.amf3
+pyamf.amf3
+pyamf.amf3.ByteArray.__amf__.amf3
+pyamf.flex.ArrayCollection.__amf__.amf3
+pyamf.flex.ObjectProxy.__amf__.amf3
+pyamf.flex.messaging.AbstractMessage.__amf__.amf3
+pyamf.remoting.amf3" class="py-name" href="#" onclick="return doclink('link-54', 'amf3', 'link-3');">amf3</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Class pyamf.amf3.ByteArray=pyamf.amf3.ByteArray-class.html"><a title="pyamf.amf3.ByteArray" class="py-name" href="#" onclick="return doclink('link-55', 'ByteArray', 'link-55');">ByteArray</a></tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">.</tt><tt class="py-name">bytes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">byte</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method pyamf.amf3.DataOutput.writeUnsignedByte()=pyamf.amf3.DataOutput-class.html#writeUnsignedByte"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-56', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-57', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-name">flags</tt> <tt class="py-op">|</tt> <tt id="link-58" class="py-name"><a title="pyamf.flex.messaging.SMALL_FLAG_MORE" class="py-name" href="#" onclick="return doclink('link-58', 'SMALL_FLAG_MORE', 'link-5');">SMALL_FLAG_MORE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-59', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-name">byte</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">        <tt class="py-op">[</tt><tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Method pyamf.amf0.Encoder.writeObject()=pyamf.amf0.Encoder-class.html#writeObject,Method pyamf.amf3.DataOutput.writeObject()=pyamf.amf3.DataOutput-class.html#writeObject,Method pyamf.amf3.Encoder.writeObject()=pyamf.amf3.Encoder-class.html#writeObject"><a title="pyamf.amf0.Encoder.writeObject
+pyamf.amf3.DataOutput.writeObject
+pyamf.amf3.Encoder.writeObject" class="py-name" href="#" onclick="return doclink('link-60', 'writeObject', 'link-60');">writeObject</a></tt><tt class="py-op">(</tt><tt class="py-name">attr</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">flag_attrs</tt><tt class="py-op">]</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-op">[</tt><tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="pyamf.amf0.Encoder.writeObject
+pyamf.amf3.DataOutput.writeObject
+pyamf.amf3.Encoder.writeObject" class="py-name" href="#" onclick="return doclink('link-61', 'writeObject', 'link-60');">writeObject</a></tt><tt class="py-op">(</tt><tt class="py-name">attr</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">attr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">uuid_attrs</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"> </tt>
+<a name="AbstractMessage.getSmallMessage"></a><div id="AbstractMessage.getSmallMessage-def"><a name="L195"></a><tt class="py-lineno">195</tt> <a class="py-toggle" href="#" id="AbstractMessage.getSmallMessage-toggle" onclick="return toggle('AbstractMessage.getSmallMessage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AbstractMessage-class.html#getSmallMessage">getSmallMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AbstractMessage.getSmallMessage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AbstractMessage.getSmallMessage-expanded"><a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">        Return a ISmallMessage representation of this object. If one is not</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring">        available, L{NotImplementedError} will be raised.</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt> </tt>
+</div></div><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage"></a><div id="AsyncMessage-def"><a name="L205"></a><tt class="py-lineno">205</tt> <a class="py-toggle" href="#" id="AsyncMessage-toggle" onclick="return toggle('AsyncMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage-class.html">AsyncMessage</a><tt class="py-op">(</tt><tt class="py-base-class">AbstractMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AsyncMessage-expanded"><a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line"><tt class="py-docstring">    I am the base class for all asynchronous Flex messages.</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{AsyncMessage on Livedocs (external)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/AsyncMessage.html&gt;}</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar correlationId: Correlation id of the message.</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">    @type correlationId: C{str}</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt class="py-comment">#: Messages that were sent with a defined subtopic property indicate their</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: target subtopic in this header.</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-62" class="py-name" targets="Variable pyamf.flex.messaging.AsyncMessage.SUBTOPIC_HEADER=pyamf.flex.messaging.AsyncMessage-class.html#SUBTOPIC_HEADER"><a title="pyamf.flex.messaging.AsyncMessage.SUBTOPIC_HEADER" class="py-name" href="#" onclick="return doclink('link-62', 'SUBTOPIC_HEADER', 'link-62');">SUBTOPIC_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSSubtopic"</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage.__amf__"></a><div id="AsyncMessage.__amf__-def"><a name="L220"></a><tt class="py-lineno">220</tt> <a class="py-toggle" href="#" id="AsyncMessage.__amf__-toggle" onclick="return toggle('AsyncMessage.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessage.__amf__-expanded"><a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt id="link-63" class="py-name"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-63', 'static', 'link-7');">static</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'correlationId'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage.__init__"></a><div id="AsyncMessage.__init__-def"><a name="L223"></a><tt class="py-lineno">223</tt> <a class="py-toggle" href="#" id="AsyncMessage.__init__-toggle" onclick="return toggle('AsyncMessage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessage.__init__-expanded"><a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt id="link-64" class="py-name" targets="Class pyamf.flex.messaging.AbstractMessage=pyamf.flex.messaging.AbstractMessage-class.html"><a title="pyamf.flex.messaging.AbstractMessage" class="py-name" href="#" onclick="return doclink('link-64', 'AbstractMessage', 'link-64');">AbstractMessage</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Method cpyamf.util.BufferedByteStream.__init__()=cpyamf.util.BufferedByteStream-class.html#__init__,Method pyamf.ASObject.__init__()=pyamf.ASObject-class.html#__init__,Method pyamf.BaseContext.__init__()=pyamf.BaseContext-class.html#__init__,Method pyamf.BaseDecoder.__init__()=pyamf.BaseDecoder-class.html#__init__,Method pyamf.BaseEncoder.__init__()=pyamf.BaseEncoder-class.html#__init__,Method pyamf.ClassAlias.__init__()=pyamf.ClassAlias-class.html#__init__,Method pyamf.CustomTypeFunc.__init__()=pyamf.CustomTypeFunc-class.html#__init__,Method pyamf.TypedObject.__init__()=pyamf.TypedObject-class.html#__init__,Method pyamf.TypedObjectClassAlias.__init__()=pyamf.TypedObjectClassAlias-class.html#__init__,Method pyamf.adapters.PackageImporter.__init__()=pyamf.adapters.PackageImporter-class.html#__init__,Method pyamf.adapters._google_appengine_ext_db.ModelStub.__init__()=pyamf.adapters._google_appengine_ext_db.ModelStub-class.html#__init__,Method pyamf.amf0.Context.__init__()=pyamf.amf0.Context-class.html#__init__,Method pyamf.amf0.Encoder.__init__()=pyamf.amf0.Encoder-class.html#__init__,Method pyamf.amf0.RecordSet.__init__()=pyamf.amf0.RecordSet-class.html#__init__,Method pyamf.amf3.ByteArray.__init__()=pyamf.amf3.ByteArray-class.html#__init__,Method pyamf.amf3.ClassDefinition.__init__()=pyamf.amf3.ClassDefinition-class.html#__init__,Method pyamf.amf3.Context.__init__()=pyamf.amf3.Context-class.html#__init__,Method pyamf.amf3.DataInput.__init__()=pyamf.amf3.DataInput-class.html#__init__,Method pyamf.amf3.DataOutput.__init__()=pyamf.amf3.DataOutput-class.html#__init__,Method pyamf.amf3.Decoder.__init__()=pyamf.amf3.Decoder-class.html#__init__,Method pyamf.amf3.Encoder.__init__()=pyamf.amf3.Encoder-class.html#__init__,Method pyamf.flex.ArrayCollection.__init__()=pyamf.flex.ArrayCollection-class.html#__init__,Method pyamf.flex.ObjectProxy.__init__()=pyamf.flex.ObjectProxy-class.html#__init__,Method pyamf.flex.data.DataErrorMessage.__init__()=pyamf.flex.data.DataErrorMessage-class.html#__init__,Method pyamf.flex.data.DataMessage.__init__()=pyamf.flex.data.DataMessage-class.html#__init__,Method pyamf.flex.data.PagedMessage.__init__()=pyamf.flex.data.PagedMessage-class.html#__init__,Method pyamf.flex.data.SequencedMessage.__init__()=pyamf.flex.data.SequencedMessage-class.html#__init__,Method pyamf.flex.messaging.AbstractMessage.__init__()=pyamf.flex.messaging.AbstractMessage-class.html#__init__,Method pyamf.flex.messaging.AsyncMessage.__init__()=pyamf.flex.messaging.AsyncMessage-class.html#__init__,Method pyamf.flex.messaging.CommandMessage.__init__()=pyamf.flex.messaging.CommandMessage-class.html#__init__,Method pyamf.flex.messaging.ErrorMessage.__init__()=pyamf.flex.messaging.ErrorMessage-class.html#__init__,Method pyamf.flex.messaging.RemotingMessage.__init__()=pyamf.flex.messaging.RemotingMessage-class.html#__init__,Method pyamf.remoting.BaseFault.__init__()=pyamf.remoting.BaseFault-class.html#__init__,Method pyamf.remoting.Envelope.__init__()=pyamf.remoting.Envelope-class.html#__init__,Method pyamf.remoting.HeaderCollection.__init__()=pyamf.remoting.HeaderCollection-class.html#__init__,Method pyamf.remoting.Message.__init__()=pyamf.remoting.Message-class.html#__init__,Method pyamf.remoting.Request.__init__()=pyamf.remoting.Request-class.html#__init__,Method pyamf.remoting.Response.__init__()=pyamf.remoting.Response-class.html#__init__,Method pyamf.remoting.amf0.RequestProcessor.__init__()=pyamf.remoting.amf0.RequestProcessor-class.html#__init__,Method pyamf.remoting.amf3.RequestProcessor.__init__()=pyamf.remoting.amf3.RequestProcessor-class.html#__init__,Method pyamf.remoting.client.RemotingService.__init__()=pyamf.remoting.client.RemotingService-class.html#__init__,Method pyamf.remoting.client.RequestWrapper.__init__()=pyamf.remoting.client.RequestWrapper-class.html#__init__,Method pyamf.remoting.client.ServiceMethodProxy.__init__()=pyamf.remoting.client.ServiceMethodProxy-class.html#__init__,Method pyamf.remoting.client.ServiceProxy.__init__()=pyamf.remoting.client.ServiceProxy-class.html#__init__,Method pyamf.remoting.gateway.BaseGateway.__init__()=pyamf.remoting.gateway.BaseGateway-class.html#__init__,Method pyamf.remoting.gateway.ServiceRequest.__init__()=pyamf.remoting.gateway.ServiceRequest-class.html#__init__,Method pyamf.remoting.gateway.ServiceWrapper.__init__()=pyamf.remoting.gateway.ServiceWrapper-class.html#__init__,Method pyamf.remoting.gateway.django.DjangoGateway.__init__()=pyamf.remoting.gateway.django.DjangoGateway-class.html#__init__,Method pyamf.remoting.gateway.google.WebAppGateway.__init__()=pyamf.remoting.gateway.google.WebAppGateway-class.html#__init__,Method pyamf.remoting.gateway.twisted.TwistedGateway.__init__()=pyamf.remoting.gateway.twisted.TwistedGateway-class.html#__init__,Method pyamf.sol.SOL.__init__()=pyamf.sol.SOL-class.html#__init__,Method pyamf.util.IndexedCollection.__init__()=pyamf.util.IndexedCollection-class.html#__init__,Method pyamf.util.IndexedMap.__init__()=pyamf.util.IndexedMap-class.html#__init__,Method pyamf.util.StringIOProxy.__init__()=pyamf.util.StringIOProxy-class.html#__init__"><a title="cpyamf.util.BufferedByteStream.__init__
+pyamf.ASObject.__init__
+pyamf.BaseContext.__init__
+pyamf.BaseDecoder.__init__
+pyamf.BaseEncoder.__init__
+pyamf.ClassAlias.__init__
+pyamf.CustomTypeFunc.__init__
+pyamf.TypedObject.__init__
+pyamf.TypedObjectClassAlias.__init__
+pyamf.adapters.PackageImporter.__init__
+pyamf.adapters._google_appengine_ext_db.ModelStub.__init__
+pyamf.amf0.Context.__init__
+pyamf.amf0.Encoder.__init__
+pyamf.amf0.RecordSet.__init__
+pyamf.amf3.ByteArray.__init__
+pyamf.amf3.ClassDefinition.__init__
+pyamf.amf3.Context.__init__
+pyamf.amf3.DataInput.__init__
+pyamf.amf3.DataOutput.__init__
+pyamf.amf3.Decoder.__init__
+pyamf.amf3.Encoder.__init__
+pyamf.flex.ArrayCollection.__init__
+pyamf.flex.ObjectProxy.__init__
+pyamf.flex.data.DataErrorMessage.__init__
+pyamf.flex.data.DataMessage.__init__
+pyamf.flex.data.PagedMessage.__init__
+pyamf.flex.data.SequencedMessage.__init__
+pyamf.flex.messaging.AbstractMessage.__init__
+pyamf.flex.messaging.AsyncMessage.__init__
+pyamf.flex.messaging.CommandMessage.__init__
+pyamf.flex.messaging.ErrorMessage.__init__
+pyamf.flex.messaging.RemotingMessage.__init__
+pyamf.remoting.BaseFault.__init__
+pyamf.remoting.Envelope.__init__
+pyamf.remoting.HeaderCollection.__init__
+pyamf.remoting.Message.__init__
+pyamf.remoting.Request.__init__
+pyamf.remoting.Response.__init__
+pyamf.remoting.amf0.RequestProcessor.__init__
+pyamf.remoting.amf3.RequestProcessor.__init__
+pyamf.remoting.client.RemotingService.__init__
+pyamf.remoting.client.RequestWrapper.__init__
+pyamf.remoting.client.ServiceMethodProxy.__init__
+pyamf.remoting.client.ServiceProxy.__init__
+pyamf.remoting.gateway.BaseGateway.__init__
+pyamf.remoting.gateway.ServiceRequest.__init__
+pyamf.remoting.gateway.ServiceWrapper.__init__
+pyamf.remoting.gateway.django.DjangoGateway.__init__
+pyamf.remoting.gateway.google.WebAppGateway.__init__
+pyamf.remoting.gateway.twisted.TwistedGateway.__init__
+pyamf.sol.SOL.__init__
+pyamf.util.IndexedCollection.__init__
+pyamf.util.IndexedMap.__init__
+pyamf.util.StringIOProxy.__init__" class="py-name" href="#" onclick="return doclink('link-65', '__init__', 'link-65');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-66', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'correlationId'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage.__readamf__"></a><div id="AsyncMessage.__readamf__-def"><a name="L228"></a><tt class="py-lineno">228</tt> <a class="py-toggle" href="#" id="AsyncMessage.__readamf__-toggle" onclick="return toggle('AsyncMessage.__readamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage-class.html#__readamf__">__readamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage.__readamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessage.__readamf__-expanded"><a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt id="link-67" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage" class="py-name" href="#" onclick="return doclink('link-67', 'AbstractMessage', 'link-64');">AbstractMessage</a></tt><tt class="py-op">.</tt><tt id="link-68" class="py-name" targets="Method pyamf.TypedObject.__readamf__()=pyamf.TypedObject-class.html#__readamf__,Method pyamf.flex.ArrayCollection.__readamf__()=pyamf.flex.ArrayCollection-class.html#__readamf__,Method pyamf.flex.ObjectProxy.__readamf__()=pyamf.flex.ObjectProxy-class.html#__readamf__,Method pyamf.flex.messaging.AbstractMessage.__readamf__()=pyamf.flex.messaging.AbstractMessage-class.html#__readamf__,Method pyamf.flex.messaging.AcknowledgeMessage.__readamf__()=pyamf.flex.messaging.AcknowledgeMessage-class.html#__readamf__,Method pyamf.flex.messaging.AsyncMessage.__readamf__()=pyamf.flex.messaging.AsyncMessage-class.html#__readamf__,Method pyamf.flex.messaging.CommandMessage.__readamf__()=pyamf.flex.messaging.CommandMessage-class.html#__readamf__"><a title="pyamf.TypedObject.__readamf__
+pyamf.flex.ArrayCollection.__readamf__
+pyamf.flex.ObjectProxy.__readamf__
+pyamf.flex.messaging.AbstractMessage.__readamf__
+pyamf.flex.messaging.AcknowledgeMessage.__readamf__
+pyamf.flex.messaging.AsyncMessage.__readamf__
+pyamf.flex.messaging.CommandMessage.__readamf__" class="py-name" href="#" onclick="return doclink('link-68', '__readamf__', 'link-68');">__readamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt id="link-69" class="py-name"><a title="pyamf.flex.messaging.read_flags" class="py-name" href="#" onclick="return doclink('link-69', 'read_flags', 'link-37');">read_flags</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-70" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-70', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="pyamf.DecodeError" class="py-name" href="#" onclick="return doclink('link-71', 'DecodeError', 'link-39');">DecodeError</a></tt><tt class="py-op">(</tt><tt class="py-string">'Expected &lt;=1 (got %d) flags for the '</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">                <tt class="py-string">'AsyncMessage portion of the small message for %r'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">                    <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-name">flags</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">byte</tt> <tt class="py-op">&amp;</tt> <tt class="py-number">0x01</tt><tt class="py-op">:</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt> <tt class="py-op">=</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="pyamf.amf0.Decoder.readObject
+pyamf.amf3.DataInput.readObject
+pyamf.amf3.Decoder.readObject" class="py-name" href="#" onclick="return doclink('link-72', 'readObject', 'link-30');">readObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">byte</tt> <tt class="py-op">&amp;</tt> <tt class="py-number">0x02</tt><tt class="py-op">:</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="pyamf.flex.messaging.decode_uuid" class="py-name" href="#" onclick="return doclink('link-73', 'decode_uuid', 'link-45');">decode_uuid</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="pyamf.amf0.Decoder.readObject
+pyamf.amf3.DataInput.readObject
+pyamf.amf3.Decoder.readObject" class="py-name" href="#" onclick="return doclink('link-74', 'readObject', 'link-30');">readObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage.__writeamf__"></a><div id="AsyncMessage.__writeamf__-def"><a name="L246"></a><tt class="py-lineno">246</tt> <a class="py-toggle" href="#" id="AsyncMessage.__writeamf__-toggle" onclick="return toggle('AsyncMessage.__writeamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage-class.html#__writeamf__">__writeamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage.__writeamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessage.__writeamf__-expanded"><a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt id="link-75" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage" class="py-name" href="#" onclick="return doclink('link-75', 'AbstractMessage', 'link-64');">AbstractMessage</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name" targets="Method pyamf.TypedObject.__writeamf__()=pyamf.TypedObject-class.html#__writeamf__,Method pyamf.flex.ArrayCollection.__writeamf__()=pyamf.flex.ArrayCollection-class.html#__writeamf__,Method pyamf.flex.ObjectProxy.__writeamf__()=pyamf.flex.ObjectProxy-class.html#__writeamf__,Method pyamf.flex.messaging.AbstractMessage.__writeamf__()=pyamf.flex.messaging.AbstractMessage-class.html#__writeamf__,Method pyamf.flex.messaging.AcknowledgeMessage.__writeamf__()=pyamf.flex.messaging.AcknowledgeMessage-class.html#__writeamf__,Method pyamf.flex.messaging.AsyncMessage.__writeamf__()=pyamf.flex.messaging.AsyncMessage-class.html#__writeamf__,Method pyamf.flex.messaging.CommandMessage.__writeamf__()=pyamf.flex.messaging.CommandMessage-class.html#__writeamf__"><a title="pyamf.TypedObject.__writeamf__
+pyamf.flex.ArrayCollection.__writeamf__
+pyamf.flex.ObjectProxy.__writeamf__
+pyamf.flex.messaging.AbstractMessage.__writeamf__
+pyamf.flex.messaging.AcknowledgeMessage.__writeamf__
+pyamf.flex.messaging.AsyncMessage.__writeamf__
+pyamf.flex.messaging.CommandMessage.__writeamf__" class="py-name" href="#" onclick="return doclink('link-76', '__writeamf__', 'link-76');">__writeamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt><tt class="py-op">,</tt> <tt class="py-name">uuid</tt><tt class="py-op">.</tt><tt class="py-name">UUID</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-77', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-number">0x01</tt><tt class="py-op">)</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="pyamf.amf0.Encoder.writeObject
+pyamf.amf3.DataOutput.writeObject
+pyamf.amf3.Encoder.writeObject" class="py-name" href="#" onclick="return doclink('link-78', 'writeObject', 'link-60');">writeObject</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt><tt class="py-op">)</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-79', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-number">0x02</tt><tt class="py-op">)</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="pyamf.amf0.Encoder.writeObject
+pyamf.amf3.DataOutput.writeObject
+pyamf.amf3.Encoder.writeObject" class="py-name" href="#" onclick="return doclink('link-80', 'writeObject', 'link-60');">writeObject</a></tt><tt class="py-op">(</tt><tt id="link-81" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-81', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="cpyamf.amf3
+pyamf.amf3
+pyamf.amf3.ByteArray.__amf__.amf3
+pyamf.flex.ArrayCollection.__amf__.amf3
+pyamf.flex.ObjectProxy.__amf__.amf3
+pyamf.flex.messaging.AbstractMessage.__amf__.amf3
+pyamf.remoting.amf3" class="py-name" href="#" onclick="return doclink('link-82', 'amf3', 'link-3');">amf3</a></tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="pyamf.amf3.ByteArray" class="py-name" href="#" onclick="return doclink('link-83', 'ByteArray', 'link-55');">ByteArray</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">correlationId</tt><tt class="py-op">.</tt><tt class="py-name">bytes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessage.getSmallMessage"></a><div id="AsyncMessage.getSmallMessage-def"><a name="L256"></a><tt class="py-lineno">256</tt> <a class="py-toggle" href="#" id="AsyncMessage.getSmallMessage-toggle" onclick="return toggle('AsyncMessage.getSmallMessage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessage-class.html#getSmallMessage">getSmallMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessage.getSmallMessage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessage.getSmallMessage-expanded"><a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-docstring">        Return a ISmallMessage representation of this async message.</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-84" class="py-name" targets="Class pyamf.flex.messaging.AsyncMessageExt=pyamf.flex.messaging.AsyncMessageExt-class.html"><a title="pyamf.flex.messaging.AsyncMessageExt" class="py-name" href="#" onclick="return doclink('link-84', 'AsyncMessageExt', 'link-84');">AsyncMessageExt</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessage"></a><div id="AcknowledgeMessage-def"><a name="L265"></a><tt class="py-lineno">265</tt> <a class="py-toggle" href="#" id="AcknowledgeMessage-toggle" onclick="return toggle('AcknowledgeMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessage-class.html">AcknowledgeMessage</a><tt class="py-op">(</tt><tt class="py-base-class">AsyncMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AcknowledgeMessage-expanded"><a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring">    I acknowledge the receipt of a message that was sent previously.</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-docstring">    Every message sent within the messaging system must receive an</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"><tt class="py-docstring">    acknowledgement.</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{AcknowledgeMessage on Livedocs (external)</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/AcknowledgeMessage.html&gt;}</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">    <tt class="py-comment">#: Used to indicate that the acknowledgement is for a message that</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: generated an error.</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-85" class="py-name" targets="Variable pyamf.flex.messaging.AcknowledgeMessage.ERROR_HINT_HEADER=pyamf.flex.messaging.AcknowledgeMessage-class.html#ERROR_HINT_HEADER"><a title="pyamf.flex.messaging.AcknowledgeMessage.ERROR_HINT_HEADER" class="py-name" href="#" onclick="return doclink('link-85', 'ERROR_HINT_HEADER', 'link-85');">ERROR_HINT_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSErrorHint"</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessage.__readamf__"></a><div id="AcknowledgeMessage.__readamf__-def"><a name="L280"></a><tt class="py-lineno">280</tt> <a class="py-toggle" href="#" id="AcknowledgeMessage.__readamf__-toggle" onclick="return toggle('AcknowledgeMessage.__readamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessage-class.html#__readamf__">__readamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessage.__readamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AcknowledgeMessage.__readamf__-expanded"><a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt id="link-86" class="py-name" targets="Class pyamf.flex.messaging.AsyncMessage=pyamf.flex.messaging.AsyncMessage-class.html"><a title="pyamf.flex.messaging.AsyncMessage" class="py-name" href="#" onclick="return doclink('link-86', 'AsyncMessage', 'link-86');">AsyncMessage</a></tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="pyamf.TypedObject.__readamf__
+pyamf.flex.ArrayCollection.__readamf__
+pyamf.flex.ObjectProxy.__readamf__
+pyamf.flex.messaging.AbstractMessage.__readamf__
+pyamf.flex.messaging.AcknowledgeMessage.__readamf__
+pyamf.flex.messaging.AsyncMessage.__readamf__
+pyamf.flex.messaging.CommandMessage.__readamf__" class="py-name" href="#" onclick="return doclink('link-87', '__readamf__', 'link-68');">__readamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt id="link-88" class="py-name"><a title="pyamf.flex.messaging.read_flags" class="py-name" href="#" onclick="return doclink('link-88', 'read_flags', 'link-37');">read_flags</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-89" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-89', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-90" class="py-name"><a title="pyamf.DecodeError" class="py-name" href="#" onclick="return doclink('link-90', 'DecodeError', 'link-39');">DecodeError</a></tt><tt class="py-op">(</tt><tt class="py-string">'Expected &lt;=1 (got %d) flags for the '</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line">                <tt class="py-string">'AcknowledgeMessage portion of the small message for %r'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line">                    <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessage.__writeamf__"></a><div id="AcknowledgeMessage.__writeamf__-def"><a name="L290"></a><tt class="py-lineno">290</tt> <a class="py-toggle" href="#" id="AcknowledgeMessage.__writeamf__-toggle" onclick="return toggle('AcknowledgeMessage.__writeamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessage-class.html#__writeamf__">__writeamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessage.__writeamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AcknowledgeMessage.__writeamf__-expanded"><a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">        <tt id="link-91" class="py-name"><a title="pyamf.flex.messaging.AsyncMessage" class="py-name" href="#" onclick="return doclink('link-91', 'AsyncMessage', 'link-86');">AsyncMessage</a></tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="pyamf.TypedObject.__writeamf__
+pyamf.flex.ArrayCollection.__writeamf__
+pyamf.flex.ObjectProxy.__writeamf__
+pyamf.flex.messaging.AbstractMessage.__writeamf__
+pyamf.flex.messaging.AcknowledgeMessage.__writeamf__
+pyamf.flex.messaging.AsyncMessage.__writeamf__
+pyamf.flex.messaging.CommandMessage.__writeamf__" class="py-name" href="#" onclick="return doclink('link-92', '__writeamf__', 'link-76');">__writeamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line"> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line">        <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-93" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-93', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessage.getSmallMessage"></a><div id="AcknowledgeMessage.getSmallMessage-def"><a name="L295"></a><tt class="py-lineno">295</tt> <a class="py-toggle" href="#" id="AcknowledgeMessage.getSmallMessage-toggle" onclick="return toggle('AcknowledgeMessage.getSmallMessage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessage-class.html#getSmallMessage">getSmallMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessage.getSmallMessage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AcknowledgeMessage.getSmallMessage-expanded"><a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-docstring">        Return a ISmallMessage representation of this acknowledge message.</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-94" class="py-name" targets="Class pyamf.flex.messaging.AcknowledgeMessageExt=pyamf.flex.messaging.AcknowledgeMessageExt-class.html"><a title="pyamf.flex.messaging.AcknowledgeMessageExt" class="py-name" href="#" onclick="return doclink('link-94', 'AcknowledgeMessageExt', 'link-94');">AcknowledgeMessageExt</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line"> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage"></a><div id="CommandMessage-def"><a name="L304"></a><tt class="py-lineno">304</tt> <a class="py-toggle" href="#" id="CommandMessage-toggle" onclick="return toggle('CommandMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage-class.html">CommandMessage</a><tt class="py-op">(</tt><tt class="py-base-class">AsyncMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CommandMessage-expanded"><a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line"><tt class="py-docstring">    Provides a mechanism for sending commands related to publish/subscribe</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line"><tt class="py-docstring">    messaging, ping, and cluster operations.</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{CommandMessage on Livedocs (external)</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/CommandMessage.html&gt;}</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar operation: The command</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line"><tt class="py-docstring">    @type operation: C{int}</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line"><tt class="py-docstring">    @ivar messageRefType: hmm, not sure about this one.</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line"><tt class="py-docstring">    @type messageRefType: C{str}</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line"> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">    <tt class="py-comment">#: The server message type for authentication commands.</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-95" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.AUTHENTICATION_MESSAGE_REF_TYPE=pyamf.flex.messaging.CommandMessage-class.html#AUTHENTICATION_MESSAGE_REF_TYPE"><a title="pyamf.flex.messaging.CommandMessage.AUTHENTICATION_MESSAGE_REF_TYPE" class="py-name" href="#" onclick="return doclink('link-95', 'AUTHENTICATION_MESSAGE_REF_TYPE', 'link-95');">AUTHENTICATION_MESSAGE_REF_TYPE</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"flex.messaging.messages.AuthenticationMessage"</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to test connectivity over the current channel to the remote</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: endpoint.</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-96" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.PING_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#PING_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.PING_OPERATION" class="py-name" href="#" onclick="return doclink('link-96', 'PING_OPERATION', 'link-96');">PING_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used by a remote destination to sync missed or cached messages</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: back to a client as a result of a client issued poll command.</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-97" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.SYNC_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#SYNC_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.SYNC_OPERATION" class="py-name" href="#" onclick="return doclink('link-97', 'SYNC_OPERATION', 'link-97');">SYNC_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">4</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to request a list of failover endpoint URIs for the remote</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: destination based on cluster membership.</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-98" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.CLUSTER_REQUEST_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#CLUSTER_REQUEST_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.CLUSTER_REQUEST_OPERATION" class="py-name" href="#" onclick="return doclink('link-98', 'CLUSTER_REQUEST_OPERATION', 'link-98');">CLUSTER_REQUEST_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to send credentials to the endpoint so that the user can be</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: logged in over the current channel. The credentials need to be C{Base64}</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: encoded and stored in the body of the message.</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-99" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.LOGIN_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#LOGIN_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.LOGIN_OPERATION" class="py-name" href="#" onclick="return doclink('link-99', 'LOGIN_OPERATION', 'link-99');">LOGIN_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to log the user out of the current channel, and will</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: invalidate the server session if the channel is HTTP based.</tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-100" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.LOGOUT_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#LOGOUT_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.LOGOUT_OPERATION" class="py-name" href="#" onclick="return doclink('link-100', 'LOGOUT_OPERATION', 'link-100');">LOGOUT_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">9</tt> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to poll a remote destination for pending, undelivered</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: messages.</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-101" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.POLL_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#POLL_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.POLL_OPERATION" class="py-name" href="#" onclick="return doclink('link-101', 'POLL_OPERATION', 'link-101');">POLL_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">    <tt class="py-comment">#: Subscribe commands issued by a consumer pass the consumer's C{selector}</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: expression in this header.</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-102" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.SELECTOR_HEADER=pyamf.flex.messaging.CommandMessage-class.html#SELECTOR_HEADER"><a title="pyamf.flex.messaging.CommandMessage.SELECTOR_HEADER" class="py-name" href="#" onclick="return doclink('link-102', 'SELECTOR_HEADER', 'link-102');">SELECTOR_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSSelector"</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to indicate that the client's session with a remote</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: destination has timed out.</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-103" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.SESSION_INVALIDATE_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#SESSION_INVALIDATE_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.SESSION_INVALIDATE_OPERATION" class="py-name" href="#" onclick="return doclink('link-103', 'SESSION_INVALIDATE_OPERATION', 'link-103');">SESSION_INVALIDATE_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to subscribe to a remote destination.</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-104" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.SUBSCRIBE_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#SUBSCRIBE_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.SUBSCRIBE_OPERATION" class="py-name" href="#" onclick="return doclink('link-104', 'SUBSCRIBE_OPERATION', 'link-104');">SUBSCRIBE_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line">    <tt class="py-comment">#: This is the default operation for new L{CommandMessage} instances.</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-105" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.UNKNOWN_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#UNKNOWN_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.UNKNOWN_OPERATION" class="py-name" href="#" onclick="return doclink('link-105', 'UNKNOWN_OPERATION', 'link-105');">UNKNOWN_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1000</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">    <tt class="py-comment">#: This is used to unsubscribe from a remote destination.</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-106" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.UNSUBSCRIBE_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#UNSUBSCRIBE_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.UNSUBSCRIBE_OPERATION" class="py-name" href="#" onclick="return doclink('link-106', 'UNSUBSCRIBE_OPERATION', 'link-106');">UNSUBSCRIBE_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line">    <tt class="py-comment">#: This operation is used to indicate that a channel has disconnected.</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-107" class="py-name" targets="Variable pyamf.flex.messaging.CommandMessage.DISCONNECT_OPERATION=pyamf.flex.messaging.CommandMessage-class.html#DISCONNECT_OPERATION"><a title="pyamf.flex.messaging.CommandMessage.DISCONNECT_OPERATION" class="py-name" href="#" onclick="return doclink('link-107', 'DISCONNECT_OPERATION', 'link-107');">DISCONNECT_OPERATION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">12</tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage.__amf__"></a><div id="CommandMessage.__amf__-def"><a name="L354"></a><tt class="py-lineno">354</tt> <a class="py-toggle" href="#" id="CommandMessage.__amf__-toggle" onclick="return toggle('CommandMessage.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessage.__amf__-expanded"><a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">        <tt id="link-108" class="py-name"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-108', 'static', 'link-7');">static</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'operation'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage.__init__"></a><div id="CommandMessage.__init__-def"><a name="L357"></a><tt class="py-lineno">357</tt> <a class="py-toggle" href="#" id="CommandMessage.__init__-toggle" onclick="return toggle('CommandMessage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessage.__init__-expanded"><a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">        <tt id="link-109" class="py-name"><a title="pyamf.flex.messaging.AsyncMessage" class="py-name" href="#" onclick="return doclink('link-109', 'AsyncMessage', 'link-86');">AsyncMessage</a></tt><tt class="py-op">.</tt><tt id="link-110" class="py-name"><a title="cpyamf.util.BufferedByteStream.__init__
+pyamf.ASObject.__init__
+pyamf.BaseContext.__init__
+pyamf.BaseDecoder.__init__
+pyamf.BaseEncoder.__init__
+pyamf.ClassAlias.__init__
+pyamf.CustomTypeFunc.__init__
+pyamf.TypedObject.__init__
+pyamf.TypedObjectClassAlias.__init__
+pyamf.adapters.PackageImporter.__init__
+pyamf.adapters._google_appengine_ext_db.ModelStub.__init__
+pyamf.amf0.Context.__init__
+pyamf.amf0.Encoder.__init__
+pyamf.amf0.RecordSet.__init__
+pyamf.amf3.ByteArray.__init__
+pyamf.amf3.ClassDefinition.__init__
+pyamf.amf3.Context.__init__
+pyamf.amf3.DataInput.__init__
+pyamf.amf3.DataOutput.__init__
+pyamf.amf3.Decoder.__init__
+pyamf.amf3.Encoder.__init__
+pyamf.flex.ArrayCollection.__init__
+pyamf.flex.ObjectProxy.__init__
+pyamf.flex.data.DataErrorMessage.__init__
+pyamf.flex.data.DataMessage.__init__
+pyamf.flex.data.PagedMessage.__init__
+pyamf.flex.data.SequencedMessage.__init__
+pyamf.flex.messaging.AbstractMessage.__init__
+pyamf.flex.messaging.AsyncMessage.__init__
+pyamf.flex.messaging.CommandMessage.__init__
+pyamf.flex.messaging.ErrorMessage.__init__
+pyamf.flex.messaging.RemotingMessage.__init__
+pyamf.remoting.BaseFault.__init__
+pyamf.remoting.Envelope.__init__
+pyamf.remoting.HeaderCollection.__init__
+pyamf.remoting.Message.__init__
+pyamf.remoting.Request.__init__
+pyamf.remoting.Response.__init__
+pyamf.remoting.amf0.RequestProcessor.__init__
+pyamf.remoting.amf3.RequestProcessor.__init__
+pyamf.remoting.client.RemotingService.__init__
+pyamf.remoting.client.RequestWrapper.__init__
+pyamf.remoting.client.ServiceMethodProxy.__init__
+pyamf.remoting.client.ServiceProxy.__init__
+pyamf.remoting.gateway.BaseGateway.__init__
+pyamf.remoting.gateway.ServiceRequest.__init__
+pyamf.remoting.gateway.ServiceWrapper.__init__
+pyamf.remoting.gateway.django.DjangoGateway.__init__
+pyamf.remoting.gateway.google.WebAppGateway.__init__
+pyamf.remoting.gateway.twisted.TwistedGateway.__init__
+pyamf.sol.SOL.__init__
+pyamf.util.IndexedCollection.__init__
+pyamf.util.IndexedMap.__init__
+pyamf.util.StringIOProxy.__init__" class="py-name" href="#" onclick="return doclink('link-110', '__init__', 'link-65');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line"> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-111', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'operation'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">        <tt class="py-comment">#: Remote destination belonging to a specific service, based upon</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#: whether this message type matches the message type the service</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#: handles.</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">messageRefType</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-112" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-112', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'messageRefType'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage.__readamf__"></a><div id="CommandMessage.__readamf__-def"><a name="L366"></a><tt class="py-lineno">366</tt> <a class="py-toggle" href="#" id="CommandMessage.__readamf__-toggle" onclick="return toggle('CommandMessage.__readamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage-class.html#__readamf__">__readamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage.__readamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessage.__readamf__-expanded"><a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">        <tt id="link-113" class="py-name"><a title="pyamf.flex.messaging.AsyncMessage" class="py-name" href="#" onclick="return doclink('link-113', 'AsyncMessage', 'link-86');">AsyncMessage</a></tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="pyamf.TypedObject.__readamf__
+pyamf.flex.ArrayCollection.__readamf__
+pyamf.flex.ObjectProxy.__readamf__
+pyamf.flex.messaging.AbstractMessage.__readamf__
+pyamf.flex.messaging.AcknowledgeMessage.__readamf__
+pyamf.flex.messaging.AsyncMessage.__readamf__
+pyamf.flex.messaging.CommandMessage.__readamf__" class="py-name" href="#" onclick="return doclink('link-114', '__readamf__', 'link-68');">__readamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line"> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line">        <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt id="link-115" class="py-name"><a title="pyamf.flex.messaging.read_flags" class="py-name" href="#" onclick="return doclink('link-115', 'read_flags', 'link-37');">read_flags</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">)</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line"> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">flags</tt><tt class="py-op">:</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line"> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-116" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-116', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-117" class="py-name"><a title="pyamf.DecodeError" class="py-name" href="#" onclick="return doclink('link-117', 'DecodeError', 'link-39');">DecodeError</a></tt><tt class="py-op">(</tt><tt class="py-string">'Expected &lt;=1 (got %d) flags for the '</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line">                <tt class="py-string">'CommandMessage portion of the small message for %r'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">                    <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">flags</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line"> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line">        <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-name">flags</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line"> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">byte</tt> <tt class="py-op">&amp;</tt> <tt class="py-number">0x01</tt><tt class="py-op">:</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-118" class="py-name"><a title="pyamf.amf0.Decoder.readObject
+pyamf.amf3.DataInput.readObject
+pyamf.amf3.Decoder.readObject" class="py-name" href="#" onclick="return doclink('link-118', 'readObject', 'link-30');">readObject</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage.__writeamf__"></a><div id="CommandMessage.__writeamf__-def"><a name="L384"></a><tt class="py-lineno">384</tt> <a class="py-toggle" href="#" id="CommandMessage.__writeamf__-toggle" onclick="return toggle('CommandMessage.__writeamf__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage-class.html#__writeamf__">__writeamf__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage.__writeamf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessage.__writeamf__-expanded"><a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line">        <tt id="link-119" class="py-name"><a title="pyamf.flex.messaging.AsyncMessage" class="py-name" href="#" onclick="return doclink('link-119', 'AsyncMessage', 'link-86');">AsyncMessage</a></tt><tt class="py-op">.</tt><tt id="link-120" class="py-name"><a title="pyamf.TypedObject.__writeamf__
+pyamf.flex.ArrayCollection.__writeamf__
+pyamf.flex.ObjectProxy.__writeamf__
+pyamf.flex.messaging.AbstractMessage.__writeamf__
+pyamf.flex.messaging.AcknowledgeMessage.__writeamf__
+pyamf.flex.messaging.AsyncMessage.__writeamf__
+pyamf.flex.messaging.CommandMessage.__writeamf__" class="py-name" href="#" onclick="return doclink('link-120', '__writeamf__', 'link-76');">__writeamf__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line"> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">operation</tt><tt class="py-op">:</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-121" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-121', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-number">0x01</tt><tt class="py-op">)</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-122" class="py-name"><a title="pyamf.amf0.Encoder.writeObject
+pyamf.amf3.DataOutput.writeObject
+pyamf.amf3.Encoder.writeObject" class="py-name" href="#" onclick="return doclink('link-122', 'writeObject', 'link-60');">writeObject</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">operation</tt><tt class="py-op">)</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">            <tt class="py-name">output</tt><tt class="py-op">.</tt><tt id="link-123" class="py-name"><a title="pyamf.amf3.DataOutput.writeUnsignedByte" class="py-name" href="#" onclick="return doclink('link-123', 'writeUnsignedByte', 'link-56');">writeUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessage.getSmallMessage"></a><div id="CommandMessage.getSmallMessage-def"><a name="L393"></a><tt class="py-lineno">393</tt> <a class="py-toggle" href="#" id="CommandMessage.getSmallMessage-toggle" onclick="return toggle('CommandMessage.getSmallMessage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessage-class.html#getSmallMessage">getSmallMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessage.getSmallMessage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessage.getSmallMessage-expanded"><a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line"><tt class="py-docstring">        Return a ISmallMessage representation of this command message.</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-124" class="py-name" targets="Class pyamf.flex.messaging.CommandMessageExt=pyamf.flex.messaging.CommandMessageExt-class.html"><a title="pyamf.flex.messaging.CommandMessageExt" class="py-name" href="#" onclick="return doclink('link-124', 'CommandMessageExt', 'link-124');">CommandMessageExt</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line"> </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line"> </tt>
+<a name="ErrorMessage"></a><div id="ErrorMessage-def"><a name="L402"></a><tt class="py-lineno">402</tt> <a class="py-toggle" href="#" id="ErrorMessage-toggle" onclick="return toggle('ErrorMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.ErrorMessage-class.html">ErrorMessage</a><tt class="py-op">(</tt><tt class="py-base-class">AcknowledgeMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ErrorMessage-expanded"><a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line"><tt class="py-docstring">    I am the Flex error message to be returned to the client.</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"><tt class="py-docstring">    This class is used to report errors within the messaging system.</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{ErrorMessage on Livedocs (external)</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/ErrorMessage.html&gt;}</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line"> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line">    <tt class="py-comment">#: If a message may not have been delivered, the faultCode will contain</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: this constant.</tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-125" class="py-name" targets="Variable pyamf.flex.messaging.ErrorMessage.MESSAGE_DELIVERY_IN_DOUBT=pyamf.flex.messaging.ErrorMessage-class.html#MESSAGE_DELIVERY_IN_DOUBT"><a title="pyamf.flex.messaging.ErrorMessage.MESSAGE_DELIVERY_IN_DOUBT" class="py-name" href="#" onclick="return doclink('link-125', 'MESSAGE_DELIVERY_IN_DOUBT', 'link-125');">MESSAGE_DELIVERY_IN_DOUBT</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Client.Error.DeliveryInDoubt"</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line">    <tt class="py-comment">#: Header name for the retryable hint header.</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#:</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: This is used to indicate that the operation that generated the error may</tt> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#: be retryable rather than fatal.</tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-126" class="py-name" targets="Variable pyamf.flex.messaging.ErrorMessage.RETRYABLE_HINT_HEADER=pyamf.flex.messaging.ErrorMessage-class.html#RETRYABLE_HINT_HEADER"><a title="pyamf.flex.messaging.ErrorMessage.RETRYABLE_HINT_HEADER" class="py-name" href="#" onclick="return doclink('link-126', 'RETRYABLE_HINT_HEADER', 'link-126');">RETRYABLE_HINT_HEADER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DSRetryableErrorHint"</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line"> </tt>
+<a name="ErrorMessage.__amf__"></a><div id="ErrorMessage.__amf__-def"><a name="L421"></a><tt class="py-lineno">421</tt> <a class="py-toggle" href="#" id="ErrorMessage.__amf__-toggle" onclick="return toggle('ErrorMessage.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.ErrorMessage.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorMessage.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorMessage.__amf__-expanded"><a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">        <tt id="link-127" class="py-name"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-127', 'static', 'link-7');">static</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'extendedData'</tt><tt class="py-op">,</tt> <tt class="py-string">'faultCode'</tt><tt class="py-op">,</tt> <tt class="py-string">'faultDetail'</tt><tt class="py-op">,</tt> <tt class="py-string">'faultString'</tt><tt class="py-op">,</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line">            <tt class="py-string">'rootCause'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line"> </tt>
+<a name="ErrorMessage.__init__"></a><div id="ErrorMessage.__init__-def"><a name="L425"></a><tt class="py-lineno">425</tt> <a class="py-toggle" href="#" id="ErrorMessage.__init__-toggle" onclick="return toggle('ErrorMessage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.ErrorMessage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorMessage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorMessage.__init__-expanded"><a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">        <tt id="link-128" class="py-name" targets="Class pyamf.flex.messaging.AcknowledgeMessage=pyamf.flex.messaging.AcknowledgeMessage-class.html"><a title="pyamf.flex.messaging.AcknowledgeMessage" class="py-name" href="#" onclick="return doclink('link-128', 'AcknowledgeMessage', 'link-128');">AcknowledgeMessage</a></tt><tt class="py-op">.</tt><tt id="link-129" class="py-name"><a title="cpyamf.util.BufferedByteStream.__init__
+pyamf.ASObject.__init__
+pyamf.BaseContext.__init__
+pyamf.BaseDecoder.__init__
+pyamf.BaseEncoder.__init__
+pyamf.ClassAlias.__init__
+pyamf.CustomTypeFunc.__init__
+pyamf.TypedObject.__init__
+pyamf.TypedObjectClassAlias.__init__
+pyamf.adapters.PackageImporter.__init__
+pyamf.adapters._google_appengine_ext_db.ModelStub.__init__
+pyamf.amf0.Context.__init__
+pyamf.amf0.Encoder.__init__
+pyamf.amf0.RecordSet.__init__
+pyamf.amf3.ByteArray.__init__
+pyamf.amf3.ClassDefinition.__init__
+pyamf.amf3.Context.__init__
+pyamf.amf3.DataInput.__init__
+pyamf.amf3.DataOutput.__init__
+pyamf.amf3.Decoder.__init__
+pyamf.amf3.Encoder.__init__
+pyamf.flex.ArrayCollection.__init__
+pyamf.flex.ObjectProxy.__init__
+pyamf.flex.data.DataErrorMessage.__init__
+pyamf.flex.data.DataMessage.__init__
+pyamf.flex.data.PagedMessage.__init__
+pyamf.flex.data.SequencedMessage.__init__
+pyamf.flex.messaging.AbstractMessage.__init__
+pyamf.flex.messaging.AsyncMessage.__init__
+pyamf.flex.messaging.CommandMessage.__init__
+pyamf.flex.messaging.ErrorMessage.__init__
+pyamf.flex.messaging.RemotingMessage.__init__
+pyamf.remoting.BaseFault.__init__
+pyamf.remoting.Envelope.__init__
+pyamf.remoting.HeaderCollection.__init__
+pyamf.remoting.Message.__init__
+pyamf.remoting.Request.__init__
+pyamf.remoting.Response.__init__
+pyamf.remoting.amf0.RequestProcessor.__init__
+pyamf.remoting.amf3.RequestProcessor.__init__
+pyamf.remoting.client.RemotingService.__init__
+pyamf.remoting.client.RequestWrapper.__init__
+pyamf.remoting.client.ServiceMethodProxy.__init__
+pyamf.remoting.client.ServiceProxy.__init__
+pyamf.remoting.gateway.BaseGateway.__init__
+pyamf.remoting.gateway.ServiceRequest.__init__
+pyamf.remoting.gateway.ServiceWrapper.__init__
+pyamf.remoting.gateway.django.DjangoGateway.__init__
+pyamf.remoting.gateway.google.WebAppGateway.__init__
+pyamf.remoting.gateway.twisted.TwistedGateway.__init__
+pyamf.sol.SOL.__init__
+pyamf.util.IndexedCollection.__init__
+pyamf.util.IndexedMap.__init__
+pyamf.util.StringIOProxy.__init__" class="py-name" href="#" onclick="return doclink('link-129', '__init__', 'link-65');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">        <tt class="py-comment">#: Extended data that the remote destination has chosen to associate</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#: with this error to facilitate custom error processing on the client.</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">extendedData</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-130" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-130', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'extendedData'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line">        <tt class="py-comment">#: Fault code for the error.</tt> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">faultCode</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-131" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-131', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'faultCode'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line">        <tt class="py-comment">#: Detailed description of what caused the error.</tt> </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">faultDetail</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-132" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-132', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'faultDetail'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line">        <tt class="py-comment">#: A simple description of the error.</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">faultString</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-133" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-133', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'faultString'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">        <tt class="py-comment">#: Should a traceback exist for the error, this property contains the</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#: message.</tt> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">rootCause</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-134" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-134', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'rootCause'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line"> </tt>
+<a name="ErrorMessage.getSmallMessage"></a><div id="ErrorMessage.getSmallMessage-def"><a name="L440"></a><tt class="py-lineno">440</tt> <a class="py-toggle" href="#" id="ErrorMessage.getSmallMessage-toggle" onclick="return toggle('ErrorMessage.getSmallMessage');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.ErrorMessage-class.html#getSmallMessage">getSmallMessage</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ErrorMessage.getSmallMessage-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ErrorMessage.getSmallMessage-expanded"><a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line"><tt class="py-docstring">        Return a ISmallMessage representation of this error message.</tt> </tt>
+<a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line"><tt class="py-docstring">        @since: 0.5</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L446"></a><tt class="py-lineno">446</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt> </tt>
+</div></div><a name="L447"></a><tt class="py-lineno">447</tt>  <tt class="py-line"> </tt>
+<a name="L448"></a><tt class="py-lineno">448</tt>  <tt class="py-line"> </tt>
+<a name="RemotingMessage"></a><div id="RemotingMessage-def"><a name="L449"></a><tt class="py-lineno">449</tt> <a class="py-toggle" href="#" id="RemotingMessage-toggle" onclick="return toggle('RemotingMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.RemotingMessage-class.html">RemotingMessage</a><tt class="py-op">(</tt><tt class="py-base-class">AbstractMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RemotingMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="RemotingMessage-expanded"><a name="L450"></a><tt class="py-lineno">450</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L451"></a><tt class="py-lineno">451</tt>  <tt class="py-line"><tt class="py-docstring">    I am used to send RPC requests to a remote endpoint.</tt> </tt>
+<a name="L452"></a><tt class="py-lineno">452</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L453"></a><tt class="py-lineno">453</tt>  <tt class="py-line"><tt class="py-docstring">    @see: U{RemotingMessage on Livedocs (external)</tt> </tt>
+<a name="L454"></a><tt class="py-lineno">454</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;http://livedocs.adobe.com/flex/201/langref/mx/messaging/messages/RemotingMessage.html&gt;}</tt> </tt>
+<a name="L455"></a><tt class="py-lineno">455</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L456"></a><tt class="py-lineno">456</tt>  <tt class="py-line"> </tt>
+<a name="RemotingMessage.__amf__"></a><div id="RemotingMessage.__amf__-def"><a name="L457"></a><tt class="py-lineno">457</tt> <a class="py-toggle" href="#" id="RemotingMessage.__amf__-toggle" onclick="return toggle('RemotingMessage.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.RemotingMessage.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="RemotingMessage.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RemotingMessage.__amf__-expanded"><a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line">        <tt id="link-135" class="py-name"><a title="pyamf.amf0.RecordSet.__amf__.static
+pyamf.flex.messaging.AbstractMessage.__amf__.static
+pyamf.flex.messaging.AsyncMessage.__amf__.static
+pyamf.flex.messaging.CommandMessage.__amf__.static
+pyamf.flex.messaging.ErrorMessage.__amf__.static
+pyamf.flex.messaging.RemotingMessage.__amf__.static
+pyamf.remoting.BaseFault.__amf__.static" class="py-name" href="#" onclick="return doclink('link-135', 'static', 'link-7');">static</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'operation'</tt><tt class="py-op">,</tt> <tt class="py-string">'source'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line"> </tt>
+<a name="RemotingMessage.__init__"></a><div id="RemotingMessage.__init__-def"><a name="L460"></a><tt class="py-lineno">460</tt> <a class="py-toggle" href="#" id="RemotingMessage.__init__-toggle" onclick="return toggle('RemotingMessage.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging.RemotingMessage-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="RemotingMessage.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RemotingMessage.__init__-expanded"><a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line">        <tt id="link-136" class="py-name"><a title="pyamf.flex.messaging.AbstractMessage" class="py-name" href="#" onclick="return doclink('link-136', 'AbstractMessage', 'link-64');">AbstractMessage</a></tt><tt class="py-op">.</tt><tt id="link-137" class="py-name"><a title="cpyamf.util.BufferedByteStream.__init__
+pyamf.ASObject.__init__
+pyamf.BaseContext.__init__
+pyamf.BaseDecoder.__init__
+pyamf.BaseEncoder.__init__
+pyamf.ClassAlias.__init__
+pyamf.CustomTypeFunc.__init__
+pyamf.TypedObject.__init__
+pyamf.TypedObjectClassAlias.__init__
+pyamf.adapters.PackageImporter.__init__
+pyamf.adapters._google_appengine_ext_db.ModelStub.__init__
+pyamf.amf0.Context.__init__
+pyamf.amf0.Encoder.__init__
+pyamf.amf0.RecordSet.__init__
+pyamf.amf3.ByteArray.__init__
+pyamf.amf3.ClassDefinition.__init__
+pyamf.amf3.Context.__init__
+pyamf.amf3.DataInput.__init__
+pyamf.amf3.DataOutput.__init__
+pyamf.amf3.Decoder.__init__
+pyamf.amf3.Encoder.__init__
+pyamf.flex.ArrayCollection.__init__
+pyamf.flex.ObjectProxy.__init__
+pyamf.flex.data.DataErrorMessage.__init__
+pyamf.flex.data.DataMessage.__init__
+pyamf.flex.data.PagedMessage.__init__
+pyamf.flex.data.SequencedMessage.__init__
+pyamf.flex.messaging.AbstractMessage.__init__
+pyamf.flex.messaging.AsyncMessage.__init__
+pyamf.flex.messaging.CommandMessage.__init__
+pyamf.flex.messaging.ErrorMessage.__init__
+pyamf.flex.messaging.RemotingMessage.__init__
+pyamf.remoting.BaseFault.__init__
+pyamf.remoting.Envelope.__init__
+pyamf.remoting.HeaderCollection.__init__
+pyamf.remoting.Message.__init__
+pyamf.remoting.Request.__init__
+pyamf.remoting.Response.__init__
+pyamf.remoting.amf0.RequestProcessor.__init__
+pyamf.remoting.amf3.RequestProcessor.__init__
+pyamf.remoting.client.RemotingService.__init__
+pyamf.remoting.client.RequestWrapper.__init__
+pyamf.remoting.client.ServiceMethodProxy.__init__
+pyamf.remoting.client.ServiceProxy.__init__
+pyamf.remoting.gateway.BaseGateway.__init__
+pyamf.remoting.gateway.ServiceRequest.__init__
+pyamf.remoting.gateway.ServiceWrapper.__init__
+pyamf.remoting.gateway.django.DjangoGateway.__init__
+pyamf.remoting.gateway.google.WebAppGateway.__init__
+pyamf.remoting.gateway.twisted.TwistedGateway.__init__
+pyamf.sol.SOL.__init__
+pyamf.util.IndexedCollection.__init__
+pyamf.util.IndexedMap.__init__
+pyamf.util.StringIOProxy.__init__" class="py-name" href="#" onclick="return doclink('link-137', '__init__', 'link-65');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line">        <tt class="py-comment">#: Name of the remote method/operation that should be called.</tt> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">operation</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-138" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-138', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'operation'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">        <tt class="py-comment">#: Name of the service to be called including package name.</tt> </tt>
+<a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-comment">#: This property is provided for backwards compatibility.</tt> </tt>
+<a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line"><tt class="py-comment"></tt>        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">source</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt id="link-139" class="py-name"><a title="pyamf.remoting.gateway.google.WebAppGateway.get" class="py-name" href="#" onclick="return doclink('link-139', 'get', 'link-21');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'source'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line"> </tt>
+<a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessageExt"></a><div id="AcknowledgeMessageExt-def"><a name="L469"></a><tt class="py-lineno">469</tt> <a class="py-toggle" href="#" id="AcknowledgeMessageExt-toggle" onclick="return toggle('AcknowledgeMessageExt');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessageExt-class.html">AcknowledgeMessageExt</a><tt class="py-op">(</tt><tt class="py-base-class">AcknowledgeMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessageExt-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AcknowledgeMessageExt-expanded"><a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line"><tt class="py-docstring">    An L{AcknowledgeMessage}, but implementing C{ISmallMessage}.</tt> </tt>
+<a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line"><tt class="py-docstring">    @since: 0.5</tt> </tt>
+<a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line"> </tt>
+<a name="AcknowledgeMessageExt.__amf__"></a><div id="AcknowledgeMessageExt.__amf__-def"><a name="L476"></a><tt class="py-lineno">476</tt> <a class="py-toggle" href="#" id="AcknowledgeMessageExt.__amf__-toggle" onclick="return toggle('AcknowledgeMessageExt.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AcknowledgeMessageExt.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="AcknowledgeMessageExt.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AcknowledgeMessageExt.__amf__-expanded"><a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line">        <tt id="link-140" class="py-name" targets="Variable pyamf.flex.ArrayCollection.__amf__.external=pyamf.flex.ArrayCollection.__amf__-class.html#external,Variable pyamf.flex.ObjectProxy.__amf__.external=pyamf.flex.ObjectProxy.__amf__-class.html#external,Variable pyamf.flex.messaging.AcknowledgeMessageExt.__amf__.external=pyamf.flex.messaging.AcknowledgeMessageExt.__amf__-class.html#external,Variable pyamf.flex.messaging.AsyncMessageExt.__amf__.external=pyamf.flex.messaging.AsyncMessageExt.__amf__-class.html#external,Variable pyamf.flex.messaging.CommandMessageExt.__amf__.external=pyamf.flex.messaging.CommandMessageExt.__amf__-class.html#external"><a title="pyamf.flex.ArrayCollection.__amf__.external
+pyamf.flex.ObjectProxy.__amf__.external
+pyamf.flex.messaging.AcknowledgeMessageExt.__amf__.external
+pyamf.flex.messaging.AsyncMessageExt.__amf__.external
+pyamf.flex.messaging.CommandMessageExt.__amf__.external" class="py-name" href="#" onclick="return doclink('link-140', 'external', 'link-140');">external</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+</div></div><a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line"> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessageExt"></a><div id="CommandMessageExt-def"><a name="L480"></a><tt class="py-lineno">480</tt> <a class="py-toggle" href="#" id="CommandMessageExt-toggle" onclick="return toggle('CommandMessageExt');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessageExt-class.html">CommandMessageExt</a><tt class="py-op">(</tt><tt class="py-base-class">CommandMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessageExt-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CommandMessageExt-expanded"><a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line"><tt class="py-docstring">    A L{CommandMessage}, but implementing C{ISmallMessage}.</tt> </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line"><tt class="py-docstring">    @since: 0.5</tt> </tt>
+<a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L486"></a><tt class="py-lineno">486</tt>  <tt class="py-line"> </tt>
+<a name="CommandMessageExt.__amf__"></a><div id="CommandMessageExt.__amf__-def"><a name="L487"></a><tt class="py-lineno">487</tt> <a class="py-toggle" href="#" id="CommandMessageExt.__amf__-toggle" onclick="return toggle('CommandMessageExt.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.CommandMessageExt.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="CommandMessageExt.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandMessageExt.__amf__-expanded"><a name="L488"></a><tt class="py-lineno">488</tt>  <tt class="py-line">        <tt id="link-141" class="py-name"><a title="pyamf.flex.ArrayCollection.__amf__.external
+pyamf.flex.ObjectProxy.__amf__.external
+pyamf.flex.messaging.AcknowledgeMessageExt.__amf__.external
+pyamf.flex.messaging.AsyncMessageExt.__amf__.external
+pyamf.flex.messaging.CommandMessageExt.__amf__.external" class="py-name" href="#" onclick="return doclink('link-141', 'external', 'link-140');">external</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+</div></div><a name="L489"></a><tt class="py-lineno">489</tt>  <tt class="py-line"> </tt>
+<a name="L490"></a><tt class="py-lineno">490</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessageExt"></a><div id="AsyncMessageExt-def"><a name="L491"></a><tt class="py-lineno">491</tt> <a class="py-toggle" href="#" id="AsyncMessageExt-toggle" onclick="return toggle('AsyncMessageExt');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessageExt-class.html">AsyncMessageExt</a><tt class="py-op">(</tt><tt class="py-base-class">AsyncMessage</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessageExt-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AsyncMessageExt-expanded"><a name="L492"></a><tt class="py-lineno">492</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L493"></a><tt class="py-lineno">493</tt>  <tt class="py-line"><tt class="py-docstring">    A L{AsyncMessage}, but implementing C{ISmallMessage}.</tt> </tt>
+<a name="L494"></a><tt class="py-lineno">494</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L495"></a><tt class="py-lineno">495</tt>  <tt class="py-line"><tt class="py-docstring">    @since: 0.5</tt> </tt>
+<a name="L496"></a><tt class="py-lineno">496</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L497"></a><tt class="py-lineno">497</tt>  <tt class="py-line"> </tt>
+<a name="AsyncMessageExt.__amf__"></a><div id="AsyncMessageExt.__amf__-def"><a name="L498"></a><tt class="py-lineno">498</tt> <a class="py-toggle" href="#" id="AsyncMessageExt.__amf__-toggle" onclick="return toggle('AsyncMessageExt.__amf__');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="pyamf.flex.messaging.AsyncMessageExt.__amf__-class.html">__amf__</a><tt class="py-op">:</tt> </tt>
+</div><div id="AsyncMessageExt.__amf__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AsyncMessageExt.__amf__-expanded"><a name="L499"></a><tt class="py-lineno">499</tt>  <tt class="py-line">        <tt id="link-142" class="py-name"><a title="pyamf.flex.ArrayCollection.__amf__.external
+pyamf.flex.ObjectProxy.__amf__.external
+pyamf.flex.messaging.AcknowledgeMessageExt.__amf__.external
+pyamf.flex.messaging.AsyncMessageExt.__amf__.external
+pyamf.flex.messaging.CommandMessageExt.__amf__.external" class="py-name" href="#" onclick="return doclink('link-142', 'external', 'link-140');">external</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+</div></div><a name="L500"></a><tt class="py-lineno">500</tt>  <tt class="py-line"> </tt>
+<a name="L501"></a><tt class="py-lineno">501</tt>  <tt class="py-line"> </tt>
+<a name="read_flags"></a><div id="read_flags-def"><a name="L502"></a><tt class="py-lineno">502</tt> <a class="py-toggle" href="#" id="read_flags-toggle" onclick="return toggle('read_flags');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging-module.html#read_flags">read_flags</a><tt class="py-op">(</tt><tt class="py-param">input</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="read_flags-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="read_flags-expanded"><a name="L503"></a><tt class="py-lineno">503</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L504"></a><tt class="py-lineno">504</tt>  <tt class="py-line"><tt class="py-docstring">    @since: 0.5</tt> </tt>
+<a name="L505"></a><tt class="py-lineno">505</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L506"></a><tt class="py-lineno">506</tt>  <tt class="py-line">    <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L507"></a><tt class="py-lineno">507</tt>  <tt class="py-line"> </tt>
+<a name="L508"></a><tt class="py-lineno">508</tt>  <tt class="py-line">    <tt class="py-name">done</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L509"></a><tt class="py-lineno">509</tt>  <tt class="py-line"> </tt>
+<a name="L510"></a><tt class="py-lineno">510</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-keyword">not</tt> <tt class="py-name">done</tt><tt class="py-op">:</tt> </tt>
+<a name="L511"></a><tt class="py-lineno">511</tt>  <tt class="py-line">        <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-name">input</tt><tt class="py-op">.</tt><tt id="link-143" class="py-name" targets="Method pyamf.amf3.DataInput.readUnsignedByte()=pyamf.amf3.DataInput-class.html#readUnsignedByte"><a title="pyamf.amf3.DataInput.readUnsignedByte" class="py-name" href="#" onclick="return doclink('link-143', 'readUnsignedByte', 'link-143');">readUnsignedByte</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L512"></a><tt class="py-lineno">512</tt>  <tt class="py-line"> </tt>
+<a name="L513"></a><tt class="py-lineno">513</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">byte</tt> <tt class="py-op">&amp;</tt> <tt id="link-144" class="py-name"><a title="pyamf.flex.messaging.SMALL_FLAG_MORE" class="py-name" href="#" onclick="return doclink('link-144', 'SMALL_FLAG_MORE', 'link-5');">SMALL_FLAG_MORE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L514"></a><tt class="py-lineno">514</tt>  <tt class="py-line">            <tt class="py-name">done</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L515"></a><tt class="py-lineno">515</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L516"></a><tt class="py-lineno">516</tt>  <tt class="py-line">            <tt class="py-name">byte</tt> <tt class="py-op">=</tt> <tt class="py-name">byte</tt> <tt class="py-op">^</tt> <tt id="link-145" class="py-name"><a title="pyamf.flex.messaging.SMALL_FLAG_MORE" class="py-name" href="#" onclick="return doclink('link-145', 'SMALL_FLAG_MORE', 'link-5');">SMALL_FLAG_MORE</a></tt> </tt>
+<a name="L517"></a><tt class="py-lineno">517</tt>  <tt class="py-line"> </tt>
+<a name="L518"></a><tt class="py-lineno">518</tt>  <tt class="py-line">        <tt class="py-name">flags</tt><tt class="py-op">.</tt><tt id="link-146" class="py-name"><a title="cpyamf.util.BufferedByteStream.append
+pyamf.util.IndexedCollection.append
+pyamf.util.IndexedMap.append" class="py-name" href="#" onclick="return doclink('link-146', 'append', 'link-50');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">byte</tt><tt class="py-op">)</tt> </tt>
+<a name="L519"></a><tt class="py-lineno">519</tt>  <tt class="py-line"> </tt>
+<a name="L520"></a><tt class="py-lineno">520</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">flags</tt> </tt>
+</div><a name="L521"></a><tt class="py-lineno">521</tt>  <tt class="py-line"> </tt>
+<a name="L522"></a><tt class="py-lineno">522</tt>  <tt class="py-line"> </tt>
+<a name="decode_uuid"></a><div id="decode_uuid-def"><a name="L523"></a><tt class="py-lineno">523</tt> <a class="py-toggle" href="#" id="decode_uuid-toggle" onclick="return toggle('decode_uuid');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyamf.flex.messaging-module.html#decode_uuid">decode_uuid</a><tt class="py-op">(</tt><tt class="py-param">obj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="decode_uuid-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="decode_uuid-expanded"><a name="L524"></a><tt class="py-lineno">524</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L525"></a><tt class="py-lineno">525</tt>  <tt class="py-line"><tt class="py-docstring">    Decode a L{ByteArray} contents to a C{uuid.UUID} instance.</tt> </tt>
+<a name="L526"></a><tt class="py-lineno">526</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L527"></a><tt class="py-lineno">527</tt>  <tt class="py-line"><tt class="py-docstring">    @since: 0.5</tt> </tt>
+<a name="L528"></a><tt class="py-lineno">528</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L529"></a><tt class="py-lineno">529</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">uuid</tt><tt class="py-op">.</tt><tt class="py-name">UUID</tt><tt class="py-op">(</tt><tt class="py-name">bytes</tt><tt class="py-op">=</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">obj</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L530"></a><tt class="py-lineno">530</tt>  <tt class="py-line"> </tt>
+<a name="L531"></a><tt class="py-lineno">531</tt>  <tt class="py-line"> </tt>
+<a name="L532"></a><tt class="py-lineno">532</tt>  <tt class="py-line"><tt id="link-147" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-147', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-148" class="py-name" targets="Function pyamf.register_package()=pyamf-module.html#register_package"><a title="pyamf.register_package" class="py-name" href="#" onclick="return doclink('link-148', 'register_package', 'link-148');">register_package</a></tt><tt class="py-op">(</tt><tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">package</tt><tt class="py-op">=</tt><tt id="link-149" class="py-name"><a title="pyamf.flex.messaging.NAMESPACE" class="py-name" href="#" onclick="return doclink('link-149', 'NAMESPACE', 'link-4');">NAMESPACE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L533"></a><tt class="py-lineno">533</tt>  <tt class="py-line"><tt id="link-150" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-150', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-151" class="py-name" targets="Function pyamf.register_class()=pyamf-module.html#register_class"><a title="pyamf.register_class" class="py-name" href="#" onclick="return doclink('link-151', 'register_class', 'link-151');">register_class</a></tt><tt class="py-op">(</tt><tt id="link-152" class="py-name"><a title="pyamf.flex.messaging.AcknowledgeMessageExt" class="py-name" href="#" onclick="return doclink('link-152', 'AcknowledgeMessageExt', 'link-94');">AcknowledgeMessageExt</a></tt><tt class="py-op">,</tt> <tt class="py-string">'DSK'</tt><tt class="py-op">)</tt> </tt>
+<a name="L534"></a><tt class="py-lineno">534</tt>  <tt class="py-line"><tt id="link-153" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-153', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-154" class="py-name"><a title="pyamf.register_class" class="py-name" href="#" onclick="return doclink('link-154', 'register_class', 'link-151');">register_class</a></tt><tt class="py-op">(</tt><tt id="link-155" class="py-name"><a title="pyamf.flex.messaging.CommandMessageExt" class="py-name" href="#" onclick="return doclink('link-155', 'CommandMessageExt', 'link-124');">CommandMessageExt</a></tt><tt class="py-op">,</tt> <tt class="py-string">'DSC'</tt><tt class="py-op">)</tt> </tt>
+<a name="L535"></a><tt class="py-lineno">535</tt>  <tt class="py-line"><tt id="link-156" class="py-name"><a title="pyamf" class="py-name" href="#" onclick="return doclink('link-156', 'pyamf', 'link-0');">pyamf</a></tt><tt class="py-op">.</tt><tt id="link-157" class="py-name"><a title="pyamf.register_class" class="py-name" href="#" onclick="return doclink('link-157', 'register_class', 'link-151');">register_class</a></tt><tt class="py-op">(</tt><tt id="link-158" class="py-name"><a title="pyamf.flex.messaging.AsyncMessageExt" class="py-name" href="#" onclick="return doclink('link-158', 'AsyncMessageExt', 'link-84');">AsyncMessageExt</a></tt><tt class="py-op">,</tt> <tt class="py-string">'DSA'</tt><tt class="py-op">)</tt> </tt>
+<a name="L536"></a><tt class="py-lineno">536</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:53 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

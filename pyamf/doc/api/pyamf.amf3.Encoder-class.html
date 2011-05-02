@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.amf3.Encoder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.amf3-module.html">Module&nbsp;amf3</a> ::
+        Class&nbsp;Encoder
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.amf3.Encoder-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Encoder</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_am_11" name="uml_class_diagram_for_pyamf_am_11">
+<area shape="rect" id="node134" href="pyamf.amf3.Context-class.html" title="Holds the class that will create context objects for the implementing &#160;Encoder." alt="" coords="17,176,425,195"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#type_map" title="A list of types &#45;&gt; functions." alt="" coords="17,195,425,213"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,216,425,235"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeElement" title="Writes the data." alt="" coords="17,235,425,253"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeClass" title="Classes cannot be serialised." alt="" coords="17,253,425,272"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeUndefined" title="Writes an pyamf.Undefined value to the stream." alt="" coords="17,272,425,291"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeNull" title="Writes a null value to the stream." alt="" coords="17,291,425,309"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeBoolean" title="Writes a Boolean to the stream." alt="" coords="17,309,425,328"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeInteger" title="Writes an integer to the stream." alt="" coords="17,328,425,347"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeNumber" title="Writes a float to the stream." alt="" coords="17,347,425,365"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeString" title="Writes a string to the stream." alt="" coords="17,365,425,384"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeDate" title="Writes a datetime instance to the stream." alt="" coords="17,384,425,403"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeList" title="Writes a tuple, set or list to the stream." alt="" coords="17,403,425,421"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeDict" title="Writes a dict to the stream." alt="" coords="17,421,425,440"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeInstance" title="Read class definition." alt="" coords="17,440,425,459"/>
+<area shape="rect" id="node134" href="pyamf.amf3.Encoder-class.html#writeXML" title="Writes a XML string to the data stream." alt="" coords="17,477,425,496"/>
+<area shape="rect" id="node1" href="pyamf.amf3.Encoder-class.html" title="Encodes an AMF3 data stream." alt="" coords="5,153,437,503"/>
+<area shape="rect" id="node135" href="pyamf.BaseEncoder-class.html#context" title="The context for the encoding." alt="" coords="65,29,377,48"/>
+<area shape="rect" id="node135" href="pyamf.BaseEncoder-class.html#strict" title="Whether the encoder should operate in &#39;strict&#39; mode." alt="" coords="65,48,377,67"/>
+<area shape="rect" id="node135" href="pyamf.BaseEncoder-class.html#timezone_offset" title="The offset from UTC for any datetime objects being encoded." alt="" coords="65,67,377,85"/>
+<area shape="rect" id="node135" href="pyamf.BaseEncoder-class.html#writeFunc" title="Not possible to encode functions." alt="" coords="65,88,377,107"/>
+<area shape="rect" id="node2" href="pyamf.BaseEncoder-class.html" title="Base AMF encoder." alt="" coords="53,6,389,114"/>
+<area shape="rect" id="node4" href="cpyamf.util.BufferedByteStream-class.html" title="An extension of StringIO." alt="" coords="467,309,688,347"/>
+<area shape="poly" id="edge2" href="pyamf.BaseEncoder-class.html#stream" title="pyamf.BaseEncoder.stream" alt="" coords="381,57 399,64 426,83 488,146 519,184 547,224 567,264 579,299 574,301 563,266 542,227 515,187 484,149 422,87 397,69 379,63"/>
+<area shape="rect" id="edge2" href="pyamf.BaseEncoder-class.html#stream" title="stream" alt="" coords="481,125,523,141"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_am_11.gif" alt='' usemap="#uml_class_diagram_for_pyamf_am_11" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Encodes an AMF3 data stream.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>type</code> or <code>types.ClassType</code></span>
+    </td><td class="summary">
+        <a href="pyamf.amf3.Context-class.html" class="summary-name">context_class</a><br />
+      Holds the class that will create context objects for the implementing
+      <code>Encoder</code>.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeElement" class="summary-sig-name">writeElement</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">use_proxies</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Writes the data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeElement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeClass"></a><span class="summary-sig-name">writeClass</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Classes cannot be serialised.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeClass">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeUndefined"></a><span class="summary-sig-name">writeUndefined</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes an <code>pyamf.Undefined</code> value to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeUndefined">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeNull"></a><span class="summary-sig-name">writeNull</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a <code>null</code> value to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeNull">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writeBoolean"></a><span class="summary-sig-name">writeBoolean</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a Boolean to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeBoolean">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#_writeInteger" class="summary-sig-name" onclick="show_private();">_writeInteger</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>)</span><br />
+      AMF3 integers are encoded.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder._writeInteger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeInteger" class="summary-sig-name">writeInteger</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes an integer to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeInteger">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeNumber" class="summary-sig-name">writeNumber</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a float to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeNumber">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#_writeString" class="summary-sig-name" onclick="show_private();">_writeString</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a raw string to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder._writeString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeString" class="summary-sig-name">writeString</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a string to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeDate" class="summary-sig-name">writeDate</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a <code>datetime</code> instance to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeDate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeList" class="summary-sig-name">writeList</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">use_proxies</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Writes a <code>tuple</code>, <code>set</code> or <code>list</code> to
+      the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeDict" class="summary-sig-name">writeDict</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">use_proxies</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Writes a <code>dict</code> to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeDict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeInstance" class="summary-sig-name">writeInstance</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Read class definition.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeInstance">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeObject" class="summary-sig-name">writeObject</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">use_proxies</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Writes an object to the stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeByteArray" class="summary-sig-name">writeByteArray</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Writes a <a href="pyamf.amf3.ByteArray-class.html" 
+      class="link">ByteArray</a> to the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeByteArray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Encoder-class.html#writeXML" class="summary-sig-name">writeXML</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n</span>,
+        <span class="summary-sig-arg">use_references</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">use_proxies</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Writes a XML string to the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseEncoder-class.html" onclick="show_private();">BaseEncoder</a></code></b>:
+      <code><a href="pyamf.BaseEncoder-class.html#writeFunc">writeFunc</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseEncoder-class.html" onclick="show_private();">BaseEncoder</a></code></b> (private):
+      <code><a href="pyamf.BaseEncoder-class.html#_getWriteElementFunc" onclick="show_private();">_getWriteElementFunc</a></code>,
+      <code><a href="pyamf.BaseEncoder-class.html#_writeElementFunc" onclick="show_private();">_writeElementFunc</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+        <a href="pyamf.amf3.Encoder-class.html#type_map" class="summary-name">type_map</a> = <code title="[((&lt;type 'builtin_function_or_method'&gt;,
+   &lt;type 'builtin_function_or_method'&gt;,
+   &lt;type 'function'&gt;,
+   &lt;type 'generator'&gt;,
+   &lt;type 'module'&gt;,
+   &lt;type 'function'&gt;,
+   &lt;type 'instancemethod'&gt;),
+  'writeFunc'),
+..."><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-group">(</code>&lt;type 'builtin_function_or_method'&gt;<code class="variable-op">, </code>&lt;type 'buil<code class="variable-ellipsis">...</code></code><br />
+      A list of types -&gt; functions.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseEncoder-class.html" onclick="show_private();">BaseEncoder</a></code></b>:
+      <code><a href="pyamf.BaseEncoder-class.html#context">context</a></code>,
+      <code><a href="pyamf.BaseEncoder-class.html#stream">stream</a></code>,
+      <code><a href="pyamf.BaseEncoder-class.html#strict">strict</a></code>,
+      <code><a href="pyamf.BaseEncoder-class.html#timezone_offset">timezone_offset</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeElement"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeElement</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">use_proxies</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeElement">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes the data.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>data</code></strong> (<code>mixed</code>) - The data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.EncodeError-class.html" onclick="show_private();">EncodeError</a></strong></code> - Cannot find encoder func for <code>data</code>.</li>
+    </ul></dd>
+    <dt>Overrides:
+        <a href="pyamf.BaseEncoder-class.html#writeElement">BaseEncoder.writeElement</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_writeInteger"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_writeInteger</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder._writeInteger">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>AMF3 integers are encoded.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (integer data) - The integer data to be encoded to the AMF3 data stream.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="http://osflash.org/documentation/amf3/parsing_integers" 
+        target="_top">Parsing Integers on OSFlash</a> for more info.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="writeInteger"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeInteger</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeInteger">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes an integer to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (integer data) - The integer data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeNumber"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeNumber</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeNumber">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a float to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (<code>float</code>)</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_writeString"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_writeString</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder._writeString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a raw string to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (<code>str</code> or <code>unicode</code>) - The string data to be encoded to the AMF3 data stream.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeString"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeString</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a string to the stream. If <code>n</code> is not a unicode 
+  string, an attempt will be made to convert it.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (<code>basestring</code>) - The string data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeDate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeDate</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeDate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a <code>datetime</code> instance to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (datetime) - The <code>Date</code> data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeList"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeList</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">use_proxies</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeList">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a <code>tuple</code>, <code>set</code> or <code>list</code> to 
+  the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (One of <code>__builtin__.tuple</code>, 
+          <code>__builtin__.set</code> or <code>__builtin__.list</code>) - The <code>list</code> data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeDict"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeDict</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">use_proxies</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeDict">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a <code>dict</code> to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (<code>__builtin__.dict</code>) - The <code>dict</code> data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Non <code>int</code>/<code>str</code> key value found in the 
+        <code>dict</code></li>
+        <li><code><strong class='fraise'><a href="pyamf.EncodeError-class.html" onclick="show_private();">EncodeError</a></strong></code> - <code>dict</code> contains empty string keys.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeInstance"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeInstance</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeInstance">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read class definition.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>obj</code></strong> - The class instance to be encoded.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeObject"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeObject</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">use_proxies</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeObject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes an object to the stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>obj</code></strong> (object data) - The object data to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.EncodeError-class.html" onclick="show_private();">EncodeError</a></strong></code> - Encoding an object in amf3 tagged as amf0 only.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeByteArray"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeByteArray</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeByteArray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a <a href="pyamf.amf3.ByteArray-class.html" 
+  class="link">ByteArray</a> to the data stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (<a href="pyamf.amf3.ByteArray-class.html" 
+          class="link">ByteArray</a>) - The <a href="pyamf.amf3.ByteArray-class.html" 
+          class="link">ByteArray</a> data to be encoded to the AMF3 data 
+          stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="writeXML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">writeXML</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n</span>,
+        <span class="sig-arg">use_references</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">use_proxies</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Encoder.writeXML">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Writes a XML string to the data stream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>n</code></strong> (ET) - The XML Document to be encoded to the AMF3 data stream.</li>
+        <li><strong class="pname"><code>use_references</code></strong> (<code>bool</code>) - Default is <code>True</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="type_map"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">type_map</h3>
+  A list of types -&gt; functions. The types is a list of possible 
+  instances or functions to call (that return a <code>bool</code>) to 
+  determine the correct function to call to encode the data.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>list</code></dd>
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-group">(</code>&lt;type 'builtin_function_or_method'&gt;<code class="variable-op">,</code>
+   &lt;type 'builtin_function_or_method'&gt;<code class="variable-op">,</code>
+   &lt;type 'function'&gt;<code class="variable-op">,</code>
+   &lt;type 'generator'&gt;<code class="variable-op">,</code>
+   &lt;type 'module'&gt;<code class="variable-op">,</code>
+   &lt;type 'function'&gt;<code class="variable-op">,</code>
+   &lt;type 'instancemethod'&gt;<code class="variable-group">)</code><code class="variable-op">,</code>
+  <code class="variable-quote">'</code><code class="variable-string">writeFunc</code><code class="variable-quote">'</code><code class="variable-group">)</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:45 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

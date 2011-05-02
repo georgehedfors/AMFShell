@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.amf3.Context</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.amf3-module.html">Module&nbsp;amf3</a> ::
+        Class&nbsp;Context
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.amf3.Context-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Context</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_am_7" name="uml_class_diagram_for_pyamf_am_7">
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#classes" title="A list of ClassDefinition." alt="" coords="17,213,239,232"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#legacy_xml" title="A list of legacy encoded XML documents." alt="" coords="17,232,239,251"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#strings" title="A list of string references." alt="" coords="17,251,239,269"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,272,239,291"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#clear" title="Clears the context." alt="" coords="17,291,239,309"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#setObjectAlias" title="Maps an object to an aliased object." alt="" coords="17,309,239,328"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getObjectAlias" title="Get an alias of an object." alt="" coords="17,328,239,347"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getString" title="Gets a string based on a reference ref." alt="" coords="17,347,239,365"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getStringReference" title="Return string reference." alt="" coords="17,365,239,384"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#addString" title="Creates a reference to s." alt="" coords="17,384,239,403"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getClassByReference" title="Return class reference." alt="" coords="17,403,239,421"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getClass" title="Return class reference." alt="" coords="17,421,239,440"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#addClass" title="Creates a reference to class_def." alt="" coords="17,440,239,459"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getLegacyXML" title="Return the legacy XML reference." alt="" coords="17,459,239,477"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#getLegacyXMLReference" title="Return legacy XML reference." alt="" coords="17,477,239,496"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#addLegacyXML" title="Creates a reference to doc." alt="" coords="17,496,239,515"/>
+<area shape="rect" id="node124" href="pyamf.amf3.Context-class.html#__copy__" title="pyamf.amf3.Context.__copy__" alt="" coords="17,515,239,533"/>
+<area shape="rect" id="node1" href="pyamf.amf3.Context-class.html" title="I hold the AMF3 context for en/decoding streams." alt="" coords="5,190,251,541"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#class_aliases" title="A dict of class to ClassAlias" alt="" coords="36,29,220,48"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#exceptions" title="If True then reference errors will be propagated." alt="" coords="36,48,220,67"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#getObject" title="Gets an object based on a reference." alt="" coords="36,69,220,88"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#getObjectReference" title="Gets a reference for an object." alt="" coords="36,88,220,107"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#addObject" title="Adds a reference to obj." alt="" coords="36,107,220,125"/>
+<area shape="rect" id="node125" href="pyamf.BaseContext-class.html#getClassAlias" title="Gets a class alias based on the supplied klass." alt="" coords="36,125,220,144"/>
+<area shape="rect" id="node2" href="pyamf.BaseContext-class.html" title="I hold the AMF context for en/decoding streams." alt="" coords="24,6,232,151"/>
+<area shape="rect" id="node4" href="pyamf.util.IndexedCollection-class.html" title="A class that provides a quick and clean way to store references and referenced objects." alt="" coords="280,346,443,385"/>
+<area shape="poly" id="edge2" href="pyamf.BaseContext-class.html#objects" title="pyamf.BaseContext.objects" alt="" coords="223,76 267,82 301,98 326,124 344,158 355,197 361,241 364,337 359,337 355,242 349,198 339,160 322,127 298,103 266,87 222,81"/>
+<area shape="rect" id="edge2" href="pyamf.BaseContext-class.html#objects" title="objects" alt="" coords="347,163,391,179"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_am_7.gif" alt='' usemap="#uml_class_diagram_for_pyamf_am_7" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>I hold the AMF3 context for en/decoding streams.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exceptions</span>=<span class="summary-sig-default">True</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#clear" class="summary-sig-name">clear</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clears the context.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.clear">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#setObjectAlias" class="summary-sig-name">setObjectAlias</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">alias</span>)</span><br />
+      Maps an object to an aliased object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.setObjectAlias">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getObjectAlias" class="summary-sig-name">getObjectAlias</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>)</span><br />
+      Get an alias of an object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getObjectAlias">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getString" class="summary-sig-name">getString</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ref</span>)</span><br />
+      Gets a string based on a reference <code>ref</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getStringReference" class="summary-sig-name">getStringReference</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">s</span>)</span><br />
+      Return string reference.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getStringReference">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#addString" class="summary-sig-name">addString</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">s</span>)</span><br />
+      Creates a reference to <code>s</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getClassByReference" class="summary-sig-name">getClassByReference</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ref</span>)</span><br />
+      Return class reference.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getClassByReference">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getClass" class="summary-sig-name">getClass</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">klass</span>)</span><br />
+      Return class reference.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getClass">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#addClass" class="summary-sig-name">addClass</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">alias</span>,
+        <span class="summary-sig-arg">klass</span>)</span><br />
+      Creates a reference to <code>class_def</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addClass">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getLegacyXML" class="summary-sig-name">getLegacyXML</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ref</span>)</span><br />
+      Return the legacy XML reference.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getLegacyXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#getLegacyXMLReference" class="summary-sig-name">getLegacyXMLReference</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">doc</span>)</span><br />
+      Return legacy XML reference.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getLegacyXMLReference">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#addLegacyXML" class="summary-sig-name">addLegacyXML</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">doc</span>)</span><br />
+      Creates a reference to <code>doc</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addLegacyXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.Context-class.html#__copy__" class="summary-sig-name">__copy__</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.__copy__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseContext-class.html" onclick="show_private();">BaseContext</a></code></b>:
+      <code><a href="pyamf.BaseContext-class.html#addObject">addObject</a></code>,
+      <code><a href="pyamf.BaseContext-class.html#getClassAlias">getClassAlias</a></code>,
+      <code><a href="pyamf.BaseContext-class.html#getObject">getObject</a></code>,
+      <code><a href="pyamf.BaseContext-class.html#getObjectReference">getObjectReference</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+        <a name="classes"></a><span class="summary-name">classes</span><br />
+      A list of <a href="pyamf.amf3.ClassDefinition-class.html" 
+      class="link">ClassDefinition</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+        <a name="legacy_xml"></a><span class="summary-name">legacy_xml</span><br />
+      A list of legacy encoded XML documents.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+        <a name="strings"></a><span class="summary-name">strings</span><br />
+      A list of string references.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseContext-class.html" onclick="show_private();">BaseContext</a></code></b>:
+      <code><a href="pyamf.BaseContext-class.html#class_aliases">class_aliases</a></code>,
+      <code><a href="pyamf.BaseContext-class.html#exceptions">exceptions</a></code>,
+      <code><a href="pyamf.BaseContext-class.html#objects">objects</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exceptions</span>=<span class="sig-default">True</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="clear"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">clear</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.clear">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Clears the context.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="pyamf.BaseContext-class.html#clear">BaseContext.clear</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setObjectAlias"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setObjectAlias</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">alias</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.setObjectAlias">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Maps an object to an aliased object.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="getObjectAlias"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getObjectAlias</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getObjectAlias">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get an alias of an object.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - Unknown object alias.</li>
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - Unknown mapped alias.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="getString"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getString</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ref</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets a string based on a reference <code>ref</code>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>ref</code></strong> (<code>str</code>) - The reference index.</li>
+    </ul></dd>
+    <dt>Returns: <code>str</code></dt>
+        <dd>The referenced string.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The referenced string could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getStringReference"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getStringReference</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">s</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getStringReference">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return string reference.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>s</code></strong> (<code>str</code>) - The referenced string.</li>
+    </ul></dd>
+    <dt>Returns: <code>int</code></dt>
+        <dd>The reference index to the string.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The string reference could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addString"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addString</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">s</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a reference to <code>s</code>. If the reference already 
+  exists, that reference is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>s</code></strong> (<code>str</code>) - The string to be referenced.</li>
+    </ul></dd>
+    <dt>Returns: <code>int</code></dt>
+        <dd>The reference index.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>TypeError</strong></code> - The parameter <code>s</code> is not of <code>basestring</code> 
+        type.</li>
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - Trying to store a reference to an empty string.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getClassByReference"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getClassByReference</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ref</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getClassByReference">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return class reference.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Class reference.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The class reference could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getClass"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getClass</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">klass</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getClass">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return class reference.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Class reference.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The class reference could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addClass"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addClass</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">alias</span>,
+        <span class="sig-arg">klass</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addClass">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a reference to <code>class_def</code>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>alias</code></strong> - <code>ClassDefinition</code> instance.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getLegacyXML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getLegacyXML</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ref</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getLegacyXML">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the legacy XML reference. This is the 
+  <code>flash.xml.XMLDocument</code> class in ActionScript 3.0 and the 
+  top-level <code>XML</code> class in ActionScript 1.0 and 2.0.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>ref</code></strong> (<code>int</code>) - The reference index.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Instance of ET</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The legacy XML reference could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getLegacyXMLReference"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getLegacyXMLReference</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">doc</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.getLegacyXMLReference">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return legacy XML reference.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>doc</code></strong> (ET) - The XML document to reference.</li>
+    </ul></dd>
+    <dt>Returns: <code>int</code></dt>
+        <dd>The reference to <code>doc</code>.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - The reference could not be found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addLegacyXML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addLegacyXML</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">doc</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.addLegacyXML">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Creates a reference to <code>doc</code>.</p>
+  <p>If <code>doc</code> is already referenced that index will be returned.
+  Otherwise a new index will be created.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>doc</code></strong> (ET) - The XML document to reference.</li>
+    </ul></dd>
+    <dt>Returns: <code>int</code></dt>
+        <dd>The reference to <code>doc</code>.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__copy__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__copy__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#Context.__copy__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="pyamf.BaseContext-class.html#__copy__">BaseContext.__copy__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:44 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

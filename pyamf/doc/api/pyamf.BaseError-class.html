@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.BaseError</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        Class&nbsp;BaseError
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.BaseError-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class BaseError</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf-pysrc.html#BaseError">source&nbsp;code</a></span></p>
+<center>
+  <div class="private"><center>  <map id="uml_class_diagram_for_pyamf_ba_4" name="uml_class_diagram_for_pyamf_ba_4">
+<area shape="rect" id="node1" href="pyamf.BaseError-class.html" title="Base AMF Error." alt="" coords="615,361,700,405"/>
+<area shape="rect" id="node3" href="pyamf.remoting.RemotingError-class.html" title="Generic remoting error class." alt="" coords="23,425,199,463"/>
+<area shape="rect" id="node8" href="pyamf.EncodeError-class.html" title="Raised if the element could not be encoded to the stream." alt="" coords="228,425,340,463"/>
+<area shape="rect" id="node9" href="pyamf.DecodeError-class.html" title="Raised if there is an error in decoding an AMF data stream." alt="" coords="369,425,484,463"/>
+<area shape="rect" id="node10" href="pyamf.EOStream-class.html" title="Raised if the data stream has come to a natural end." alt="" coords="513,425,612,463"/>
+<area shape="rect" id="node11" href="pyamf.remoting.amf3.BaseServerError-class.html" title="Base server error." alt="" coords="641,425,865,463"/>
+<area shape="rect" id="node13" href="pyamf.ClassAliasError-class.html" title="Generic error for anything class alias related." alt="" coords="895,425,1025,463"/>
+<area shape="rect" id="node14" href="pyamf.ReferenceError-class.html" title="Raised if an AMF data stream refers to a non&#45;existent object or string reference." alt="" coords="1055,425,1180,463"/>
+<area shape="rect" id="node15" href="pyamf.remoting.gateway.BaseServiceError-class.html" title="Base service error." alt="" coords="1319,425,1569,463"/>
+<area shape="rect" id="node25" href="javascript:void(0);" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="592,296,723,315"/>
+<area shape="rect" id="node25" href="javascript:void(0);" title="exceptions.Exception.__new__" alt="" coords="592,315,723,333"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="Common base class for all non&#45;exit exceptions." alt="" coords="580,265,735,341"/>
+<area shape="rect" id="node4" href="pyamf.remoting.RemotingCallFailed-class.html" title="Raised if Server.Call.Failed received." alt="" coords="5,483,216,522"/>
+<area shape="rect" id="node5" href="pyamf.remoting.gateway.UnknownServiceMethodError-class.html" title="Client made a request for an unknown method." alt="" coords="1067,483,1387,522"/>
+<area shape="rect" id="node6" href="pyamf.remoting.amf3.ServerCallFailed-class.html" title="A catchall error." alt="" coords="629,483,853,522"/>
+<area shape="rect" id="node7" href="pyamf.remoting.gateway.UnknownServiceError-class.html" title="Client made a request for an unknown service." alt="" coords="1416,483,1691,522"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="exceptions.BaseException.args" alt="" coords="576,29,739,48"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="exception message" alt="" coords="576,48,739,67"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="x.__delattr__(&#39;name&#39;) &lt;==&gt; del x.name" alt="" coords="576,69,739,88"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="576,88,739,107"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="x[y]" alt="" coords="576,107,739,125"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="x[i:j]" alt="" coords="576,125,739,144"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="helper for pickle" alt="" coords="576,144,739,163"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="repr(x)" alt="" coords="576,163,739,181"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="x.__setattr__(&#39;name&#39;, value) &lt;==&gt; x.name = value" alt="" coords="576,181,739,200"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="exceptions.BaseException.__setstate__" alt="" coords="576,200,739,219"/>
+<area shape="rect" id="node26" href="javascript:void(0);" title="str(x)" alt="" coords="576,219,739,237"/>
+<area shape="rect" id="node12" href="javascript:void(0);" title="Common base class for all exceptions" alt="" coords="564,6,751,245"/>
+<area shape="rect" id="node17" href="pyamf.UnknownClassAlias-class.html" title="Raised if the AMF stream specifies an Actionscript class that does not have a Python class alias." alt="" coords="883,483,1037,522"/>
+<area shape="rect" id="node16" href="pyamf.remoting.gateway.InvalidServiceMethodError-class.html" title="Client made a request for an invalid methodname." alt="" coords="1720,483,2024,522"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_ba_4.gif" alt='' usemap="#uml_class_diagram_for_pyamf_ba_4" ismap="ismap" class="graph-without-title" />
+</center></div>
+  <div class="public" style="display:none"><center>  <map id="uml_class_diagram_for_pyamf_ba_5" name="uml_class_diagram_for_pyamf_ba_5">
+<area shape="rect" id="node1" href="pyamf.BaseError-class.html" title="Base AMF Error." alt="" coords="324,361,409,405"/>
+<area shape="rect" id="node7" href="pyamf.remoting.amf3.BaseServerError-class.html" title="Base server error." alt="" coords="104,425,328,463"/>
+<area shape="rect" id="node8" href="pyamf.remoting.gateway.BaseServiceError-class.html" title="Base service error." alt="" coords="456,425,707,463"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="301,296,432,315"/>
+<area shape="rect" id="node42" href="javascript:void(0);" title="exceptions.Exception.__new__" alt="" coords="301,315,432,333"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="Common base class for all non&#45;exit exceptions." alt="" coords="289,265,444,341"/>
+<area shape="rect" id="node3" href="pyamf.remoting.gateway.UnknownServiceMethodError-class.html" title="Client made a request for an unknown method." alt="" coords="259,483,579,522"/>
+<area shape="rect" id="node4" href="pyamf.remoting.amf3.ServerCallFailed-class.html" title="A catchall error." alt="" coords="5,483,229,522"/>
+<area shape="rect" id="node5" href="pyamf.remoting.gateway.UnknownServiceError-class.html" title="Client made a request for an unknown service." alt="" coords="608,483,883,522"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="exceptions.BaseException.args" alt="" coords="285,29,448,48"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="exception message" alt="" coords="285,48,448,67"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="x.__delattr__(&#39;name&#39;) &lt;==&gt; del x.name" alt="" coords="285,69,448,88"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="285,88,448,107"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="x[y]" alt="" coords="285,107,448,125"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="x[i:j]" alt="" coords="285,125,448,144"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="helper for pickle" alt="" coords="285,144,448,163"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="repr(x)" alt="" coords="285,163,448,181"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="x.__setattr__(&#39;name&#39;, value) &lt;==&gt; x.name = value" alt="" coords="285,181,448,200"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="exceptions.BaseException.__setstate__" alt="" coords="285,200,448,219"/>
+<area shape="rect" id="node43" href="javascript:void(0);" title="str(x)" alt="" coords="285,219,448,237"/>
+<area shape="rect" id="node6" href="javascript:void(0);" title="Common base class for all exceptions" alt="" coords="273,6,460,245"/>
+<area shape="rect" id="node9" href="pyamf.remoting.gateway.InvalidServiceMethodError-class.html" title="Client made a request for an invalid methodname." alt="" coords="912,483,1216,522"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_ba_5.gif" alt='' usemap="#uml_class_diagram_for_pyamf_ba_5" ismap="ismap" class="graph-without-title" />
+</center></div>
+</center>
+<hr />
+<p>Base AMF Error.</p>
+  <p>All AMF related errors should be subclassed from this class.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.Exception</code></b>:
+      <code>__init__</code>,
+      <code>__new__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.BaseException</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__reduce__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__setstate__</code>,
+      <code>__str__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__hash__</code>,
+      <code>__reduce_ex__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.BaseException</code></b>:
+      <code>args</code>,
+      <code>message</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:41 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

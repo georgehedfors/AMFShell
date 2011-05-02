@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.remoting.gateway.BaseGateway</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.remoting-module.html">Package&nbsp;remoting</a> ::
+        <a href="pyamf.remoting.gateway-module.html">Package&nbsp;gateway</a> ::
+        Class&nbsp;BaseGateway
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.remoting.gateway.BaseGateway-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class BaseGateway</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_re_23" name="uml_class_diagram_for_pyamf_re_23">
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#authenticator" title="A callable that will check the credentials of the request before allowing &#160;access to the service." alt="" coords="87,29,839,48"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#logger" title="A logging instance." alt="" coords="87,48,839,67"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessor" title="Called before the actual service method is invoked." alt="" coords="87,67,839,85"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#strict" title="Defines whether the gateway should use strict en/decoding." alt="" coords="87,85,839,104"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#timezone_offset" title="A datetime.timedelta between UTC and the timezone to be encoded." alt="" coords="87,104,839,123"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="87,125,839,144"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#addService" title="Adds a service to the gateway." alt="" coords="87,144,839,163"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#removeService" title="Removes a service from the gateway." alt="" coords="87,163,839,181"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#getServiceRequest" title="Returns a service based on the message." alt="" coords="87,181,839,200"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#getProcessor" title="Returns request processor." alt="" coords="87,200,839,219"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#getResponse" title="Returns the response to the request." alt="" coords="87,219,839,237"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#mustExposeRequest" title="Decides whether the underlying http request should be exposed as the first &#160;argument to the method call." alt="" coords="87,237,839,256"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#getAuthenticator" title="Gets an authenticator callable based on the service_request." alt="" coords="87,256,839,275"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#authenticateRequest" title="Processes an authentication request." alt="" coords="87,275,839,293"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#getPreprocessor" title="Gets a preprocessor callable based on the service_request." alt="" coords="87,293,839,312"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessRequest" title="Preprocesses a request." alt="" coords="87,312,839,331"/>
+<area shape="rect" id="node291" href="pyamf.remoting.gateway.BaseGateway-class.html#callServiceRequest" title="Executes the service_request call" alt="" coords="87,331,839,349"/>
+<area shape="rect" id="node1" href="pyamf.remoting.gateway.BaseGateway-class.html" title="Generic Remoting gateway." alt="" coords="75,6,851,357"/>
+<area shape="rect" id="node3" href="pyamf.remoting.gateway.ServiceCollection-class.html" title="I hold a collection of services, mapping names to objects." alt="" coords="5,395,147,434"/>
+<area shape="poly" id="edge2" href="pyamf.remoting.gateway.BaseGateway-class.html#services" title="pyamf.remoting.gateway.BaseGateway.services" alt="" coords="84,184 58,189 45,201 41,221 45,248 63,314 72,350 78,386 73,387 67,351 58,315 40,249 36,221 40,199 55,184 84,179"/>
+<area shape="rect" id="edge2" href="pyamf.remoting.gateway.BaseGateway-class.html#services" title="services" alt="" coords="76,368,127,384"/>
+<area shape="rect" id="node4" href="pyamf.remoting.gateway.django.DjangoGateway-class.html" title="An instance of this class is suitable as a Django view." alt="" coords="176,395,355,434"/>
+<area shape="rect" id="node5" href="pyamf.remoting.gateway.wsgi.WSGIGateway-class.html" title="WSGI Remoting Gateway." alt="" coords="384,395,541,434"/>
+<area shape="rect" id="node6" href="pyamf.remoting.gateway.twisted.TwistedGateway-class.html" title="Twisted Remoting gateway for twisted.web." alt="" coords="571,395,755,434"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_re_23.gif" alt='' usemap="#uml_class_diagram_for_pyamf_re_23" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Generic Remoting gateway.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.gateway.ServiceRequest-class.html" class="summary-name" onclick="show_private();">_request_class</a><br />
+      Remoting service request.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">services</span>=<span class="summary-sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#addService" class="summary-sig-name">addService</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">description</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">authenticator</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">expose_request</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">preprocessor</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Adds a service to the gateway.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.addService">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_timezone_offset"></a><span class="summary-sig-name">_get_timezone_offset</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway._get_timezone_offset">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#removeService" class="summary-sig-name">removeService</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service</span>)</span><br />
+      Removes a service from the gateway.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.removeService">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.remoting.gateway.ServiceRequest-class.html" 
+      class="link">ServiceRequest</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#getServiceRequest" class="summary-sig-name">getServiceRequest</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">request</span>,
+        <span class="summary-sig-arg">target</span>)</span><br />
+      Returns a service based on the message.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getServiceRequest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#getProcessor" class="summary-sig-name">getProcessor</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">request</span>)</span><br />
+      Returns request processor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getProcessor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#getResponse" class="summary-sig-name">getResponse</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">amf_request</span>)</span><br />
+      Returns the response to the request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getResponse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#mustExposeRequest" class="summary-sig-name">mustExposeRequest</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>)</span><br />
+      Decides whether the underlying http request should be exposed as the 
+      first argument to the method call.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.mustExposeRequest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#getAuthenticator" class="summary-sig-name">getAuthenticator</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>)</span><br />
+      Gets an authenticator callable based on the service_request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getAuthenticator">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#authenticateRequest" class="summary-sig-name">authenticateRequest</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>,
+        <span class="summary-sig-arg">username</span>,
+        <span class="summary-sig-arg">password</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Processes an authentication request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.authenticateRequest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.BaseGateway-class.html#getPreprocessor" class="summary-sig-name">getPreprocessor</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>)</span><br />
+      Gets a preprocessor callable based on the service_request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getPreprocessor">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="preprocessRequest"></a><span class="summary-sig-name">preprocessRequest</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Preprocesses a request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.preprocessRequest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="callServiceRequest"></a><span class="summary-sig-name">callServiceRequest</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service_request</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Executes the service_request call</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.callServiceRequest">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>Callable</code> or <code>None</code></span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.gateway.BaseGateway-class.html#authenticator" class="summary-name">authenticator</a><br />
+      A callable that will check the credentials of the request before 
+      allowing access to the service.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="logger"></a><span class="summary-name">logger</span><br />
+      A logging instance.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>Callable</code> or <code>None</code></span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessor" class="summary-name">preprocessor</a><br />
+      Called before the actual service method is invoked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.remoting.gateway.ServiceCollection-class.html" 
+      class="link">ServiceCollection</a></span>
+    </td><td class="summary">
+        <a name="services"></a><span class="summary-name">services</span><br />
+      A map of service names to callables.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+        <a name="strict"></a><span class="summary-name">strict</span><br />
+      Defines whether the gateway should use strict en/decoding.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.gateway.BaseGateway-class.html#timezone_offset" class="summary-name">timezone_offset</a><br />
+      A <code class="link">datetime.timedelta</code> between UTC and the 
+      timezone to be encoded.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">services</span>=<span class="sig-default"><code class="variable-group">{</code><code class="variable-group">}</code></span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addService"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addService</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">description</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">authenticator</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">expose_request</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">preprocessor</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.addService">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds a service to the gateway.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>service</code></strong> (<code>callable</code>, class instance, or a module) - The service to add to the gateway.</li>
+        <li><strong class="pname"><code>name</code></strong> (<code>str</code>) - The name of the service.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.remoting.RemotingError-class.html" onclick="show_private();">pyamf.remoting.RemotingError</a></strong></code> - Service already exists.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - <code>service</code> cannot be a scalar value.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - <code>service</code> must be <code>callable</code> or a module.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="removeService"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">removeService</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.removeService">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a service from the gateway.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>service</code></strong> (<code>callable</code> or a class instance) - The service to remove from the gateway.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>NameError</strong></code> - Service not found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getServiceRequest"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getServiceRequest</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">request</span>,
+        <span class="sig-arg">target</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getServiceRequest">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a service based on the message.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (<a href="pyamf.remoting.Request-class.html" 
+          class="link">Request</a>) - The AMF request.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.remoting.gateway.ServiceRequest-class.html" 
+      class="link">ServiceRequest</a></dt>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.remoting.gateway.UnknownServiceError-class.html">UnknownServiceError</a></strong></code> - Unknown service.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getProcessor"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getProcessor</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getProcessor">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns request processor.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>request</code></strong> (<a href="pyamf.remoting.Request-class.html" 
+          class="link">Request</a>) - The AMF message.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getResponse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getResponse</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">amf_request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getResponse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the response to the request.</p>
+  <p>Any implementing gateway must define this function.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>amf_request</code></strong> (<a href="pyamf.remoting.Envelope-class.html" 
+          class="link">Envelope</a>) - The AMF request.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></dt>
+        <dd>The AMF response.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="mustExposeRequest"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">mustExposeRequest</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service_request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.mustExposeRequest">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Decides whether the underlying http request should be exposed as the 
+  first argument to the method call. This is granular, looking at the 
+  service method first, then at the service level and finally checking the 
+  gateway.</p>
+  <dl class="fields">
+    <dt>Returns: <code>bool</code></dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getAuthenticator"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getAuthenticator</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service_request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getAuthenticator">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets an authenticator callable based on the service_request. This is 
+  granular, looking at the service method first, then at the service level 
+  and finally to see if there is a global authenticator function for the 
+  gateway. Returns <code>None</code> if one could not be found.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="authenticateRequest"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">authenticateRequest</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service_request</span>,
+        <span class="sig-arg">username</span>,
+        <span class="sig-arg">password</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.authenticateRequest">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Processes an authentication request. If no authenticator is supplied, 
+  then authentication succeeds.</p>
+  <dl class="fields">
+    <dt>Returns: <code>bool</code></dt>
+        <dd>Returns a <code>bool</code> based on the result of authorization.
+          A value of <code>False</code> will stop processing the request 
+          and return an error to the client.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPreprocessor"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPreprocessor</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">service_request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway-pysrc.html#BaseGateway.getPreprocessor">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets a preprocessor callable based on the service_request. This is 
+  granular, looking at the service method first, then at the service level 
+  and finally to see if there is a global preprocessor function for the 
+  gateway. Returns <code>None</code> if one could not be found.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="authenticator"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">authenticator</h3>
+  A callable that will check the credentials of the request before allowing
+  access to the service. Will return a <code>bool</code> value.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>Callable</code> or <code>None</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="preprocessor"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">preprocessor</h3>
+  Called before the actual service method is invoked. Useful for setting up
+  sessions etc.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>Callable</code> or <code>None</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="timezone_offset"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">timezone_offset</h3>
+  A <code class="link">datetime.timedelta</code> between UTC and the 
+  timezone to be encoded. Most dates should be handled as UTC to avoid 
+  confusion but for older legacy systems this is not an option. Supplying 
+  an int as this will be interpretted in seconds.
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:49 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

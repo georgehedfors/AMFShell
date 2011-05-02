@@ -1,0 +1,1772 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;pyamf
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyamf</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf-pysrc.html">source&nbsp;code</a></span></p>
+<p><b>PyAMF</b> provides <b>A</b>ction <b>M</b>essage <b>F</b>ormat (<a 
+  href="http://en.wikipedia.org/wiki/Action_Message_Format" 
+  target="_top">AMF</a>) support for Python that is compatible with the 
+  Adobe <a href="http://en.wikipedia.org/wiki/Flash_Player" 
+  target="_top">Flash Player</a>.</p>
+
+<hr />
+<div class="fields">      <p><strong>Copyright:</strong>
+        Copyright (c) 2007-2009 The PyAMF Project. All Rights Reserved.
+      </p>
+      <p><strong>Contact:</strong>
+        <a href="mailto:users@pyamf.org" target="_top">users@pyamf.org</a>
+      </p>
+      <p><strong>See Also:</strong>
+        <a href="http://pyamf.org" target="_top">http://pyamf.org</a>
+      </p>
+      <p><strong>Since:</strong>
+        October 2007
+      </p>
+      <p><strong>Version:</strong>
+        0.5
+      </p>
+      <p><strong>Status:</strong>
+        Production/Stable
+      </p>
+</div><!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Submodules</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Submodules"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters-module.html" onclick="show_private();">pyamf.adapters</a></strong>: <em class="summary">The adapter package provides additional functionality for other 
+        Python packages.</em>
+    <ul class="private">
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._array-module.html" onclick="show_private();">pyamf.adapters._array</a></strong>: <em class="summary">`array` adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._collections-module.html">pyamf.adapters._collections</a></strong>: <em class="summary">collections adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._decimal-module.html">pyamf.adapters._decimal</a></strong>: <em class="summary">Adapter for the <code>decimal</code> module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._django_db_models_base-module.html">pyamf.adapters._django_db_models_base</a></strong>: <em class="summary"><code>django.db.models</code> adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._django_db_models_fields-module.html">pyamf.adapters._django_db_models_fields</a></strong>: <em class="summary"><code>django.db.models.fields</code> adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._django_db_models_query-module.html">pyamf.adapters._django_db_models_query</a></strong>: <em class="summary">Django query adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._django_utils_translation-module.html">pyamf.adapters._django_utils_translation</a></strong>: <em class="summary"><code>django.utils.translation</code> adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._google_appengine_ext_db-module.html">pyamf.adapters._google_appengine_ext_db</a></strong>: <em class="summary">Google App Engine adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._sets-module.html">pyamf.adapters._sets</a></strong>: <em class="summary">Adapter for the stdlib <code>sets</code> module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._sqlalchemy_orm-module.html">pyamf.adapters._sqlalchemy_orm</a></strong>: <em class="summary">SQLAlchemy adapter module.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.adapters._sqlalchemy_orm_collections-module.html">pyamf.adapters._sqlalchemy_orm_collections</a></strong>: <em class="summary">SQLAlchemy adapter module.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.adapters.util-module.html">pyamf.adapters.util</a></strong>: <em class="summary">Useful helpers for adapters.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyamf.amf0-module.html">pyamf.amf0</a></strong>: <em class="summary">AMF0 implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.amf3-module.html">pyamf.amf3</a></strong>: <em class="summary">AMF3 implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.flex-module.html">pyamf.flex</a></strong>: <em class="summary">Compatibility classes/functions for Flex.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyamf.flex.data-module.html">pyamf.flex.data</a></strong>: <em class="summary">Flex Data Management Service implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.flex.messaging-module.html">pyamf.flex.messaging</a></strong>: <em class="summary">Flex Messaging implementation.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting-module.html">pyamf.remoting</a></strong>: <em class="summary">AMF Remoting support.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.amf0-module.html">pyamf.remoting.amf0</a></strong>: <em class="summary">AMF0 Remoting support.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.amf3-module.html">pyamf.remoting.amf3</a></strong>: <em class="summary">AMF3 RemoteObject support.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.client-module.html">pyamf.remoting.client</a></strong>: <em class="summary">Remoting client implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway-module.html">pyamf.remoting.gateway</a></strong>: <em class="summary">Remoting server implementations.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.django-module.html">pyamf.remoting.gateway.django</a></strong>: <em class="summary">Gateway for the Django framework.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.google-module.html">pyamf.remoting.gateway.google</a></strong>: <em class="summary">Gateway for Google App Engine.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.twisted-module.html">pyamf.remoting.gateway.twisted</a></strong>: <em class="summary">Twisted server implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.wsgi-module.html">pyamf.remoting.gateway.wsgi</a></strong>: <em class="summary">WSGI server implementation.</em>    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="pyamf.sol-module.html">pyamf.sol</a></strong>: <em class="summary">Local Shared Object implementation.</em>    </li>
+    <li class="private"> <strong class="uidlink"><a href="pyamf.util-module.html" onclick="show_private();">pyamf.util</a></strong>: <em class="summary">AMF Utilities.</em>
+    <ul class="private">
+    <li> <strong class="uidlink"><a href="pyamf.util.imports-module.html">pyamf.util.imports</a></strong>: <em class="summary">Tools for doing dynamic imports.</em>    </li>
+    </ul>
+    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ASObject-class.html" class="summary-name" onclick="show_private();">ASObject</a><br />
+      This class represents a Flash Actionscript Object (typed or 
+        untyped).
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.BaseContext-class.html" class="summary-name" onclick="show_private();">BaseContext</a><br />
+      I hold the AMF context for en/decoding streams.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.BaseDecoder-class.html" class="summary-name" onclick="show_private();">BaseDecoder</a><br />
+      Base AMF decoder.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.BaseEncoder-class.html" class="summary-name" onclick="show_private();">BaseEncoder</a><br />
+      Base AMF encoder.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.BaseError-class.html" class="summary-name" onclick="show_private();">BaseError</a><br />
+      Base AMF Error.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ClassAlias-class.html" class="summary-name" onclick="show_private();">ClassAlias</a><br />
+      Class alias.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ClassAliasError-class.html" class="summary-name" onclick="show_private();">ClassAliasError</a><br />
+      Generic error for anything class alias related.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ClientTypes-class.html" class="summary-name" onclick="show_private();">ClientTypes</a><br />
+      Typecodes used to identify AMF clients and servers.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.CustomTypeFunc-class.html" class="summary-name" onclick="show_private();">CustomTypeFunc</a><br />
+      Custom type mappings.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.DecodeError-class.html" class="summary-name" onclick="show_private();">DecodeError</a><br />
+      Raised if there is an error in decoding an AMF data stream.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.EOStream-class.html" class="summary-name" onclick="show_private();">EOStream</a><br />
+      Raised if the data stream has come to a natural end.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.EncodeError-class.html" class="summary-name" onclick="show_private();">EncodeError</a><br />
+      Raised if the element could not be encoded to the stream.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ErrorAlias-class.html" class="summary-name" onclick="show_private();">ErrorAlias</a><br />
+      Adapts Python exception objects to Adobe Flash Player error 
+        objects.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.MixedArray-class.html" class="summary-name" onclick="show_private();">MixedArray</a><br />
+      Used to be able to specify the <code>mixedarray</code> type.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.ReferenceError-class.html" class="summary-name" onclick="show_private();">ReferenceError</a><br />
+      Raised if an AMF data stream refers to a non-existent object or 
+        string reference.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.TypedObject-class.html" class="summary-name" onclick="show_private();">TypedObject</a><br />
+      This class is used when a strongly typed object is decoded but 
+        there is no registered class to apply it to.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.TypedObjectClassAlias-class.html" class="summary-name" onclick="show_private();">TypedObjectClassAlias</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.UndefinedType-class.html" class="summary-name" onclick="show_private();">UndefinedType</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.UnknownClassAlias-class.html" class="summary-name" onclick="show_private();">UnknownClassAlias</a><br />
+      Raised if the AMF stream specifies an Actionscript class that does 
+        not have a Python class alias.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.amf0.Context-class.html" class="link">amf0.Context</a>
+      or <a href="pyamf.amf3.Context-class.html" 
+      class="link">amf3.Context</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#_get_context_class" class="summary-sig-name" onclick="show_private();">_get_context_class</a>(<span class="summary-sig-arg">encoding</span>)</span><br />
+      Gets a compatible context class.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#_get_context_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.amf0.Decoder-class.html" class="link">amf0.Decoder</a>
+      or <a href="pyamf.amf3.Decoder-class.html" 
+      class="link">amf3.Decoder</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#_get_decoder_class" class="summary-sig-name" onclick="show_private();">_get_decoder_class</a>(<span class="summary-sig-arg">encoding</span>)</span><br />
+      Get compatible decoder.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#_get_decoder_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.amf0.Encoder-class.html" class="link">amf0.Encoder</a>
+      or <a href="pyamf.amf3.Encoder-class.html" 
+      class="link">amf3.Encoder</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#_get_encoder_class" class="summary-sig-name" onclick="show_private();">_get_encoder_class</a>(<span class="summary-sig-arg">encoding</span>)</span><br />
+      Get compatible encoder.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#_get_encoder_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#add_error_class" class="summary-sig-name" onclick="show_private();">add_error_class</a>(<span class="summary-sig-arg">klass</span>,
+        <span class="summary-sig-arg">code</span>)</span><br />
+      Maps an exception class to a string code.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#add_error_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#add_type" class="summary-sig-name" onclick="show_private();">add_type</a>(<span class="summary-sig-arg">type_</span>,
+        <span class="summary-sig-arg">func</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Adds a custom type to <a href="pyamf-module.html#TYPE_MAP" 
+      class="link" onclick="show_private();">TYPE_MAP</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#add_type">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#blaze_loader" class="summary-sig-name" onclick="show_private();">blaze_loader</a>(<span class="summary-sig-arg">alias</span>)</span><br />
+      Loader for BlazeDS framework compatibility classes, specifically 
+      implementing <code>ISmallMessage</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#blaze_loader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#decode" class="summary-sig-name">decode</a>(<span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      A generator function to decode a datastream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#decode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>StringIO</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#encode" class="summary-sig-name">encode</a>(<span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      A helper function to encode an element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#encode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#flex_loader" class="summary-sig-name" onclick="show_private();">flex_loader</a>(<span class="summary-sig-arg">alias</span>)</span><br />
+      Loader for <a href="pyamf.flex-module.html" class="link">Flex</a> 
+      framework compatibility classes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#flex_loader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.ClassAlias-class.html" class="link" 
+      onclick="show_private();">ClassAlias</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#get_class_alias" class="summary-sig-name" onclick="show_private();">get_class_alias</a>(<span class="summary-sig-arg">klass</span>)</span><br />
+      Finds the alias registered to the class.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_class_alias">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_context"></a><span class="summary-sig-name">get_context</span>(<span class="summary-sig-arg">encoding</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_context">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_decoder"></a><span class="summary-sig-name">get_decoder</span>(<span class="summary-sig-arg">encoding</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Returns a subclassed instance of <a 
+      href="pyamf.BaseDecoder-class.html" class="link" 
+      onclick="show_private();">pyamf.BaseDecoder</a>, based on 
+      <code>encoding</code></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_decoder">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_encoder"></a><span class="summary-sig-name">get_encoder</span>(<span class="summary-sig-arg">encoding</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Returns a subclassed instance of <a 
+      href="pyamf.BaseEncoder-class.html" class="link" 
+      onclick="show_private();">pyamf.BaseEncoder</a>, based on 
+      <code>encoding</code></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_encoder">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#get_module" class="summary-sig-name" onclick="show_private();">get_module</a>(<span class="summary-sig-arg">mod_name</span>)</span><br />
+      Load a module based on <code>mod_name</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#get_type" class="summary-sig-name" onclick="show_private();">get_type</a>(<span class="summary-sig-arg">type_</span>)</span><br />
+      Gets the declaration for the corresponding custom type.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#get_type">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#load_class" class="summary-sig-name" onclick="show_private();">load_class</a>(<span class="summary-sig-arg">alias</span>)</span><br />
+      Finds the class registered to the alias.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#load_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#register_alias_type" class="summary-sig-name" onclick="show_private();">register_alias_type</a>(<span class="summary-sig-arg">klass</span>,
+        <span class="summary-sig-arg">*args</span>)</span><br />
+      This function allows you to map subclasses of <a 
+      href="pyamf.ClassAlias-class.html" class="link" 
+      onclick="show_private();">ClassAlias</a> to classes listed in 
+      <code>args</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#register_alias_type">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#register_class" class="summary-sig-name">register_class</a>(<span class="summary-sig-arg">klass</span>,
+        <span class="summary-sig-arg">alias</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Registers a class to be used in the data streaming.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#register_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#register_class_loader" class="summary-sig-name">register_class_loader</a>(<span class="summary-sig-arg">loader</span>)</span><br />
+      Registers a loader that is called to provide the <code>Class</code> 
+      for a specific alias.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#register_class_loader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#register_package" class="summary-sig-name" onclick="show_private();">register_package</a>(<span class="summary-sig-arg">module</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">package</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">separator</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">.</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">ignore</span>=<span class="summary-sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">True</span>)</span><br />
+      This is a helper function that takes the concept of Actionscript 
+      packages and registers all the classes in the supplied Python module 
+      under that package.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#register_package">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#remove_error_class" class="summary-sig-name" onclick="show_private();">remove_error_class</a>(<span class="summary-sig-arg">klass</span>)</span><br />
+      Removes a class from <code>ERROR_CLASS_MAP</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#remove_error_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#remove_type" class="summary-sig-name" onclick="show_private();">remove_type</a>(<span class="summary-sig-arg">type_</span>)</span><br />
+      Removes the custom type declaration.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#remove_type">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#unregister_class" class="summary-sig-name" onclick="show_private();">unregister_class</a>(<span class="summary-sig-arg">alias</span>)</span><br />
+      Deletes a class from the cache.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#unregister_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf-module.html#unregister_class_loader" class="summary-sig-name" onclick="show_private();">unregister_class_loader</a>(<span class="summary-sig-arg">loader</span>)</span><br />
+      Unregisters a class loader.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf-pysrc.html#unregister_class_loader">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf-module.html#ALIAS_TYPES" class="summary-name" onclick="show_private();">ALIAS_TYPES</a> = <code title="{&lt;class 'pyamf.TypedObjectClassAlias'&gt;: (&lt;class 'pyamf.TypedObject'&gt;),
+ &lt;class 'pyamf.ErrorAlias'&gt;: (&lt;type 'exceptions.Exception'&gt;),
+ &lt;class 'pyamf.adapters._sqlalchemy_orm.SaMappedClassAlias'&gt;: (&lt;functi\
+on is_class_sa_mapped at 0x1dded30&gt;)}"><code class="variable-group">{</code>&lt;class 'pyamf.TypedObjectClassAlias'&gt;<code class="variable-op">: </code><code class="variable-group">(</code>&lt;class <code class="variable-ellipsis">...</code></code><br />
+      Alias mapping support
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="AMF0"></a><span class="summary-name">AMF0</span> = <code title="0">0</code><br />
+      Specifies that objects are serialized using AMF for ActionScript 1.0 
+      and 2.0 that were introduced in the Adobe Flash Player 6.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="AMF3"></a><span class="summary-name">AMF3</span> = <code title="3">3</code><br />
+      Specifies that objects are serialized using AMF for ActionScript 3.0 
+      that was introduced in the Adobe Flash Player 9.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf-module.html#CLASS_CACHE" class="summary-name" onclick="show_private();">CLASS_CACHE</a> = <code title="{'DSA': &lt;ClassAlias alias=DSA klass=&lt;class 'pyamf.flex.messaging.Async\
+MessageExt'&gt; @ 0xfc8470&gt;,
+ 'DSC': &lt;ClassAlias alias=DSC klass=&lt;class 'pyamf.flex.messaging.Comma\
+ndMessageExt'&gt; @ 0xfc8db0&gt;,
+ 'DSK': &lt;ClassAlias alias=DSK klass=&lt;class 'pyamf.flex.messaging.Ackno\
+wledgeMessageExt'&gt; @ 0xfc8e10&gt;,
+ 'RecordSet': &lt;ClassAlias alias=RecordSet klass=&lt;class 'pyamf.amf0.Rec\
+ordSet'&gt; @ 0xfd0130&gt;,
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">DSA</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;ClassAlias alias=DSA klass=&lt;class 'pyam<code class="variable-ellipsis">...</code></code><br />
+      Class mapping support.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CLASS_LOADERS"></a><span class="summary-name">CLASS_LOADERS</span> = <code title="[]">[]</code><br />
+      Class loaders.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CLIENT_TYPES"></a><span class="summary-name">CLIENT_TYPES</span> = <code title="[1, 0, 3]"><code class="variable-group">[</code>1<code class="variable-op">, </code>0<code class="variable-op">, </code>3<code class="variable-group">]</code></code><br />
+      List of AMF client typecodes.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DEFAULT_ENCODING"></a><span class="summary-name">DEFAULT_ENCODING</span> = <code title="0">0</code><br />
+      Default encoding
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENCODING_TYPES"></a><span class="summary-name">ENCODING_TYPES</span> = <code title="(0, 3)"><code class="variable-group">(</code>0<code class="variable-op">, </code>3<code class="variable-group">)</code></code><br />
+      Supported AMF encoding types.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf-module.html#ERROR_CLASS_MAP" class="summary-name" onclick="show_private();">ERROR_CLASS_MAP</a> = <code title="{'Server.Call.Failed': &lt;class 'pyamf.remoting.RemotingCallFailed'&gt;}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">Server.Call.Failed</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;class 'pyamf.remotin<code class="variable-ellipsis">...</code></code><br />
+      Maps error classes to string codes.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_MAP"></a><span class="summary-name">TYPE_MAP</span> = <code title="{}">{}</code><br />
+      Custom type map.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Undefined"></a><span class="summary-name">Undefined</span> = <code title="pyamf.Undefined">pyamf.Undefined</code><br />
+      Represents the <code>undefined</code> value in a Adobe Flash Player 
+      client.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__version__"></a><span class="summary-name">__version__</span> = <code title="(0, 5)"><code class="variable-group">(</code>0<code class="variable-op">, </code>5<code class="variable-group">)</code></code><br />
+      PyAMF version number.
+    </td>
+  </tr>
+</table>
+<p class="indent-wrapped-lines"><b>Imports:</b>
+  <a href="pyamf.util-module.html" title="pyamf.util">util</a>,
+  <a href="pyamf.adapters-module.html" onclick="show_private();" title="pyamf.adapters">adapters</a>,
+  <span title="inspect">inspect</span>,
+  <a href="pyamf.adapters-module.html#register_adapters" title="pyamf.adapters.register_adapters">register_adapters</a>,
+  <span title="sets.Set">set</span>,
+  <span title="types">types</span>
+</p><br />
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_get_context_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_context_class</span>(<span class="sig-arg">encoding</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#_get_context_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets a compatible context class.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>encoding</code></strong> (<code>int</code>) - AMF encoding version.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.amf0.Context-class.html" class="link">amf0.Context</a>
+      or <a href="pyamf.amf3.Context-class.html" 
+      class="link">amf3.Context</a></dt>
+        <dd>AMF0 or AMF3 context class.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - AMF encoding version is unknown.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_get_decoder_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_decoder_class</span>(<span class="sig-arg">encoding</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#_get_decoder_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get compatible decoder.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>encoding</code></strong> (<code>int</code>) - AMF encoding version.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.amf0.Decoder-class.html" class="link">amf0.Decoder</a>
+      or <a href="pyamf.amf3.Decoder-class.html" 
+      class="link">amf3.Decoder</a></dt>
+        <dd>AMF0 or AMF3 decoder.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - AMF encoding version is unknown.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_get_encoder_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_encoder_class</span>(<span class="sig-arg">encoding</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#_get_encoder_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get compatible encoder.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>encoding</code></strong> (<code>int</code>) - AMF encoding version.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.amf0.Encoder-class.html" class="link">amf0.Encoder</a>
+      or <a href="pyamf.amf3.Encoder-class.html" 
+      class="link">amf3.Encoder</a></dt>
+        <dd>AMF0 or AMF3 encoder.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - AMF encoding version is unknown.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_error_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_error_class</span>(<span class="sig-arg">klass</span>,
+        <span class="sig-arg">code</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#add_error_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Maps an exception class to a string code. Used to map remoting 
+  <code>onStatus</code> objects to an exception class so that an exception 
+  can be built to represent that error:</p>
+<pre class="literalblock">
+   class AuthenticationError(Exception):
+       pass
+</pre>
+  <p>An example: <code>add_error_class(AuthenticationError, 
+  'Auth.Failed')</code></p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>code</code></strong> (<code>str</code>)</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>TypeError</strong></code> - <code>klass</code> must be a <code>class</code> type.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - Error classes must subclass the <code>__builtin__.Exception</code> 
+        class.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - Code is already registered.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_type"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_type</span>(<span class="sig-arg">type_</span>,
+        <span class="sig-arg">func</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#add_type">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds a custom type to <a href="pyamf-module.html#TYPE_MAP" 
+  class="link" onclick="show_private();">TYPE_MAP</a>. A custom type allows
+  fine grain control of what to encode to an AMF data stream.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>TypeError</strong></code> - Unable to add as a custom type (expected a class or callable).</li>
+        <li><code><strong class='fraise'>KeyError</strong></code> - Type already exists.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="blaze_loader"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">blaze_loader</span>(<span class="sig-arg">alias</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#blaze_loader">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Loader for BlazeDS framework compatibility classes, specifically 
+  implementing <code>ISmallMessage</code>.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="http://opensource.adobe.com/wiki/display/blazeds/BlazeDS" 
+        target="_top">BlazeDS (external)</a>
+      </p>
+      <p><strong>Since:</strong>
+        0.5
+      </p>
+</div></td></tr></table>
+</div>
+<a name="decode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">decode</span>(<span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#decode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>A generator function to decode a datastream.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>) - AMF data.</li>
+        <li><strong class="pname"><code>encoding</code></strong> (<code>int</code>) - AMF encoding type.</li>
+        <li><strong class="pname"><code>context</code></strong> (<a href="pyamf.amf0.Context-class.html" class="link">AMF0 
+          Context</a> or <a href="pyamf.amf3.Context-class.html" 
+          class="link">AMF3 Context</a>) - Context.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Each element in the stream.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="encode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">encode</span>(<span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#encode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>A helper function to encode an element.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>element</code></strong> - Python data.</li>
+        <li><strong class="pname"><code>encoding</code></strong> (<code>int</code>) - AMF encoding type.</li>
+        <li><strong class="pname"><code>context</code></strong> (<a href="pyamf.amf0.Context-class.html" 
+          class="link">amf0.Context</a> or <a 
+          href="pyamf.amf3.Context-class.html" 
+          class="link">amf3.Context</a>) - Context.</li>
+        <li><strong class="pname"><code>args</code></strong> (<code>mixed</code>)</li>
+    </ul></dd>
+    <dt>Returns: <code>StringIO</code></dt>
+        <dd>File-like object.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="flex_loader"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">flex_loader</span>(<span class="sig-arg">alias</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#flex_loader">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Loader for <a href="pyamf.flex-module.html" class="link">Flex</a> 
+  framework compatibility classes.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.UnknownClassAlias-class.html" onclick="show_private();">UnknownClassAlias</a></strong></code> - Trying to load unknown Flex compatibility class.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_class_alias"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_class_alias</span>(<span class="sig-arg">klass</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#get_class_alias">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Finds the alias registered to the class.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>klass</code></strong> (<code>object</code> or class object.)</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.ClassAlias-class.html" class="link" 
+      onclick="show_private();">ClassAlias</a></dt>
+        <dd>The class alias linked to <code>klass</code>.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.UnknownClassAlias-class.html" onclick="show_private();">UnknownClassAlias</a></strong></code> - Class not found.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_module"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_module</span>(<span class="sig-arg">mod_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#get_module">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Load a module based on <code>mod_name</code>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mod_name</code></strong> (<code>str</code>) - The module name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Module.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ImportError</strong></code> - Unable to import an empty module.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_type"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_type</span>(<span class="sig-arg">type_</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#get_type">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the declaration for the corresponding custom type.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>KeyError</strong></code> - Unknown type.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="load_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">load_class</span>(<span class="sig-arg">alias</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#load_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Finds the class registered to the alias.</p>
+  <p>The search is done in order:</p>
+  <ol start="1">
+    <li>
+      Checks if the class name has been registered via <a 
+      href="pyamf-module.html#register_class" 
+      class="link">register_class</a> or <a 
+      href="pyamf-module.html#register_package" class="link" 
+      onclick="show_private();">register_package</a>.
+    </li>
+    <li>
+      Checks all functions registered via <a 
+      href="pyamf-module.html#register_class_loader" 
+      class="link">register_class_loader</a>.
+    </li>
+    <li>
+      Attempts to load the class via standard module loading techniques.
+    </li>
+  </ol>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>alias</code></strong> (<code>str</code>) - The class name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Class registered to the alias.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.UnknownClassAlias-class.html" onclick="show_private();">UnknownClassAlias</a></strong></code> - The <code>alias</code> was not found.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - Expecting class type or <a href="pyamf.ClassAlias-class.html" 
+        class="link" onclick="show_private();">ClassAlias</a> from loader.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="register_alias_type"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">register_alias_type</span>(<span class="sig-arg">klass</span>,
+        <span class="sig-arg">*args</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#register_alias_type">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function allows you to map subclasses of <a 
+  href="pyamf.ClassAlias-class.html" class="link" 
+  onclick="show_private();">ClassAlias</a> to classes listed in 
+  <code>args</code>.</p>
+  <p>When an object is read/written from/to the AMF stream, a paired <a 
+  href="pyamf.ClassAlias-class.html" class="link" 
+  onclick="show_private();">ClassAlias</a> instance is created (or reused),
+  based on the Python class of that object. <a 
+  href="pyamf.ClassAlias-class.html" class="link" 
+  onclick="show_private();">ClassAlias</a> provides important metadata for 
+  the class and can also control how the equivalent Python object is 
+  created, how the attributes are applied etc.</p>
+  <p>Use this function if you need to do something non-standard.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>RuntimeError</strong></code> - Type is already registered.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - <code>klass</code> must be a class.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - New aliases must subclass <a href="pyamf.ClassAlias-class.html" 
+        class="link" onclick="show_private();">pyamf.ClassAlias</a>.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - At least one type must be supplied.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias-class.html"
+        
+        class="link">pyamf.adapters._google_appengine_ext_db.DataStoreClassAlias</a>
+        for a good example.
+      </p>
+      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="register_class"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">register_class</span>(<span class="sig-arg">klass</span>,
+        <span class="sig-arg">alias</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#register_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Registers a class to be used in the data streaming.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The registered <a href="pyamf.ClassAlias-class.html" class="link"
+          onclick="show_private();">ClassAlias</a>.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="register_class_loader"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">register_class_loader</span>(<span class="sig-arg">loader</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#register_class_loader">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Registers a loader that is called to provide the <code>Class</code> 
+  for a specific alias.</p>
+  <p>The <code class="link">loader</code> is provided with one argument, 
+  the <code>Class</code> alias. If the loader succeeds in finding a 
+  suitable class then it should return that class, otherwise it should 
+  return <code>None</code>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>loader</code></strong> (<code>callable</code>)</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>TypeError</strong></code> - The <code>loader</code> is not callable.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - The <code>loader</code> is already registered.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="register_package"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">register_package</span>(<span class="sig-arg">module</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">package</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">separator</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">.</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">ignore</span>=<span class="sig-default"><code class="variable-group">[</code><code class="variable-group">]</code></span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#register_package">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is a helper function that takes the concept of Actionscript 
+  packages and registers all the classes in the supplied Python module 
+  under that package. It auto-aliased all classes in <code>module</code> 
+  based on <code>package</code>.</p>
+  <p>e.g. <code>mymodule.py</code>:</p>
+<pre class="literalblock">
+   class User(object):
+       pass
+
+   class Permission(object):
+       pass
+</pre>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> mymodule
+<span class="py-prompt">&gt;&gt;&gt; </span>pyamf.register_package(mymodule, <span class="py-string">'com.example.app'</span>)</pre>
+  <p>Now all instances of <code>mymodule.User</code> will appear in 
+  Actionscript under the alias 'com.example.app.User'. Same goes for 
+  <code>mymodule.Permission</code> - the Actionscript alias is 
+  'com.example.app.Permission'. The reverse is also true, any objects with 
+  the correct aliases will now be instances of the relevant Python 
+  class.</p>
+  <p>This function respects the <code>__all__</code> attribute of the 
+  module but you can have further control of what not to auto alias by 
+  populating the <code>ignore</code> argument.</p>
+  <p>This function provides the ability to register the module it is being 
+  called in, an example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">Foo</span>:
+<span class="py-more">... </span>    <span class="py-keyword">pass</span>
+<span class="py-more">...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">class</span> <span class="py-defname">Bar</span>:
+<span class="py-more">... </span>    <span class="py-keyword">pass</span>
+<span class="py-more">...</span>
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> pyamf
+<span class="py-prompt">&gt;&gt;&gt; </span>pyamf.register_package(<span class="py-string">'foo'</span>)</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>module</code></strong> (<code>module</code> or <code>dict</code>) - The Python module that will contain all the classes to auto 
+          alias.</li>
+        <li><strong class="pname"><code>package</code></strong> (<code>str</code> or <code>unicode</code> or <code>None</code>) - The base package name. e.g. 'com.example.app'. If this is 
+          <code>None</code> then the value is inferred from 
+          module.__name__.</li>
+        <li><strong class="pname"><code>separator</code></strong> (<code>str</code>) - The separator used to append to <code>package</code> to form the 
+          complete alias.</li>
+        <li><strong class="pname"><code>ignore</code></strong> (<code>iterable</code>) - To give fine grain control over what gets aliased and what 
+          doesn't, supply a list of classes that you <b>do not</b> want to 
+          be aliased.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - If this value is <code>True</code> then only classes that 
+          originate from <code>module</code> will be registered, all others
+          will be left in peace.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A collection of all the classes that were registered and their 
+          respective <a href="pyamf.ClassAlias-class.html" class="link" 
+          onclick="show_private();">ClassAlias</a> objects.</dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.5
+      </p>
+</div></td></tr></table>
+</div>
+<a name="remove_error_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_error_class</span>(<span class="sig-arg">klass</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#remove_error_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a class from <code>ERROR_CLASS_MAP</code>.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Code is not registered.</li>
+        <li><code><strong class='fraise'>ValueError</strong></code> - Class is not registered.</li>
+        <li><code><strong class='fraise'>TypeError</strong></code> - Invalid type, expected <code>class</code> or <code>string</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="remove_type"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_type</span>(<span class="sig-arg">type_</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#remove_type">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes the custom type declaration.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Custom type declaration.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="unregister_class"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unregister_class</span>(<span class="sig-arg">alias</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#unregister_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Deletes a class from the cache.</p>
+  <p>If <code>alias</code> is a class, the matching alias is found.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>alias</code></strong> (<code>class</code> or <code>str</code>) - Alias for class to delete.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.UnknownClassAlias-class.html" onclick="show_private();">UnknownClassAlias</a></strong></code> - Unknown alias.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="unregister_class_loader"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unregister_class_loader</span>(<span class="sig-arg">loader</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf-pysrc.html#unregister_class_loader">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Unregisters a class loader.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>loader</code></strong> (<code>callable</code>) - The object to be unregistered</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>LookupError</strong></code> - The <code>loader</code> was not registered.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="ALIAS_TYPES"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">ALIAS_TYPES</h3>
+  <p>Alias mapping support</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code>&lt;class 'pyamf.TypedObjectClassAlias'&gt;<code class="variable-op">: </code><code class="variable-group">(</code>&lt;class 'pyamf.TypedObject'&gt;<code class="variable-group">)</code><code class="variable-op">,</code>
+ &lt;class 'pyamf.ErrorAlias'&gt;<code class="variable-op">: </code><code class="variable-group">(</code>&lt;type 'exceptions.Exception'&gt;<code class="variable-group">)</code><code class="variable-op">,</code>
+ &lt;class 'pyamf.adapters._sqlalchemy_orm.SaMappedClassAlias'&gt;<code class="variable-op">: </code><code class="variable-group">(</code>&lt;functi<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+on is_class_sa_mapped at 0x1dded30&gt;<code class="variable-group">)</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="CLASS_CACHE"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">CLASS_CACHE</h3>
+  <p>Class mapping support.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">DSA</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;ClassAlias alias=DSA klass=&lt;class 'pyamf.flex.messaging.Async<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+MessageExt'&gt; @ 0xfc8470&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">DSC</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;ClassAlias alias=DSC klass=&lt;class 'pyamf.flex.messaging.Comma<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ndMessageExt'&gt; @ 0xfc8db0&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">DSK</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;ClassAlias alias=DSK klass=&lt;class 'pyamf.flex.messaging.Ackno<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+wledgeMessageExt'&gt; @ 0xfc8e10&gt;<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">RecordSet</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;ClassAlias alias=RecordSet klass=&lt;class 'pyamf.amf0.Rec<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ordSet'&gt; @ 0xfd0130&gt;<code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ERROR_CLASS_MAP"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">ERROR_CLASS_MAP</h3>
+  <p>Maps error classes to string codes.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">Server.Call.Failed</code><code class="variable-quote">'</code><code class="variable-op">: </code>&lt;class 'pyamf.remoting.RemotingCallFailed'&gt;<code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:40 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.amf0</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        Module&nbsp;amf0
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.amf0-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module amf0</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.amf0-pysrc.html">source&nbsp;code</a></span></p>
+<p>AMF0 implementation.</p>
+  <p><code>AMF0</code> supports the basic data types used for the 
+  NetConnection, NetStream, LocalConnection, SharedObjects and other 
+  classes in the Adobe Flash Player.</p>
+
+<hr />
+<div class="fields">      <dl><dt>See Also:</dt>
+        <dd>
+          <a 
+          href="http://opensource.adobe.com/wiki/download/attachments/1114283/amf0_spec_121207.pdf"
+          target="_top">Official AMF0 Specification in English 
+          (external)</a>,
+          <a 
+          href="http://opensource.adobe.com/wiki/download/attachments/1114283/JP_amf0_spec_121207.pdf"
+          target="_top">Official AMF0 Specification in Japanese 
+          (external)</a>,
+          <a href="http://osflash.org/documentation/amf" target="_top">AMF 
+          documentation on OSFlash (external)</a>
+        </dd>
+      </dl>
+      <p><strong>Since:</strong>
+        0.1
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.Context-class.html" class="summary-name">Context</a><br />
+      I hold the AMF0 context for en/decoding streams.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.Decoder-class.html" class="summary-name">Decoder</a><br />
+      Decodes an AMF0 stream.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.Encoder-class.html" class="summary-name">Encoder</a><br />
+      Encodes an AMF0 stream.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.RecordSet-class.html" class="summary-name">RecordSet</a><br />
+      I represent the <code>RecordSet</code> class used in Adobe Flash 
+        Remoting to hold (amongst other things) SQL records.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="decode"></a><span class="summary-sig-name">decode</span>(<span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      A helper function to decode an AMF0 datastream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#decode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>StringIO</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0-module.html#encode" class="summary-sig-name">encode</a>(<span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      A helper function to encode an element into the AMF0 format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#encode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="check_nan"></a><span class="summary-sig-name">check_nan</span>(<span class="summary-sig-arg">func</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#check_nan">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_check_for_int"></a><span class="summary-sig-name">_check_for_int</span>(<span class="summary-sig-arg">x</span>)</span><br />
+      This is a compatibility function that takes a <code>float</code> and 
+      converts it to an <code>int</code> if the values are equal.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#_check_for_int">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_NUMBER"></a><span class="summary-name">TYPE_NUMBER</span> = <code title="'\x00'"><code class="variable-quote">'</code><code class="variable-string">\x00</code><code class="variable-quote">'</code></code><br />
+      Represented as 9 bytes: 1 byte for <code>0&#215;00</code> and 8 bytes a 
+      double representing the value of the number.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_BOOL"></a><span class="summary-name">TYPE_BOOL</span> = <code title="'\x01'"><code class="variable-quote">'</code><code class="variable-string">\x01</code><code class="variable-quote">'</code></code><br />
+      Represented as 2 bytes: 1 byte for <code>0&#215;01</code> and a second, 
+      <code>0&#215;00</code> for <code>False</code>, <code>0&#215;01</code> for 
+      <code>True</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_STRING"></a><span class="summary-name">TYPE_STRING</span> = <code title="'\x02'"><code class="variable-quote">'</code><code class="variable-string">\x02</code><code class="variable-quote">'</code></code><br />
+      Represented as 3 bytes + len(String): 1 byte <code>0&#215;02</code>, then 
+      a UTF8 string, including the top two bytes representing string length
+      as a <code>int</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_OBJECT"></a><span class="summary-name">TYPE_OBJECT</span> = <code title="'\x03'"><code class="variable-quote">'</code><code class="variable-string">\x03</code><code class="variable-quote">'</code></code><br />
+      Represented as 1 byte, <code>0&#215;03</code>, then pairs of UTF8 string, 
+      the key, and an AMF element, ended by three bytes, <code>0&#215;00</code> 
+      <code>0&#215;00</code> <code>0&#215;09</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_MOVIECLIP" class="summary-name">TYPE_MOVIECLIP</a> = <code title="'\x04'"><code class="variable-quote">'</code><code class="variable-string">\x04</code><code class="variable-quote">'</code></code><br />
+      MovieClip does not seem to be supported by Remoting.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_NULL"></a><span class="summary-name">TYPE_NULL</span> = <code title="'\x05'"><code class="variable-quote">'</code><code class="variable-string">\x05</code><code class="variable-quote">'</code></code><br />
+      1 single byte, <code>0&#215;05</code> indicates null.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_UNDEFINED"></a><span class="summary-name">TYPE_UNDEFINED</span> = <code title="'\x06'"><code class="variable-quote">'</code><code class="variable-string">\x06</code><code class="variable-quote">'</code></code><br />
+      1 single byte, <code>0&#215;06</code> indicates null.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TYPE_REFERENCE"></a><span class="summary-name">TYPE_REFERENCE</span> = <code title="'\x07'"><code class="variable-quote">'</code><code class="variable-string">\x07</code><code class="variable-quote">'</code></code><br />
+      When an ActionScript object refers to itself, such <code>this.self = 
+      this</code>, or when objects are repeated within the same scope (for 
+      example, as the two parameters of the same function called), a code 
+      of <code>0&#215;07</code> and an <code>int</code>, the reference number, 
+      are written.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_MIXEDARRAY" class="summary-name">TYPE_MIXEDARRAY</a> = <code title="'\x08'"><code class="variable-quote">'</code><code class="variable-string">\x08</code><code class="variable-quote">'</code></code><br />
+      A MixedArray is indicated by code <code>0&#215;08</code>, then a Long 
+      representing the highest numeric index in the array, or 0 if there 
+      are none or they are all negative.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_OBJECTTERM" class="summary-name">TYPE_OBJECTTERM</a> = <code title="'\t'"><code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_ARRAY" class="summary-name">TYPE_ARRAY</a> = <code title="'''
+'''"><code class="variable-quote">'</code><code class="variable-string">\n</code><code class="variable-quote">'</code></code><br />
+      An array is indicated by <code>0x0A</code>, then a Long for array 
+      length, then the array elements themselves.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_DATE" class="summary-name">TYPE_DATE</a> = <code title="'\x0b'"><code class="variable-quote">'</code><code class="variable-string">\x0b</code><code class="variable-quote">'</code></code><br />
+      Date is represented as <code>00x0B</code>, then a double, then an 
+      <code>int</code>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_LONGSTRING" class="summary-name">TYPE_LONGSTRING</a> = <code title="'\x0c'"><code class="variable-quote">'</code><code class="variable-string">\x0c</code><code class="variable-quote">'</code></code><br />
+      LongString is reserved for strings larger then <i 
+      class="math">2^16</i> characters long.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_UNSUPPORTED" class="summary-name">TYPE_UNSUPPORTED</a> = <code title="'\r'"><code class="variable-quote">'</code><code class="variable-string">\r</code><code class="variable-quote">'</code></code><br />
+      Trying to send values which don&#8217;t make sense, such as prototypes, 
+      functions, built-in objects, etc.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_RECORDSET" class="summary-name">TYPE_RECORDSET</a> = <code title="'\x0e'"><code class="variable-quote">'</code><code class="variable-string">\x0e</code><code class="variable-quote">'</code></code><br />
+      Remoting Server -&gt; Client only.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_XML" class="summary-name">TYPE_XML</a> = <code title="'\x0f'"><code class="variable-quote">'</code><code class="variable-string">\x0f</code><code class="variable-quote">'</code></code><br />
+      The XML element is indicated by <code>00x0F</code> and followed by a 
+      LongUTF containing the string representation of the XML object.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_TYPEDOBJECT" class="summary-name">TYPE_TYPEDOBJECT</a> = <code title="'\x10'"><code class="variable-quote">'</code><code class="variable-string">\x10</code><code class="variable-quote">'</code></code><br />
+      A typed object is indicated by <code>0&#215;10</code>, then a UTF string 
+      indicating class name, and then the same structure as a normal 
+      <code>0&#215;03</code> Object.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.amf0-module.html#TYPE_AMF3" class="summary-name">TYPE_AMF3</a> = <code title="'\x11'"><code class="variable-quote">'</code><code class="variable-string">\x11</code><code class="variable-quote">'</code></code><br />
+      An AMF message sent from an AVM+ client such as the Flash Player 9 
+      may break out into <a href="pyamf.amf3-module.html" 
+      class="link">AMF3</a> mode.
+    </td>
+  </tr>
+</table>
+<p class="indent-wrapped-lines"><b>Imports:</b>
+  <span title="datetime">datetime</span>,
+  <span title="types">types</span>,
+  <span title="copy">copy</span>,
+  <a href="pyamf-module.html" title="pyamf">pyamf</a>,
+  <a href="pyamf.util-module.html" title="pyamf.util">util</a>
+</p><br />
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="encode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">encode</span>(<span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#encode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>A helper function to encode an element into the AMF0 format.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>element</code></strong> (<code>mixed</code>) - The element to encode</li>
+        <li><strong class="pname"><code>context</code></strong> (<a href="pyamf.amf0.Context-class.html" class="link">Context</a>) - AMF0 <code>Context</code> to use for the encoding. This holds 
+          previously referenced objects etc.</li>
+    </ul></dd>
+    <dt>Returns: <code>StringIO</code></dt>
+        <dd>The encoded stream.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="TYPE_MOVIECLIP"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_MOVIECLIP</h3>
+  <p>MovieClip does not seem to be supported by Remoting. It may be used by
+  other AMF clients such as SharedObjects.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x04</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_MIXEDARRAY"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_MIXEDARRAY</h3>
+  <p>A MixedArray is indicated by code <code>0&#215;08</code>, then a Long 
+  representing the highest numeric index in the array, or 0 if there are 
+  none or they are all negative. After that follow the elements in key : 
+  value pairs.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x08</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_OBJECTTERM"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_OBJECTTERM</h3>
+  
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyamf.amf0-module.html#TYPE_OBJECT" 
+        class="link">TYPE_OBJECT</a>
+      </p>
+</div>  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\t</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_ARRAY"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_ARRAY</h3>
+  <p>An array is indicated by <code>0x0A</code>, then a Long for array 
+  length, then the array elements themselves. Arrays are always sparse; 
+  values for inexistant keys are set to null (<code>0&#215;06</code>) to 
+  maintain sparsity.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'''</code><code class="variable-string"></code>
+<code class="variable-string"></code><code class="variable-quote">'''</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_DATE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_DATE</h3>
+  <p>Date is represented as <code>00x0B</code>, then a double, then an 
+  <code>int</code>. The double represents the number of milliseconds since 
+  01/01/1970. The <code>int</code> represents the timezone offset in 
+  minutes between GMT. Note for the latter than values greater than 720 (12
+  hours) are represented as <i class="math">2^16</i> - the value. Thus 
+  GMT+1 is 60 while GMT-5 is 65236.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x0b</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_LONGSTRING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_LONGSTRING</h3>
+  <p>LongString is reserved for strings larger then <i 
+  class="math">2^16</i> characters long. It is represented as 
+  <code>00x0C</code> then a LongUTF.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x0c</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_UNSUPPORTED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_UNSUPPORTED</h3>
+  <p>Trying to send values which don&#8217;t make sense, such as prototypes, 
+  functions, built-in objects, etc. will be indicated by a single 
+  <code>00x0D</code> byte.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\r</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_RECORDSET"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_RECORDSET</h3>
+  <p>Remoting Server -&gt; Client only.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <dl><dt>See Also:</dt>
+        <dd>
+          <a href="pyamf.amf0.RecordSet-class.html" 
+          class="link">RecordSet</a>,
+          <a href="http://osflash.org/documentation/amf/recordset" 
+          target="_top">RecordSet structure on OSFlash (external)</a>
+        </dd>
+      </dl>
+</div>  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x0e</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_XML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_XML</h3>
+  <p>The XML element is indicated by <code>00x0F</code> and followed by a 
+  LongUTF containing the string representation of the XML object. The 
+  receiving gateway may which to wrap this string inside a 
+  language-specific standard XML object, or simply pass as a string.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x0f</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_TYPEDOBJECT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_TYPEDOBJECT</h3>
+  <p>A typed object is indicated by <code>0&#215;10</code>, then a UTF string 
+  indicating class name, and then the same structure as a normal 
+  <code>0&#215;03</code> Object. The receiving gateway may use a mapping scheme,
+  or send back as a vanilla object or associative array.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x10</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="TYPE_AMF3"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TYPE_AMF3</h3>
+  <p>An AMF message sent from an AVM+ client such as the Flash Player 9 may
+  break out into <a href="pyamf.amf3-module.html" class="link">AMF3</a> 
+  mode. In this case the next byte will be the AMF3 type code and the data 
+  will be in AMF3 format until the decoded object reaches it&#8217;s logical 
+  conclusion (for example, an object has no more keys).</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-quote">'</code><code class="variable-string">\x11</code><code class="variable-quote">'</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:40 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

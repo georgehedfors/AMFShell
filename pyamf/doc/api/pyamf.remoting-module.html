@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.remoting</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        Package&nbsp;remoting
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.remoting-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package remoting</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.remoting-pysrc.html">source&nbsp;code</a></span></p>
+<p>AMF Remoting support.</p>
+  <p>A Remoting request from the client consists of a short preamble, 
+  headers, and bodies. The preamble contains basic information about the 
+  nature of the request. Headers can be used to request debugging 
+  information, send authentication info, tag transactions, etc. Bodies 
+  contain actual Remoting requests and responses. A single Remoting 
+  envelope can contain several requests; Remoting supports batching out of 
+  the box.</p>
+  <p>Client headers and bodies need not be responded to in a one-to-one 
+  manner. That is, a body or header may not require a response. Debug 
+  information is requested by a header but sent back as a body object. The 
+  response index is essential for the Adobe Flash Player to understand the 
+  response therefore.</p>
+
+<hr />
+<div class="fields">      <dl><dt>See Also:</dt>
+        <dd>
+          <a href="http://osflash.org/documentation/amf/envelopes/remoting"
+          target="_top">Remoting Envelope on OSFlash (external)</a>,
+          <a href="http://osflash.org/amf/envelopes/remoting/headers" 
+          target="_top">Remoting Headers on OSFlash (external)</a>,
+          <a 
+          href="http://osflash.org/documentation/amf/envelopes/remoting/debuginfo"
+          target="_top">Remoting Debug Headers on OSFlash (external)</a>
+        </dd>
+      </dl>
+      <p><strong>Since:</strong>
+        0.1.0
+      </p>
+</div><!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Submodules</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Submodules"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li> <strong class="uidlink"><a href="pyamf.remoting.amf0-module.html">pyamf.remoting.amf0</a></strong>: <em class="summary">AMF0 Remoting support.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.amf3-module.html">pyamf.remoting.amf3</a></strong>: <em class="summary">AMF3 RemoteObject support.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.client-module.html">pyamf.remoting.client</a></strong>: <em class="summary">Remoting client implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway-module.html">pyamf.remoting.gateway</a></strong>: <em class="summary">Remoting server implementations.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.django-module.html">pyamf.remoting.gateway.django</a></strong>: <em class="summary">Gateway for the Django framework.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.google-module.html">pyamf.remoting.gateway.google</a></strong>: <em class="summary">Gateway for Google App Engine.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.twisted-module.html">pyamf.remoting.gateway.twisted</a></strong>: <em class="summary">Twisted server implementation.</em>    </li>
+    <li> <strong class="uidlink"><a href="pyamf.remoting.gateway.wsgi-module.html">pyamf.remoting.gateway.wsgi</a></strong>: <em class="summary">WSGI server implementation.</em>    </li>
+    </ul>
+    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.RemotingError-class.html" class="summary-name" onclick="show_private();">RemotingError</a><br />
+      Generic remoting error class.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.RemotingCallFailed-class.html" class="summary-name" onclick="show_private();">RemotingCallFailed</a><br />
+      Raised if <code>Server.Call.Failed</code> received.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.HeaderCollection-class.html" class="summary-name" onclick="show_private();">HeaderCollection</a><br />
+      Collection of AMF message headers.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.Envelope-class.html" class="summary-name">Envelope</a><br />
+      I wrap an entire request, encapsulating headers and bodies.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.Message-class.html" class="summary-name" onclick="show_private();">Message</a><br />
+      I represent a singular request/response, containing a collection of
+        headers and one body of data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.Request-class.html" class="summary-name">Request</a><br />
+      An AMF Request payload.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.Response-class.html" class="summary-name">Response</a><br />
+      An AMF Response.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.BaseFault-class.html" class="summary-name" onclick="show_private();">BaseFault</a><br />
+      I represent a <code>Fault</code> message 
+        (<code>mx.rpc.Fault</code>).
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.ErrorFault-class.html" class="summary-name" onclick="show_private();">ErrorFault</a><br />
+      I represent an error level fault.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>tuple</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#_read_header" class="summary-sig-name" onclick="show_private();">_read_header</a>(<span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Read AMF <a href="pyamf.remoting.Message-class.html" class="link" 
+      onclick="show_private();">Message</a> header.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#_read_header">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#_write_header" class="summary-sig-name" onclick="show_private();">_write_header</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">header</span>,
+        <span class="summary-sig-arg">required</span>,
+        <span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">encoder</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Write AMF message header.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#_write_header">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>tuple</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#_read_body" class="summary-sig-name" onclick="show_private();">_read_body</a>(<span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">logger</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Read AMF message body.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#_read_body">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#_write_body" class="summary-sig-name" onclick="show_private();">_write_body</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">encoder</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Write AMF message body.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#_write_body">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#_get_status" class="summary-sig-name" onclick="show_private();">_get_status</a>(<span class="summary-sig-arg">status</span>)</span><br />
+      Get status code.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#_get_status">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_fault_class"></a><span class="summary-sig-name">get_fault_class</span>(<span class="summary-sig-arg">level</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#get_fault_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_fault"></a><span class="summary-sig-name">get_fault</span>(<span class="summary-sig-arg">data</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#get_fault">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#decode" class="summary-sig-name">decode</a>(<span class="summary-sig-arg">stream</span>,
+        <span class="summary-sig-arg">context</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">logger</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">timezone_offset</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Decodes the incoming stream as a remoting message.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#decode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>StringIO</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#encode" class="summary-sig-name">encode</a>(<span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">context</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">strict</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">logger</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">timezone_offset</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Encodes AMF stream and returns file object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#encode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting-module.html#get_exception_from_fault" class="summary-sig-name" onclick="show_private();">get_exception_from_fault</a>(<span class="summary-sig-arg">fault</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting-pysrc.html#get_exception_from_fault">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="STATUS_OK"></a><span class="summary-name">STATUS_OK</span> = <code title="0">0</code><br />
+      Succesful call.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="STATUS_ERROR"></a><span class="summary-name">STATUS_ERROR</span> = <code title="1">1</code><br />
+      Reserved for runtime errors.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="STATUS_DEBUG"></a><span class="summary-name">STATUS_DEBUG</span> = <code title="2">2</code><br />
+      Debug information.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.remoting-module.html#STATUS_CODES" class="summary-name" onclick="show_private();">STATUS_CODES</a> = <code title="{0: '/onResult', 1: '/onStatus', 2: '/onDebugEvents'}"><code class="variable-group">{</code>0<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onResult</code><code class="variable-quote">'</code><code class="variable-op">, </code>1<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onStatus</code><code class="variable-quote">'</code><code class="variable-op">, </code>2<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onDebugEv</code><code class="variable-ellipsis">...</code></code><br />
+      List of available status response codes.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CONTENT_TYPE"></a><span class="summary-name">CONTENT_TYPE</span> = <code title="'application/x-amf'"><code class="variable-quote">'</code><code class="variable-string">application/x-amf</code><code class="variable-quote">'</code></code><br />
+      AMF mimetype.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ERROR_CODES"></a><span class="summary-name">ERROR_CODES</span> = <code title="{0: 'Server.Call.Failed'}"><code class="variable-group">{</code>0<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">Server.Call.Failed</code><code class="variable-quote">'</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="APPEND_TO_GATEWAY_URL"></a><span class="summary-name">APPEND_TO_GATEWAY_URL</span> = <code title="'AppendToGatewayUrl'"><code class="variable-quote">'</code><code class="variable-string">AppendToGatewayUrl</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="REPLACE_GATEWAY_URL"></a><span class="summary-name">REPLACE_GATEWAY_URL</span> = <code title="'ReplaceGatewayUrl'"><code class="variable-quote">'</code><code class="variable-string">ReplaceGatewayUrl</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="REQUEST_PERSISTENT_HEADER"></a><span class="summary-name">REQUEST_PERSISTENT_HEADER</span> = <code title="'RequestPersistentHeader'"><code class="variable-quote">'</code><code class="variable-string">RequestPersistentHeader</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ERROR_CALL_FAILED"></a><span class="summary-name">ERROR_CALL_FAILED</span> = <code title="0">0</code>
+    </td>
+  </tr>
+</table>
+<p class="indent-wrapped-lines"><b>Imports:</b>
+  <a href="pyamf-module.html" title="pyamf">pyamf</a>,
+  <a href="pyamf.util-module.html" title="pyamf.util">util</a>
+</p><br />
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_read_header"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_read_header</span>(<span class="sig-arg">stream</span>,
+        <span class="sig-arg">decoder</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#_read_header">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read AMF <a href="pyamf.remoting.Message-class.html" class="link" 
+  onclick="show_private();">Message</a> header.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>) - AMF data.</li>
+        <li><strong class="pname"><code>decoder</code></strong> (<a href="pyamf.amf0.Decoder-class.html" 
+          class="link">amf0.Decoder</a>) - AMF decoder instance</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Use strict decoding policy. Default is <code>False</code>.</li>
+    </ul></dd>
+    <dt>Returns: <code>tuple</code></dt>
+        <dd><ul>
+            <li>
+              Name of the header.
+            </li>
+            <li>
+              A <code>bool</code> determining if understanding this header 
+              is required.
+            </li>
+            <li>
+              Value of the header.
+            </li>
+          </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.DecodeError-class.html" onclick="show_private();">DecodeError</a></strong></code> - The data that was read from the stream does not match the header 
+        length.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_write_header"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_write_header</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">header</span>,
+        <span class="sig-arg">required</span>,
+        <span class="sig-arg">stream</span>,
+        <span class="sig-arg">encoder</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#_write_header">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Write AMF message header.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (<code>str</code>) - Name of the header.</li>
+        <li><strong class="pname"><code>header</code></strong> () - Raw header data.</li>
+        <li><strong class="pname"><code>required</code></strong> (<code class="link">bool</code>) - Required header.</li>
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>) - AMF data.</li>
+        <li><strong class="pname"><code>encoder</code></strong> (<a href="pyamf.amf0.Encoder-class.html" 
+          class="link">amf0.Encoder</a> or <a 
+          href="pyamf.amf3.Encoder-class.html" 
+          class="link">amf3.Encoder</a>) - AMF encoder instance.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Use strict encoding policy. Default is <code>False</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_read_body"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_read_body</span>(<span class="sig-arg">stream</span>,
+        <span class="sig-arg">decoder</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">logger</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#_read_body">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read AMF message body.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>) - AMF data.</li>
+        <li><strong class="pname"><code>decoder</code></strong> (<a href="pyamf.amf0.Decoder-class.html" 
+          class="link">amf0.Decoder</a>) - AMF decoder instance.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Use strict decoding policy. Default is <code>False</code>.</li>
+        <li><strong class="pname"><code>logger</code></strong> (A <code class="link">logging.Logger</code> instance or 
+          <code>None</code>.) - Used to log interesting events whilst reading a remoting body.</li>
+    </ul></dd>
+    <dt>Returns: <code>tuple</code></dt>
+        <dd>A <code>tuple</code> containing:
+          <ul>
+            <li>
+              ID of the request
+            </li>
+            <li>
+              <a href="pyamf.remoting.Request-class.html" 
+              class="link">Request</a> or <a 
+              href="pyamf.remoting.Response-class.html" 
+              class="link">Response</a>
+            </li>
+          </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.DecodeError-class.html" onclick="show_private();">DecodeError</a></strong></code> - Data read from stream does not match body length.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_write_body"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_write_body</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">message</span>,
+        <span class="sig-arg">stream</span>,
+        <span class="sig-arg">encoder</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#_write_body">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Write AMF message body.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (<code>basestring</code>) - The name of the request.</li>
+        <li><strong class="pname"><code>message</code></strong> (<a href="pyamf.remoting.Request-class.html" 
+          class="link">Request</a> or <a 
+          href="pyamf.remoting.Response-class.html" 
+          class="link">Response</a>) - The AMF payload.</li>
+        <li><strong class="pname"><code>encoder</code></strong> (<a href="pyamf.amf0.Encoder-class.html" 
+          class="link">amf0.Encoder</a>) - Encoder to use.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Use strict encoding policy. Default is <code>False</code>.</li>
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>)</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>TypeError</strong></code> - Unknown message type for <code>message</code>.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_get_status"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_get_status</span>(<span class="sig-arg">status</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#_get_status">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get status code.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>status</code></strong> (<code>str</code>)</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Status code.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - The status code is unknown.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyamf.remoting-module.html#STATUS_CODES" class="link" 
+        onclick="show_private();">STATUS_CODES</a>
+      </p>
+</div></td></tr></table>
+</div>
+<a name="decode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">decode</span>(<span class="sig-arg">stream</span>,
+        <span class="sig-arg">context</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">logger</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">timezone_offset</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#decode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Decodes the incoming stream as a remoting message.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<a href="cpyamf.util.BufferedByteStream-class.html" 
+          class="link">BufferedByteStream</a>) - AMF data.</li>
+        <li><strong class="pname"><code>context</code></strong> (<a href="pyamf.amf0.Context-class.html" 
+          class="link">amf0.Context</a> or <a 
+          href="pyamf.amf3.Context-class.html" 
+          class="link">amf3.Context</a>) - Context.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Enforce strict decoding. Default is <code>False</code>.</li>
+        <li><strong class="pname"><code>logger</code></strong> (A <code class="link">logging.Logger</code> instance or 
+          <code>None</code>.) - Used to log interesting events whilst decoding a remoting 
+          message.</li>
+        <li><strong class="pname"><code>timezone_offset</code></strong> (<code class="link">datetime.timedelta</code>) - The difference between the current timezone and UTC. Date/times 
+          should always be handled in UTC to avoid confusion but this is 
+          required for legacy systems.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></dt>
+        <dd>Message envelope.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.DecodeError-class.html" onclick="show_private();">DecodeError</a></strong></code> - Malformed stream.</li>
+        <li><code><strong class='fraise'>RuntimeError</strong></code> - Decoder is unable to fully consume the stream buffer.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="encode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">encode</span>(<span class="sig-arg">msg</span>,
+        <span class="sig-arg">context</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">strict</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">logger</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">timezone_offset</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#encode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Encodes AMF stream and returns file object.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>msg</code></strong> (<a href="pyamf.remoting.Envelope-class.html" 
+          class="link">Envelope</a>) - The message to encode.</li>
+        <li><strong class="pname"><code>strict</code></strong> (<code>bool</code>) - Determines whether encoding should be strict. Specifically 
+          header/body lengths will be written correctly, instead of the 
+          default 0. Default is <code>False</code>. Introduced in 0.4.</li>
+        <li><strong class="pname"><code>logger</code></strong> (A <code class="link">logging.Logger</code> instance or 
+          <code>None</code>.) - Used to log interesting events whilst encoding a remoting 
+          message.</li>
+        <li><strong class="pname"><code>timezone_offset</code></strong> (<code class="link">datetime.timedelta</code>) - The difference between the current timezone and UTC. Date/times 
+          should always be handled in UTC to avoid confusion but this is 
+          required for legacy systems.</li>
+    </ul></dd>
+    <dt>Returns: <code>StringIO</code></dt>
+        <dd>File object.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_exception_from_fault"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_exception_from_fault</span>(<span class="sig-arg">fault</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting-pysrc.html#get_exception_from_fault">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.remoting.RemotingError-class.html" onclick="show_private();">RemotingError</a></strong></code> - Default exception from fault.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="STATUS_CODES"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">STATUS_CODES</h3>
+  <p>List of available status response codes.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code>0<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onResult</code><code class="variable-quote">'</code><code class="variable-op">, </code>1<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onStatus</code><code class="variable-quote">'</code><code class="variable-op">, </code>2<code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">/onDebugEvents</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:40 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

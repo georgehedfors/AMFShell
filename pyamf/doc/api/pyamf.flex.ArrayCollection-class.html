@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.flex.ArrayCollection</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.flex-module.html">Package&nbsp;flex</a> ::
+        Class&nbsp;ArrayCollection
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.flex.ArrayCollection-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ArrayCollection</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_fl" name="uml_class_diagram_for_pyamf_fl">
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection.__amf__-class.html" title="pyamf.flex.ArrayCollection.__amf__" alt="" coords="57,368,263,387"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#length" title="[read&#45;only] The number of items in this collection." alt="" coords="57,387,263,405"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="57,408,263,427"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#__repr__" title="repr(x)" alt="" coords="57,427,263,445"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#__readamf__" title="pyamf.flex.ArrayCollection.__readamf__" alt="" coords="57,445,263,464"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#__writeamf__" title="pyamf.flex.ArrayCollection.__writeamf__" alt="" coords="57,464,263,483"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#addItem" title="Adds the specified item to the end of the list." alt="" coords="57,483,263,501"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#addItemAt" title="Adds the item at the specified index." alt="" coords="57,501,263,520"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#getItemAt" title="Gets the item at the specified index." alt="" coords="57,520,263,539"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#getItemIndex" title="Returns the index of the item if it is in the list such that &#160;getItemAt(index) == item." alt="" coords="57,539,263,557"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#removeAll" title="Removes all items from the list." alt="" coords="57,557,263,576"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#removeItemAt" title="Removes the item at the specified index and returns it." alt="" coords="57,576,263,595"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#setItemAt" title="Places the item at the specified index." alt="" coords="57,595,263,613"/>
+<area shape="rect" id="node137" href="pyamf.flex.ArrayCollection-class.html#toArray" title="Returns an Array that is populated in the same order as the IList &#160;implementation." alt="" coords="57,613,263,632"/>
+<area shape="rect" id="node1" href="pyamf.flex.ArrayCollection-class.html" title="I represent the ActionScript 3 based class flex.messaging.io.ArrayCollection used in the Flex framework." alt="" coords="45,345,275,639"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x+y" alt="" coords="17,37,303,56"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="y in x" alt="" coords="17,56,303,75"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="del x[y]" alt="" coords="17,75,303,93"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="del x[i:j]" alt="" coords="17,93,303,112"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x==y" alt="" coords="17,112,303,131"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x&gt;=y" alt="" coords="17,131,303,149"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x.__getattribute__(&#39;name&#39;) &lt;==&gt; x.name" alt="" coords="17,149,303,168"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x[y]" alt="" coords="17,168,303,187"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x[i:j]" alt="" coords="17,187,303,205"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x&gt;y" alt="" coords="17,205,303,224"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="hash(x)" alt="" coords="17,224,303,243"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x+=y" alt="" coords="17,243,303,261"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="x*=y" alt="" coords="17,261,303,280"/>
+<area shape="rect" id="node138" href="javascript:void(0);" title="stable sort *IN PLACE*; cmp(x, y) &#45;&gt; &#45;1, 0, 1" alt="" coords="17,299,303,317"/>
+<area shape="rect" id="node2" href="javascript:void(0);" title="list() &#45;&gt; new list list(sequence) &#45;&gt; new list initialized from sequence&#39;s items" alt="" coords="5,6,315,325"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_fl.gif" alt='' usemap="#uml_class_diagram_for_pyamf_fl" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>I represent the ActionScript 3 based class 
+  <code>flex.messaging.io.ArrayCollection</code> used in the Flex 
+  framework.</p>
+  <p>The <code>ArrayCollection</code> class is a wrapper class that exposes
+  an Array as a collection that can be accessed and manipulated using the 
+  methods and properties of the <code>ICollectionView</code> or 
+  <code>IList</code> interfaces in the Flex framework.</p>
+
+<hr />
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="http://livedocs.adobe.com/flex/201/langref/mx/collections/ArrayCollection.html"
+        target="_top">ArrayCollection on Livedocs (external)</a>
+      </p>
+      <p><strong>Note:</strong>
+        This class does not implement the RemoteObject part of the 
+        documentation.
+      </p>
+</div><!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyamf.flex.ArrayCollection.__amf__-class.html" class="summary-name">__amf__</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">new list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>=<span class="summary-sig-default">None</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#__repr__" class="summary-sig-name">__repr__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      repr(x)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__readamf__"></a><span class="summary-sig-name">__readamf__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">input</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__readamf__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__writeamf__"></a><span class="summary-sig-name">__writeamf__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">output</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__writeamf__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_length"></a><span class="summary-sig-name">_get_length</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection._get_length">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_set_length"></a><span class="summary-sig-name">_set_length</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">length</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection._set_length">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#addItem" class="summary-sig-name">addItem</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Adds the specified item to the end of the list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.addItem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#addItemAt" class="summary-sig-name">addItemAt</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">index</span>)</span><br />
+      Adds the item at the specified index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.addItemAt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>mixed</code>.</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#getItemAt" class="summary-sig-name">getItemAt</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>,
+        <span class="summary-sig-arg">prefetch</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Gets the item at the specified index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.getItemAt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#getItemIndex" class="summary-sig-name">getItemIndex</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Returns the index of the item if it is in the list such that 
+      <code>getItemAt(index) == item</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.getItemIndex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#removeAll" class="summary-sig-name">removeAll</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Removes all items from the list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.removeAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>mixed</code>.</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#removeItemAt" class="summary-sig-name">removeItemAt</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span><br />
+      Removes the item at the specified index and returns it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.removeItemAt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>mixed</code> or <code>None</code>.</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#setItemAt" class="summary-sig-name">setItemAt</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">index</span>)</span><br />
+      Places the item at the specified index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.setItemAt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#toArray" class="summary-sig-name">toArray</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns an Array that is populated in the same order as the 
+      <code>IList</code> implementation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.toArray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>list</code></b>:
+      <code>__add__</code>,
+      <code>__contains__</code>,
+      <code>__delitem__</code>,
+      <code>__delslice__</code>,
+      <code>__eq__</code>,
+      <code>__ge__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__gt__</code>,
+      <code>__hash__</code>,
+      <code>__iadd__</code>,
+      <code>__imul__</code>,
+      <code>__iter__</code>,
+      <code>__le__</code>,
+      <code>__len__</code>,
+      <code>__lt__</code>,
+      <code>__mul__</code>,
+      <code>__ne__</code>,
+      <code>__new__</code>,
+      <code>__reversed__</code>,
+      <code>__rmul__</code>,
+      <code>__setitem__</code>,
+      <code>__setslice__</code>,
+      <code>append</code>,
+      <code>count</code>,
+      <code>extend</code>,
+      <code>index</code>,
+      <code>insert</code>,
+      <code>pop</code>,
+      <code>remove</code>,
+      <code>reverse</code>,
+      <code>sort</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a href="pyamf.flex.ArrayCollection-class.html#length" class="summary-name">length</a><br />
+      [read-only] The number of items in this collection.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">source</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Returns: new list</dt>
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__repr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__repr__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Representation operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.__repr__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>repr(x)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__repr__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addItem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addItem</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.addItem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds the specified item to the end of the list.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>item</code></strong> (<code>mixed</code>.) - The object to add to the collection.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="addItemAt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addItemAt</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>,
+        <span class="sig-arg">index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.addItemAt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds the item at the specified index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>item</code></strong> (<code>mixed</code>.) - The object to add to the collection.</li>
+        <li><strong class="pname"><code>index</code></strong> - The index at which to place the item.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IndexError</strong></code> - If index is less than 0 or greater than the length of the list.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="getItemAt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getItemAt</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>,
+        <span class="sig-arg">prefetch</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.getItemAt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the item at the specified index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>index</code></strong> (<code>int</code>) - The index in the list from which to retrieve the item.</li>
+        <li><strong class="pname"><code>prefetch</code></strong> - This param is ignored and is only here as part of the interface.</li>
+    </ul></dd>
+    <dt>Returns: <code>mixed</code>.</dt>
+        <dd>The item at index <code>index</code>.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IndexError</strong></code> - if <code>index &lt; 0</code> or <code>index &gt;= length</code></li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="getItemIndex"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getItemIndex</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.getItemIndex">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the index of the item if it is in the list such that 
+  <code>getItemAt(index) == item</code>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>item</code></strong> (<code>mixed</code>.) - The item to find.</li>
+    </ul></dd>
+    <dt>Returns: <code>int</code></dt>
+        <dd>The index of the item or -1 if the item is not in the list.</dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="removeAll"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">removeAll</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.removeAll">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes all items from the list.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="removeItemAt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">removeItemAt</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.removeItemAt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes the item at the specified index and returns it. Any items that
+  were after this index are now one index earlier.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>index</code></strong> - The index from which to remove the item.</li>
+    </ul></dd>
+    <dt>Returns: <code>mixed</code>.</dt>
+        <dd>The item that was removed.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IndexError</strong></code> - If index is less than 0 or greater than length.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="setItemAt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setItemAt</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>,
+        <span class="sig-arg">index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.setItemAt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Places the item at the specified index. If an item was already at that
+  index the new item will replace it and it will be returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>item</code></strong> (<code>mixed</code>.) - The new item to be placed at the specified index.</li>
+        <li><strong class="pname"><code>index</code></strong> (<code>int</code>) - The index at which to place the item.</li>
+    </ul></dd>
+    <dt>Returns: <code>mixed</code> or <code>None</code>.</dt>
+        <dd>The item that was replaced, or <code>None</code>.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IndexError</strong></code> - If index is less than 0 or greater than length.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        0.4
+      </p>
+</div></td></tr></table>
+</div>
+<a name="toArray"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">toArray</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.flex-pysrc.html#ArrayCollection.toArray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns an Array that is populated in the same order as the 
+  <code>IList</code> implementation.</p>
+  <dl class="fields">
+    <dt>Returns: <code>list</code></dt>
+        <dd>The array.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="length"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">length</h3>
+  [read-only] The number of items in this collection. Introduced in 0.4.
+  <dl class="fields">
+    <dt>Get Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#_get_length" class="summary-sig-name" onclick="show_private();">_get_length</a>(<span class="summary-sig-arg">self</span>)</span>
+    </dd>
+    <dt>Set Method:</dt>
+    <dd class="value"><span class="summary-sig"><a href="pyamf.flex.ArrayCollection-class.html#_set_length" class="summary-sig-name" onclick="show_private();">_set_length</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">length</span>)</span>
+    </dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:45 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

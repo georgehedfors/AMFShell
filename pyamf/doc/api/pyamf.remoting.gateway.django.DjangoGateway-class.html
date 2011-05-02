@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.remoting.gateway.django.DjangoGateway</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.remoting-module.html">Package&nbsp;remoting</a> ::
+        <a href="pyamf.remoting.gateway-module.html">Package&nbsp;gateway</a> ::
+        <a href="pyamf.remoting.gateway.django-module.html">Module&nbsp;django</a> ::
+        Class&nbsp;DjangoGateway
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.remoting.gateway.django.DjangoGateway-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DjangoGateway</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_re_31" name="uml_class_diagram_for_pyamf_re_31">
+<area shape="rect" id="node324" href="pyamf.remoting.gateway.django.DjangoGateway-class.html#expose_request" title="The standard Django view always has the request object as the first &#160;parameter." alt="" coords="268,381,519,400"/>
+<area shape="rect" id="node324" href="pyamf.remoting.gateway.django.DjangoGateway-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="268,403,519,421"/>
+<area shape="rect" id="node324" href="pyamf.remoting.gateway.django.DjangoGateway-class.html#getResponse" title="Processes the AMF request, returning an AMF response." alt="" coords="268,421,519,440"/>
+<area shape="rect" id="node324" href="pyamf.remoting.gateway.django.DjangoGateway-class.html#__call__" title="Processes and dispatches the request." alt="" coords="268,440,519,459"/>
+<area shape="rect" id="node1" href="pyamf.remoting.gateway.django.DjangoGateway-class.html" title="An instance of this class is suitable as a Django view." alt="" coords="256,358,531,466"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#authenticator" title="A callable that will check the credentials of the request before allowing &#160;access to the service." alt="" coords="17,29,769,48"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#logger" title="A logging instance." alt="" coords="17,48,769,67"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessor" title="Called before the actual service method is invoked." alt="" coords="17,67,769,85"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#strict" title="Defines whether the gateway should use strict en/decoding." alt="" coords="17,85,769,104"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#timezone_offset" title="A datetime.timedelta between UTC and the timezone to be encoded." alt="" coords="17,104,769,123"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#addService" title="Adds a service to the gateway." alt="" coords="17,125,769,144"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#removeService" title="Removes a service from the gateway." alt="" coords="17,144,769,163"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#getServiceRequest" title="Returns a service based on the message." alt="" coords="17,163,769,181"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#getProcessor" title="Returns request processor." alt="" coords="17,181,769,200"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#mustExposeRequest" title="Decides whether the underlying http request should be exposed as the first &#160;argument to the method call." alt="" coords="17,200,769,219"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#getAuthenticator" title="Gets an authenticator callable based on the service_request." alt="" coords="17,219,769,237"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#authenticateRequest" title="Processes an authentication request." alt="" coords="17,237,769,256"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#getPreprocessor" title="Gets a preprocessor callable based on the service_request." alt="" coords="17,256,769,275"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessRequest" title="Preprocesses a request." alt="" coords="17,275,769,293"/>
+<area shape="rect" id="node325" href="pyamf.remoting.gateway.BaseGateway-class.html#callServiceRequest" title="Executes the service_request call" alt="" coords="17,293,769,312"/>
+<area shape="rect" id="node2" href="pyamf.remoting.gateway.BaseGateway-class.html" title="Generic Remoting gateway." alt="" coords="5,6,781,319"/>
+<area shape="rect" id="node4" href="pyamf.remoting.gateway.ServiceCollection-class.html" title="I hold a collection of services, mapping names to objects." alt="" coords="560,393,701,431"/>
+<area shape="poly" id="edge2" href="pyamf.remoting.gateway.BaseGateway-class.html#services" title="pyamf.remoting.gateway.BaseGateway.services" alt="" coords="773,160 795,165 808,177 814,196 813,219 798,271 773,321 757,338 738,349 694,357 656,363 643,371 635,385 630,382 639,367 654,358 693,351 736,344 754,334 768,318 793,269 808,218 809,197 804,180 792,169 771,165"/>
+<area shape="rect" id="edge2" href="pyamf.remoting.gateway.BaseGateway-class.html#services" title="services" alt="" coords="760,331,811,347"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_re_31.gif" alt='' usemap="#uml_class_diagram_for_pyamf_re_31" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>An instance of this class is suitable as a Django view.</p>
+  <p>An example usage would be through <code>urlconf</code>:</p>
+<pre class="literalblock">
+   from django.conf.urls.defaults import *
+
+   urlpatterns = patterns('',
+       (r'^gateway/', 'yourproject.yourapp.gateway.gw_instance'),
+   )
+</pre>
+  <p>where <code>yourproject.yourapp.gateway.gw_instance</code> refers to 
+  an instance of this class.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.remoting.gateway.BaseGateway-class.html">BaseGateway</a></code></b> (private):
+      <code><a href="pyamf.remoting.gateway.ServiceRequest-class.html" onclick="show_private();">_request_class</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.django.DjangoGateway-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.django.DjangoGateway-class.html#getResponse" class="summary-sig-name">getResponse</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">http_request</span>,
+        <span class="summary-sig-arg">request</span>)</span><br />
+      Processes the AMF request, returning an AMF response.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.getResponse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>HTTPResponse</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.remoting.gateway.django.DjangoGateway-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">http_request</span>)</span><br />
+      Processes and dispatches the request.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.remoting.gateway.BaseGateway-class.html">BaseGateway</a></code></b>:
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#addService">addService</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#authenticateRequest">authenticateRequest</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#callServiceRequest">callServiceRequest</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#getAuthenticator">getAuthenticator</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#getPreprocessor">getPreprocessor</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#getProcessor">getProcessor</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#getServiceRequest">getServiceRequest</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#mustExposeRequest">mustExposeRequest</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessRequest">preprocessRequest</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#removeService">removeService</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.remoting.gateway.BaseGateway-class.html">BaseGateway</a></code></b> (private):
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#_get_timezone_offset" onclick="show_private();">_get_timezone_offset</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+        <a href="pyamf.remoting.gateway.django.DjangoGateway-class.html#expose_request" class="summary-name">expose_request</a><br />
+      The standard Django view always has the request object as the first 
+      parameter.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.remoting.gateway.BaseGateway-class.html">BaseGateway</a></code></b>:
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#authenticator">authenticator</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#logger">logger</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#preprocessor">preprocessor</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#services">services</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#strict">strict</a></code>,
+      <code><a href="pyamf.remoting.gateway.BaseGateway-class.html#timezone_offset">timezone_offset</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getResponse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getResponse</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">http_request</span>,
+        <span class="sig-arg">request</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.getResponse">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Processes the AMF request, returning an AMF response.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>http_request</code></strong> (<code>HTTPRequest&lt;django.core.http.HTTPRequest&gt;</code>) - The underlying HTTP Request.</li>
+        <li><strong class="pname"><code>request</code></strong> (<a href="pyamf.remoting.Envelope-class.html" 
+          class="link">Envelope</a>) - The AMF Request.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyamf.remoting.Envelope-class.html" 
+      class="link">Envelope</a></dt>
+        <dd>The AMF Response.</dd>
+    <dt>Overrides:
+        <a href="pyamf.remoting.gateway.BaseGateway-class.html#getResponse">BaseGateway.getResponse</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">http_request</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.remoting.gateway.django-pysrc.html#DjangoGateway.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Processes and dispatches the request.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>http_request</code></strong> (<code>HTTPRequest</code>) - The <code>HTTPRequest</code> object.</li>
+    </ul></dd>
+    <dt>Returns: <code>HTTPResponse</code></dt>
+        <dd>The response to the request.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="expose_request"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">expose_request</h3>
+  The standard Django view always has the request object as the first 
+  parameter. To disable this functionality, set this to <code>False</code>.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>bool</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:50 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

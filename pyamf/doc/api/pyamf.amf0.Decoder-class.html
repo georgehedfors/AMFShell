@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.amf0.Decoder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.amf0-module.html">Module&nbsp;amf0</a> ::
+        Class&nbsp;Decoder
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.amf0.Decoder-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Decoder</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_am_2" name="uml_class_diagram_for_pyamf_am_2">
+<area shape="rect" id="node111" href="pyamf.amf0.Context-class.html" title="The context for the decoding." alt="" coords="81,195,433,213"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#type_map" title="pyamf.amf0.Decoder.type_map" alt="" coords="81,213,433,232"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readNumber" title="Reads a ActionScript Number value." alt="" coords="81,235,433,253"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readBoolean" title="Reads a ActionScript Boolean value." alt="" coords="81,253,433,272"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readNull" title="Reads a ActionScript null value." alt="" coords="81,272,433,291"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readUndefined" title="Reads an ActionScript undefined value." alt="" coords="81,291,433,309"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readMixedArray" title="Read mixed array." alt="" coords="81,309,433,328"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readList" title="Read a list from the data stream." alt="" coords="81,328,433,347"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readTypedObject" title="Reads an ActionScript object from the stream and attempts to &#39;cast&#39; it." alt="" coords="81,347,433,365"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readAMF3" title="Read AMF3 elements from the data stream." alt="" coords="81,365,433,384"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readString" title="Reads a string from the data stream." alt="" coords="81,384,433,403"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readObject" title="Reads an object from the data stream." alt="" coords="81,403,433,421"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readReference" title="Reads a reference from the data stream." alt="" coords="81,421,433,440"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readDate" title="Reads a UTC date from the data stream." alt="" coords="81,440,433,459"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readLongString" title="Read UTF8 string." alt="" coords="81,459,433,477"/>
+<area shape="rect" id="node111" href="pyamf.amf0.Decoder-class.html#readXML" title="Read XML." alt="" coords="81,477,433,496"/>
+<area shape="rect" id="node1" href="pyamf.amf0.Decoder-class.html" title="Decodes an AMF0 stream." alt="" coords="69,171,445,503"/>
+<area shape="rect" id="node112" href="pyamf.BaseDecoder-class.html#strict" title="Defines how strict the decoding should be." alt="" coords="17,29,497,48"/>
+<area shape="rect" id="node112" href="pyamf.BaseDecoder-class.html#timezone_offset" title="The offset from UTC for any datetime objects being decoded." alt="" coords="17,48,497,67"/>
+<area shape="rect" id="node112" href="pyamf.BaseDecoder-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,69,497,88"/>
+<area shape="rect" id="node112" href="pyamf.BaseDecoder-class.html#readElement" title="Reads an AMF3 element from the data stream." alt="" coords="17,88,497,107"/>
+<area shape="rect" id="node112" href="pyamf.BaseDecoder-class.html#__iter__" title="pyamf.BaseDecoder.__iter__" alt="" coords="17,107,497,125"/>
+<area shape="rect" id="node2" href="pyamf.BaseDecoder-class.html" title="Base AMF decoder." alt="" coords="5,6,509,133"/>
+<area shape="rect" id="node4" href="cpyamf.util.BufferedByteStream-class.html" title="An extension of StringIO." alt="" coords="475,318,696,357"/>
+<area shape="poly" id="edge2" href="pyamf.BaseDecoder-class.html#stream" title="pyamf.BaseDecoder.stream" alt="" coords="500,67 537,72 564,89 580,114 589,146 592,182 592,223 588,309 583,309 586,223 587,183 584,146 575,116 560,92 536,77 500,72"/>
+<area shape="rect" id="edge2" href="pyamf.BaseDecoder-class.html#stream" title="stream" alt="" coords="587,144,628,160"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_am_2.gif" alt='' usemap="#uml_class_diagram_for_pyamf_am_2" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>Decodes an AMF0 stream.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">An instance of <code>BaseDecoder.context_class</code></span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.Context-class.html" class="summary-name">context_class</a><br />
+      The context for the decoding.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code> or <code>float</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readNumber" class="summary-sig-name">readNumber</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a ActionScript <code>Number</code> value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readNumber">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readBoolean" class="summary-sig-name">readBoolean</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a ActionScript <code>Boolean</code> value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readBoolean">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>None</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readNull" class="summary-sig-name">readNull</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a ActionScript <code>null</code> value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readNull">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readUndefined" class="summary-sig-name">readUndefined</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an ActionScript <code>undefined</code> value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readUndefined">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>dict</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readMixedArray" class="summary-sig-name">readMixedArray</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read mixed array.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readMixedArray">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readList" class="summary-sig-name">readList</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read a <code>list</code> from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readTypedObject" class="summary-sig-name">readTypedObject</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an ActionScript object from the stream and attempts to 'cast' 
+      it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readTypedObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>mixed</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readAMF3" class="summary-sig-name">readAMF3</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read AMF3 elements from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readAMF3">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readString" class="summary-sig-name">readString</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a string from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readObject"></a><span class="summary-sig-name">_readObject</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">alias</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder._readObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyamf.ASObject-class.html" class="link" 
+      onclick="show_private();">ASObject</a></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="readObject"></a><span class="summary-sig-name">readObject</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an object from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readReference" class="summary-sig-name">readReference</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a reference from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readReference">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf0.Decoder-class.html#readDate" class="summary-sig-name">readDate</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a UTC date from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readDate">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="readLongString"></a><span class="summary-sig-name">readLongString</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read UTF8 string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readLongString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="readXML"></a><span class="summary-sig-name">readXML</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read XML.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseDecoder-class.html" onclick="show_private();">BaseDecoder</a></code></b>:
+      <code><a href="pyamf.BaseDecoder-class.html#__init__">__init__</a></code>,
+      <code><a href="pyamf.BaseDecoder-class.html#__iter__">__iter__</a></code>,
+      <code><a href="pyamf.BaseDecoder-class.html#readElement">readElement</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>list</code></span>
+    </td><td class="summary">
+        <a href="pyamf.amf0.Decoder-class.html#type_map" class="summary-name">type_map</a> = <code title="{'\x00': 'readNumber',
+ '\x01': 'readBoolean',
+ '\x02': 'readString',
+ '\x03': 'readObject',
+ '\x05': 'readNull',
+ '\x06': 'readUndefined',
+ '\x07': 'readReference',
+ '\x08': 'readMixedArray',
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">\x00</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readNumber</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">\x01</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readBoolean</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">\x02</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyamf.BaseDecoder-class.html" onclick="show_private();">BaseDecoder</a></code></b>:
+      <code><a href="pyamf.BaseDecoder-class.html#stream">stream</a></code>,
+      <code><a href="pyamf.BaseDecoder-class.html#strict">strict</a></code>,
+      <code><a href="pyamf.BaseDecoder-class.html#timezone_offset">timezone_offset</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="readNumber"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readNumber</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readNumber">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a ActionScript <code>Number</code> value.</p>
+  <p>In ActionScript 1 and 2 the <code>NumberASTypes</code> type represents
+  all numbers, both floats and integers.</p>
+  <dl class="fields">
+    <dt>Returns: <code>int</code> or <code>float</code></dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readBoolean"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readBoolean</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readBoolean">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a ActionScript <code>Boolean</code> value.</p>
+  <dl class="fields">
+    <dt>Returns: <code>bool</code></dt>
+        <dd>Boolean.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readNull"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readNull</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readNull">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a ActionScript <code>null</code> value.</p>
+  <dl class="fields">
+    <dt>Returns: <code>None</code></dt>
+        <dd><code>None</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUndefined"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUndefined</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readUndefined">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an ActionScript <code>undefined</code> value.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><a href="pyamf-module.html#Undefined" class="link" 
+          onclick="show_private();">Undefined</a></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readMixedArray"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readMixedArray</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readMixedArray">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read mixed array.</p>
+  <dl class="fields">
+    <dt>Returns: <code>dict</code></dt>
+        <dd><code>dict</code> read from the stream</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readList"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readList</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readList">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read a <code>list</code> from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>list</code></dt>
+        <dd><code>list</code></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readTypedObject"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readTypedObject</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readTypedObject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an ActionScript object from the stream and attempts to 'cast' 
+  it.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyamf-module.html#load_class" class="link" 
+        onclick="show_private();">load_class</a>
+      </p>
+</div></td></tr></table>
+</div>
+<a name="readAMF3"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readAMF3</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readAMF3">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read AMF3 elements from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>mixed</code></dt>
+        <dd>The AMF3 element read from the stream</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readString"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readString</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readString">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a string from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>str</code></dt>
+        <dd>string</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readReference"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readReference</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readReference">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a reference from the data stream.</p>
+  <dl class="fields">
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'><a href="pyamf.ReferenceError-class.html" onclick="show_private();">pyamf.ReferenceError</a></strong></code> - Unknown reference.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readDate"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readDate</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf0-pysrc.html#Decoder.readDate">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a UTC date from the data stream. Client and servers are 
+  responsible for applying their own timezones.</p>
+  <p>Date: <code>0x0B T7 T6</code> .. <code>T0 Z1 Z2 T7</code> to 
+  <code>T0</code> form a 64 bit Big Endian number that specifies the number
+  of nanoseconds that have passed since 1/1/1970 0:00 to the specified 
+  time. This format is UTC 1970. <code>Z1</code> and <code>Z0</code> for a 
+  16 bit Big Endian number indicating the indicated time's timezone in 
+  minutes.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="type_map"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">type_map</h3>
+  
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><code>list</code></dd>
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">\x00</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readNumber</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x01</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readBoolean</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x02</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readString</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x03</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readObject</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x05</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readNull</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x06</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readUndefined</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x07</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readReference</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">\x08</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">readMixedArray</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:44 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyamf.amf3.DataInput</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyamf-module.html">Package&nbsp;pyamf</a> ::
+        <a href="pyamf.amf3-module.html">Module&nbsp;amf3</a> ::
+        Class&nbsp;DataInput
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyamf.amf3.DataInput-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class DataInput</h1><p class="nomargin-top"><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput">source&nbsp;code</a></span></p>
+<center>
+<center>  <map id="uml_class_diagram_for_pyamf_am_8" name="uml_class_diagram_for_pyamf_am_8">
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#__init__" title="x.__init__(...) initializes x; see x.__class__.__doc__ for signature" alt="" coords="17,37,231,56"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readBoolean" title="Read Boolean." alt="" coords="17,56,231,75"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readByte" title="Reads a signed byte." alt="" coords="17,75,231,93"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readDouble" title="Reads an IEEE 754 double&#45;precision floating point number from the data &#160;stream." alt="" coords="17,93,231,112"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readFloat" title="Reads an IEEE 754 single&#45;precision floating point number from the data &#160;stream." alt="" coords="17,112,231,131"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readInt" title="Reads a signed 32&#45;bit integer from the data stream." alt="" coords="17,131,231,149"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readMultiByte" title="Reads a multibyte string of specified length from the data stream using the specified character set." alt="" coords="17,149,231,168"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readObject" title="Reads an object from the data stream." alt="" coords="17,168,231,187"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readShort" title="Reads a signed 16&#45;bit integer from the data stream." alt="" coords="17,187,231,205"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readUnsignedByte" title="Reads an unsigned byte from the data stream." alt="" coords="17,205,231,224"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readUnsignedInt" title="Reads an unsigned 32&#45;bit integer from the data stream." alt="" coords="17,224,231,243"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readUnsignedShort" title="Reads an unsigned 16&#45;bit integer from the data stream." alt="" coords="17,243,231,261"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readUTF" title="Reads a UTF&#45;8 string from the data stream." alt="" coords="17,261,231,280"/>
+<area shape="rect" id="node127" href="pyamf.amf3.DataInput-class.html#readUTFBytes" title="Reads a sequence of length UTF&#45;8 bytes from the data stream and returns a &#160;string." alt="" coords="17,280,231,299"/>
+<area shape="rect" id="node1" href="pyamf.amf3.DataInput-class.html" title="I provide a set of methods for reading binary data with ActionScript 3.0." alt="" coords="5,6,243,306"/>
+<area shape="rect" id="node2" href="pyamf.amf3.ByteArray-class.html" title="I am a StringIO type object containing byte data from the AMF stream." alt="" coords="77,326,171,365"/>
+</map>
+  <img src="uml_class_diagram_for_pyamf_am_8.gif" alt='' usemap="#uml_class_diagram_for_pyamf_am_8" ismap="ismap" class="graph-without-title" />
+</center>
+</center>
+<hr />
+<p>I provide a set of methods for reading binary data with ActionScript 
+  3.0.</p>
+  <p>This class is the I/O counterpart to the <a 
+  href="pyamf.amf3.DataOutput-class.html" class="link">DataOutput</a> 
+  class, which writes binary data.</p>
+
+<hr />
+<div class="fields">      <p><strong>See Also:</strong>
+        <a 
+        href="http://livedocs.adobe.com/flex/201/langref/flash/utils/IDataInput.html"
+        target="_top">IDataInput on Livedocs (external)</a>
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">decoder</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readBoolean" class="summary-sig-name">readBoolean</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read <code>Boolean</code>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readBoolean">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readByte" class="summary-sig-name">readByte</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a signed byte.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readByte">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>number</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readDouble" class="summary-sig-name">readDouble</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an IEEE 754 double-precision floating point number from the 
+      data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readDouble">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>number</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readFloat" class="summary-sig-name">readFloat</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an IEEE 754 single-precision floating point number from the 
+      data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readFloat">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readInt" class="summary-sig-name">readInt</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a signed 32-bit integer from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readInt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readMultiByte" class="summary-sig-name">readMultiByte</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">length</span>,
+        <span class="summary-sig-arg">charset</span>)</span><br />
+      Reads a multibyte string of specified length from the data stream 
+      using the specified character set.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readMultiByte">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readObject" class="summary-sig-name">readObject</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an object from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>uint</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readShort" class="summary-sig-name">readShort</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a signed 16-bit integer from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readShort">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>uint</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readUnsignedByte" class="summary-sig-name">readUnsignedByte</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an unsigned byte from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedByte">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>uint</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readUnsignedInt" class="summary-sig-name">readUnsignedInt</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an unsigned 32-bit integer from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedInt">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>uint</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readUnsignedShort" class="summary-sig-name">readUnsignedShort</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads an unsigned 16-bit integer from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedShort">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readUTF" class="summary-sig-name">readUTF</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Reads a UTF-8 string from the data stream.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUTF">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>str</code></span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyamf.amf3.DataInput-class.html#readUTFBytes" class="summary-sig-name">readUTFBytes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">length</span>)</span><br />
+      Reads a sequence of <code>length</code> UTF-8 bytes from the data 
+      stream and returns a string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUTFBytes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">decoder</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>decoder</code></strong> (<a href="pyamf.amf3.Decoder-class.html" 
+          class="link">amf3.Decoder</a>) - AMF3 decoder containing the stream.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readBoolean"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readBoolean</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readBoolean">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Read <code>Boolean</code>.</p>
+  <dl class="fields">
+    <dt>Returns: <code>bool</code></dt>
+        <dd>A Boolean value, <code>True</code> if the byte is nonzero, 
+          <code>False</code> otherwise.</dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Error reading Boolean.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readByte"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readByte</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readByte">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a signed byte.</p>
+  <dl class="fields">
+    <dt>Returns: <code>int</code></dt>
+        <dd>The returned value is in the range -128 to 127.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readDouble"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readDouble</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readDouble">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an IEEE 754 double-precision floating point number from the data
+  stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>number</code></dt>
+        <dd>An IEEE 754 double-precision floating point number.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readFloat"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readFloat</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readFloat">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an IEEE 754 single-precision floating point number from the data
+  stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>number</code></dt>
+        <dd>An IEEE 754 single-precision floating point number.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readInt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readInt</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readInt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a signed 32-bit integer from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>int</code></dt>
+        <dd>The returned value is in the range -2147483648 to 2147483647.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readMultiByte"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readMultiByte</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">length</span>,
+        <span class="sig-arg">charset</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readMultiByte">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a multibyte string of specified length from the data stream 
+  using the specified character set.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>length</code></strong> (<code>int</code>) - The number of bytes from the data stream to read.</li>
+        <li><strong class="pname"><code>charset</code></strong> (<code>str</code>) - The string denoting the character set to use.</li>
+    </ul></dd>
+    <dt>Returns: <code>str</code></dt>
+        <dd>UTF-8 encoded string.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readObject"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readObject</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readObject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an object from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The deserialized object.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readShort"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readShort</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readShort">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a signed 16-bit integer from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>uint</code></dt>
+        <dd>The returned value is in the range -32768 to 32767.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUnsignedByte"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUnsignedByte</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedByte">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an unsigned byte from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>uint</code></dt>
+        <dd>The returned value is in the range 0 to 255.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUnsignedInt"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUnsignedInt</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedInt">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an unsigned 32-bit integer from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>uint</code></dt>
+        <dd>The returned value is in the range 0 to 4294967295.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUnsignedShort"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUnsignedShort</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUnsignedShort">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads an unsigned 16-bit integer from the data stream.</p>
+  <dl class="fields">
+    <dt>Returns: <code>uint</code></dt>
+        <dd>The returned value is in the range 0 to 65535.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUTF"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUTF</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUTF">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a UTF-8 string from the data stream.</p>
+  <p>The string is assumed to be prefixed with an unsigned short indicating
+  the length in bytes.</p>
+  <dl class="fields">
+    <dt>Returns: <code>str</code></dt>
+        <dd>A UTF-8 string produced by the byte representation of characters.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="readUTFBytes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">readUTFBytes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">length</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyamf.amf3-pysrc.html#DataInput.readUTFBytes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Reads a sequence of <code>length</code> UTF-8 bytes from the data 
+  stream and returns a string.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>length</code></strong> (<code>int</code>) - The number of bytes from the data stream to read.</li>
+    </ul></dd>
+    <dt>Returns: <code>str</code></dt>
+        <dd>A UTF-8 string produced by the byte representation of characters 
+          of specified <code>length</code>.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyamf-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://pyamf.org/">PyAMF API Documentation</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Sep  7 23:17:44 2009
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
