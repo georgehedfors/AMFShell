@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 """
-Action Message Format (AMF) Shell v0.21 by George Hedfors
+Action Message Format (AMF) Shell by George Hedfors
 
-This testing tool demonstrates weaknesses in PHPAMF, especially where
+This testing tool demonstrates weaknesses in AMFPHP, especially where
 the default service 'DiscoveryService' has been left behind.
 
 WARNING:
@@ -34,10 +34,85 @@ class cmdList(cmd.Cmd):
 		print "\t\t\t\tmay be single arguments or arrays:"
 		print "call methodName(['array','of','stuff'])"
 		print "call methodName(arg1,arg2,arg3)"
+		print "describe\t\t\tDescribe current class. Lists methods and args."
+		print "describe_all\t\t\tLists methods and arguments from all classes"
+		print "\t\t\t\tto output file."
 		print "help\t\t\t\tWhere all the secrets are..."
 		print "list\t\t\t\tLists available classes"
 		print "use service.className\t\tChange current class"
 		print
+
+	def do_describe_all(self, line):
+		output = "%s.txt" % sys.argv[1].split("/")[2]
+		fp = open(output, "w")
+
+		i = 0
+		e = 0
+
+		for item in serviceList:
+			root = item['label']
+
+			if item.has_key('children'):
+				for child in item['children']:
+					myClass = child['label']
+					myService = "%s.%s" % (root, myClass)
+
+					fp.write("%s\n" % myService)
+
+					result = describeService(myService)
+
+					if result != -1:
+						if type(result[0]) is ListType:
+							fp.write("\tIs accessible but did not return any usable methods.\n")
+						else:
+							for key in result[0].keys():
+								fp.write("\t%s(%s)\n" % (key, ", ".join(result[0][key]['arguments'])))
+								if result[0][key]['description'].find("No description") == -1: fp.write("\t- %s\n" % result[0][key]['description'])
+
+						i += 1
+					else:
+						e += 1
+			else:
+				result = describeService(item['label'])
+				fp.write("%s\n" % item['label'])
+
+				if result != -1:
+					if type(result[0]) is ListType:
+						fp.write("\tIs accessible but did not return any usable methods.\n")
+					else:
+						for key in result[0].keys():
+							fp.write("\t%s(%s)\n" % (key, ", ".join(result[0][key]['arguments'])))
+							if result[0][key]['description'].find("No description") == -1: fp.write("\t- %s\n" % result[0][key]['description'])
+
+					i += 1
+				else:
+					e += 1
+			
+		fp.close()
+
+		print "Exported %d classes and methods to '%s'" % (i, output)
+		print "%d error(s) cought" % e
+
+	def do_describe(self, line):
+		result = describeService(self.currentClass)
+
+		printDebug(result)
+
+		if result == -1:
+			return
+
+		print result[1]
+		print "---------------"
+
+		if hasattr(result, 'code'):
+			printErr(result)
+		else:
+			if type(result[0]) is ListType:
+				for item in result[0]:
+					print item
+			else:
+				for key in result[0].keys():
+					print "%s(%s) - %s" % (key, ", ".join(result[0][key]['arguments']), result[0][key]['description'])
 
 	def do_brute(self, line):
 		yesno = raw_input('This may seriously harm your environment, are you sure? (y/N): ')
@@ -119,7 +194,7 @@ class cmdList(cmd.Cmd):
 
 		try:
 			if len(args) > 0:
-				if args.find('[') == 1:
+				if args.find('[') != -1:
 					result = targetMethod(eval(args))
 				else:
 					result = targetMethod(*args.split(','))
@@ -143,6 +218,24 @@ class cmdList(cmd.Cmd):
 
 	def do_EOF(self, line):
 		return True
+
+def describeService(myService):
+		client = RemotingService(remoteUrl)
+		service = client.getService('amfphp.DiscoveryService')
+
+		toDescribe = {'data':'', 'label':"/".join(myService.split("."))}
+
+		try:
+			result = service.describeService(toDescribe)
+		except Exception, e:
+			print e
+			return -1
+
+		if hasattr(result, 'code'):
+			printErr(result)
+			return -1
+
+		return result
 
 def printErr(result):
 	print result.description

@@ -54,6 +54,10 @@ call methodName(args,..)
   may be single arguments or arrays:
 call methodName(['array','of','stuff'])
 call methodName(arg1,arg2,arg3)
+describe
+- Describes current class. Lists methods and arguments
+describe_all
+- Describes all classes, methods and their arguments and outputs to a file.
 list
 - Lists available classes
 use service.className
