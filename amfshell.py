@@ -22,24 +22,9 @@ from pyamf.remoting.client import RemotingService
 class _cmdList(cmd.Cmd):
     intro = "Welcome to Action Message Formate Shell by George Hedfors. Type 'help' for command list.\n"
 
-    def do_help(self, line):
-        print "Available commands:"
-        print "-----------------------"
-        print "brute\t\t\t\tLaunch a method name brute force attack using"
-        print "\t\t\t\tcommon names from common.txt"
-        print "call methodName(args,..)\tCall a method from the current class. Arguments"
-        print "\t\t\t\tmay be single arguments or arrays:"
-        print "call methodName(['array','of','stuff'])"
-        print "call methodName(arg1,arg2,arg3)"
-        print "describe\t\t\tDescribe current class. Lists methods and args."
-        print "describe_all\t\t\tLists methods and arguments from all classes"
-        print "\t\t\t\tto output file."
-        print "help\t\t\t\tWhere all the secrets are..."
-        print "list\t\t\t\tLists available classes"
-        print "use service.className\t\tChange current class"
-        print
-
     def do_describe_all(self, line):
+        "Lists methods and arguments from all classes and output to file."
+
         output = "%s.txt" % sys.argv[1].split("/")[2]
         fp = open(output, "w")
 
@@ -68,6 +53,8 @@ class _cmdList(cmd.Cmd):
         print "%d error(s) cought" % e
 
     def do_describe(self, line):
+        "Describe current class. Lists methods and args."
+
         if self.amf.hasDiscoveryService:
             result = self.amf.getMethods(self.amf.dstClass)
 
@@ -75,7 +62,7 @@ class _cmdList(cmd.Cmd):
             print "---------------"
 
             if hasattr(result, 'code'):
-                _printErr(result)
+                self.amf.showErr()
             else:
                 if type(result[0]) is ListType:
                     for item in result[0]:
@@ -87,6 +74,8 @@ class _cmdList(cmd.Cmd):
             print "[+] ERROR: DiscoveryService does not exist, consider trying 'brute'"
 
     def do_brute(self, line):
+        "Launch a method name brute force attack at the current class using using common method names from common.txt"
+
         if self.amf.dstClass == "/":
             print "[+] ERROR: You cannot launch a brute force without a valid class."
             return
@@ -109,7 +98,7 @@ class _cmdList(cmd.Cmd):
                 if result:
                     if hasattr(result, 'code'):
                         if result.code != 'AMFPHP_INEXISTANT_METHOD':
-                            _printErr(result)
+                            self.amf.showErr()
                     else:
                         if type(result) is BooleanType:
                             print "%s() returned: %s" % (method.rstrip(), result)
@@ -119,12 +108,16 @@ class _cmdList(cmd.Cmd):
                     print self.amf.err
 
     def do_list(self, line):
+        "List available class names."
+
         if self.amf.hasDiscoveryService:
             print "\n".join(self.amf.services)
         else:
             print "[+] ERROR: DiscoveryService wasn't present"
 
     def do_use(self, line):
+        "Change current class"
+
         if line == '':
             print "syntax: use className\n"
             return 
@@ -133,13 +126,15 @@ class _cmdList(cmd.Cmd):
             self.amf.dstClass = line
             self.prompt = "(%s) " % (line)
         else:
-            _printErr(self.amf.err)
+            self.amf.showErr()
 
     def do_call(self, line):
+        "Call a method from the current class. Arguments may be single arguments or arrays:\ncall methodName(['array','of','stuff'])\ncall methodName(arg1,arg2,arg3)"
+
         result = self.amf.execute(line)
 
-        if hasattr(result, 'code'):
-            _printErr(result)
+        if result == None:
+            self.amf.showErr()
         else:
             print result
 
@@ -199,6 +194,9 @@ class AMFShell(RemotingService):
             except Exception, e:
                 return None
 
+            if hasattr(methods, 'code'):
+                self.err = methods
+
             return methods
         else:
             return None
@@ -210,21 +208,27 @@ class AMFShell(RemotingService):
             return None
 
         method = dst.split('(')[0]
-        args = dst.split('(')[1].split(')')[0]
+        arg = dst.split('(')[1].split(')')[0]
 
         service = self._getService(self.dstClass)
         targetMethod = getattr(service, method)
 
-        try:
-            if len(args) > 0:
-                if args.find('[') != -1:
-                    result = targetMethod(eval(args))
-                else:
-                    result = targetMethod(args.split(','))
+        if len(arg) > 0:
+            if arg.find('[') != -1:
+                args = eval(arg)
             else:
-                result = targetMethod()
+                args = arg.split(',')
+        else:
+            arg = None
+
+        try:
+            result = targetMethod(arg)
         except Exception, e:
             self.err = e
+            return None
+
+        if hasattr(result, 'code'):
+            self.err = result
             return None
 
         return result
@@ -248,8 +252,11 @@ class AMFShell(RemotingService):
             print result
             raise
 
-def _printErr(result):
-    print result.description
+    def showErr(self):
+        """displays current error message from self.err."""
+
+        print "[+] ERROR:", self.err.description
+        self.err = None
 
 def _getLocalPath(client):
     service = client.getService("nofile")
