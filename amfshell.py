@@ -19,7 +19,7 @@ sys.path.append("pyamf/")
 from pyamf.flex import ArrayCollection
 from pyamf.remoting.client import RemotingService
 
-class _cmdList(cmd.Cmd):
+class _CmdList(cmd.Cmd):
     intro = "Welcome to Action Message Formate Shell by George Hedfors. Type 'help' for command list.\n"
 
     def do_describe_all(self, line):
@@ -35,7 +35,7 @@ class _cmdList(cmd.Cmd):
             fp.write("%s\n" % item)
             result = self.amf.getMethods(item)
 
-            if not hasattr(result, 'code'):
+            if result != None:
                 if type(result[0]) is ListType:
                     fp.write("\tIs accessible but did not return any usable methods.\n")
                 else:
@@ -142,19 +142,22 @@ class _cmdList(cmd.Cmd):
         return True
 
     def do_EOF(self, line):
+        print
         return True
 
 
 class AMFShell(RemotingService):
     def __init__(self, url):
-        RemotingService.__init__(self, url)
+        self._url = url
 
         self.dstClass = "amfphp/DiscoveryService"
 
-        self._discoveryService = self._getService(self.dstClass)
+        self._initService()
+
+        discoveryService = self._getService(self.dstClass)
 
         try:
-            services = self._discoveryService.getServices()
+            services = discoveryService.getServices()
         except Exception, e:
             print e
             sys.exit(1)
@@ -181,21 +184,30 @@ class AMFShell(RemotingService):
                 self.services.append(service['label'])
 
     def _getService(self, service):
-        return self.getService(service.replace('/', '.'))
+        return self.amf.getService(service.replace('/', '.'))
+
+    def _initService(self):
+        if hasattr(self, 'amf'):
+            del self.amf
+
+        self.amf = RemotingService(self._url)
 
     def getMethods(self, service):
         """returns available methods, arguments and descriptions as list()."""
 
+        self._initService()
+
         if self.hasDiscoveryService:
-            self._discoveryService = self._getService("amfphp.DiscoveryService")
+            discoveryService = self._getService("amfphp.DiscoveryService")
         
             try:
-                methods = self._discoveryService.describeService({'data': '', 'label': service})
+                methods = discoveryService.describeService({'data': '', 'label': service})
             except Exception, e:
                 return None
 
             if hasattr(methods, 'code'):
                 self.err = methods
+                return None
 
             return methods
         else:
@@ -210,7 +222,10 @@ class AMFShell(RemotingService):
         method = dst.split('(')[0]
         arg = dst.split('(')[1].split(')')[0]
 
+        self._initService()
+
         service = self._getService(self.dstClass)
+
         targetMethod = getattr(service, method)
 
         if len(arg) > 0:
@@ -219,10 +234,10 @@ class AMFShell(RemotingService):
             else:
                 args = arg.split(',')
         else:
-            arg = None
+            arg = ''
 
         try:
-            result = targetMethod(arg)
+            result = targetMethod(*arg)
         except Exception, e:
             self.err = e
             return None
@@ -236,8 +251,15 @@ class AMFShell(RemotingService):
     def hasClass(self, dstClass):
         """returns if dstClass is usable."""
 
+        self._initService()
+
         service = self._getService(dstClass)
-        result = service.nosuchmethod()
+
+        try:
+            result = service.nosuchmethod()
+        except Exception, e:
+            self.err = e
+            return None
 
         if hasattr(result, 'code'):
             if result.code == 'AMFPHP_FILE_NOT_FOUND':
@@ -255,11 +277,15 @@ class AMFShell(RemotingService):
     def showErr(self):
         """displays current error message from self.err."""
 
-        print "[+] ERROR:", self.err.description
+        if hasattr(self.err, 'code'):
+            print "[+] ERROR:", self.err.description
+        else:
+            print "[+] ERROR:", self.err
+
         self.err = None
 
 def _getLocalPath(client):
-    service = client.getService("nofile")
+    service = client._getService("nofile")
     dumb = service.nosuchservice()
 
     try:
@@ -279,17 +305,17 @@ if __name__ == '__main__':
     remoteUrl = sys.argv[1]
 
     try:
-        _cmdList.amf = AMFShell(remoteUrl)
-        localPath = _getLocalPath(_cmdList.amf)
+        _CmdList.amf = AMFShell(remoteUrl)
+        localPath = _getLocalPath(_CmdList.amf)
     except Exception, e:
         print e
         sys.exit()
 
-    if _cmdList.amf.hasDiscoveryService:
+    if _CmdList.amf.hasDiscoveryService:
         print "[+] AMFPHP exists and appears to be vulnerable to 'DiscoveryService'."
         print "[*] To disable 'DiscoveryServices', remove %s/amfphp/DiscoveryService.php\n" % localPath
     else:
         print "[+] AMFPHP exists but appears not to be vulnerable to 'DiscoveryService'. Listing services will not work.\n"
 
-    _cmdList.prompt = "(%s) " % (_cmdList.amf.dstClass)
-    _cmdList().cmdloop()
+    _CmdList.prompt = "(%s) " % (_CmdList.amf.dstClass)
+    _CmdList().cmdloop()
